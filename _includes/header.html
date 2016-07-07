@@ -20,9 +20,9 @@
           {% endif %}
         {% endfor %}
 
-        {% for link in site.data.i18n %}
-          <a href="/{% if link != site.data.i18n.first %}{{ link.first }}{% endif %}" class="page-link {% if locale_string contains link.first %}active{% endif %}" >
-            {{ link.last.language }}
+        {% for language in site.data.i18n %}
+          <a href="/{% if language.first != default_language %}{{ language.first }}{% endif %}" class="page-link {% if language.first == locale_string %}active{% endif %}" >
+            {{ language.last.language }}
           </a>
         {% endfor %}
       </div>
