@@ -1,0 +1,8 @@
+{% assign locale_param = page.url | truncate: 3, "" | remove: "/" | strip %}
+{% assign locale_string = locale_param | strip | default: site.data.i18n.first.first %}
+{% assign locale = site.data.i18n[locale_string] %}
+{% unless locale %}
+  {% assign locale_param = "" %}
+  {% assign locale_string = site.data.i18n.first.first %}
+  {% assign locale = site.data.i18n.first.last %}
+{% endunless %}

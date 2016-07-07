@@ -1,12 +1,11 @@
-{% assign locale_param = page.url | truncate: 3, "" | remove: "/" | strip %}
-{% assign locale = locale_param | strip | default: site.data.locales.first.first %}
-{% assign i18n = site.data.locales[locale] %}
+{% include i18n.html %}
 
 <!DOCTYPE html>
-<html lang="{{ locale }}">
+<html lang="{{ locale_string }}">
   {% include head.html %}
 
   <body>
+
     {% include header.html %}
 
     <div class="page-content">

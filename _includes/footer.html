@@ -2,12 +2,12 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ i18n.title }}</h2>
+    <h2 class="footer-heading">{{ locale.title }}</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>{{ i18n.title }}</li>
+          <li>{{ locale.title }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
       </div>
@@ -29,9 +29,11 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>{{ i18n.description }}</p>
+        <p>{{ locale.description }}</p>
       </div>
     </div>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
   </div>
 

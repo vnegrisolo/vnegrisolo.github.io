@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ i18n.title }}</a>
+    <a class="site-title" href="{{ site.baseurl }}/">{{ locale.title }}</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -20,8 +20,8 @@
           {% endif %}
         {% endfor %}
 
-        {% for link in site.data.locales %}
-          <a href="/{% if link != site.data.locales.first %}{{ link.first }}{% endif %}" class="page-link {% if locale contains link.first %}active{% endif %}" >
+        {% for link in site.data.i18n %}
+          <a href="/{% if link != site.data.i18n.first %}{{ link.first }}{% endif %}" class="page-link {% if locale_string contains link.first %}active{% endif %}" >
             {{ link.last.language }}
           </a>
         {% endfor %}
