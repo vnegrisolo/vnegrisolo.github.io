@@ -7,3 +7,4 @@ markdown: kramdown
 languages:
   - en
   - pt
+permalink: /:categories/:title
