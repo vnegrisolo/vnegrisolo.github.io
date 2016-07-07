@@ -1,5 +1,6 @@
 ---
 layout: post
+locale: en
 title:  "Configuring an Rails Application"
 date:   2016-07-05 17:00:00 -0300
 categories: rails ruby
