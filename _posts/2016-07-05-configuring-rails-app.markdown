@@ -8,6 +8,20 @@ categories: rails ruby
 
 There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my prefered way using what Rails has to offer with `config_for`.
 
+### Organization
+
+Rails has a helper method to load a configuration file and it's very easy to use it. It's just needed to use [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
+
+```ruby
+module MyRailsApp
+  class Application < Rails::Application
+    config.github = config_for(:github)
+  end
+end
+```
+
+This way there's no need to keep just one `applicatin.yml` configuration file with **all** that the application needs. That's why I group configurations by some **external dependency** or by some **specific subject**.
+
 ### Format
 
 In short, my prefered format is `yml`, such this example:
@@ -57,20 +71,6 @@ touch .env{,.sample};
 echo ".env" >> .gitignore;
 ```
 
-### Organization
-
-Rails has a helper method to load a configuration file and it's very easy to use it. It's just needed to use [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
-
-```ruby
-module MyRailsApp
-  class Application < Rails::Application
-    config.github = config_for(:github)
-  end
-end
-```
-
-This way there's no need to keep just one `applicatin.yml` configuration file with **all** that the application needs. That's why I group configurations by some **external dependency** or by some **specific subject**.
-
 ### Use os Configurations
 
 In order to use the configurations you just access `Rails.configuration`:
@@ -85,4 +85,4 @@ The usage of Rails `config_for` simplifies the organization of application confi
 
 Additionally, the usage of `.env.sample` and the gem **dotenv** helps a new developer to find out what's needed to configure locally for starting to work on the project.
 
-Finally we can discard to add more dependencies to the project such as [figaro](https://github.com/laserlemon/figaro) or [settingslogic](https://github.com/settingslogic/settingslogic) because they just try to solve the same problems and then let the project dryer.
+Finally we can discard to add more dependencies to the project such as [figaro](https://github.com/laserlemon/figaro) or [settingslogic](https://github.com/settingslogic/settingslogic) because they just try to solve the same problems and then let the project with less dependencies.

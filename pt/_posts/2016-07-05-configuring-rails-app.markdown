@@ -8,6 +8,20 @@ categories: rails ruby
 
 Há muito a se considerar quando configurar uma aplicação Rails, tais como **organização das variáveis**, **ambientes**, **credenciais de segurança**, etc. Dentre tantas formas diferentes de se fazer isso vou mostrar a minha preferida usando o que o Rails nos oferece com `config_for`.
 
+### Organização
+
+Rails tem um método para carregar um arquivo de configuração muito simples de ser usado. É preciso apenas usar [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
+
+```ruby
+module MyRailsApp
+  class Application < Rails::Application
+    config.github = config_for(:github)
+  end
+end
+```
+
+Desta forma não há necessidade em se manter apenas um arquivo `application.yml` de configuração com **tudo** que a aplicação precisa. Por isso eu agrupo as configurações por alguma **dependência externa**, ou **assunto específico** da aplicação.
+
 ### Formato
 
 Em resumo, meu formato preferido é `yml` como neste exemplo:
@@ -57,20 +71,6 @@ touch .env{,.sample};
 echo ".env" >> .gitignore;
 ```
 
-### Organização
-
-Rails tem um método para carregar um arquivo de configuração muito simples de ser usado. É preciso apenas usar [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
-
-```ruby
-module MyRailsApp
-  class Application < Rails::Application
-    config.github = config_for(:github)
-  end
-end
-```
-
-Desta forma não há necessidade em se manter apenas um arquivo `application.yml` de configuração com **tudo** que a aplicação precisa. Por isso eu agrupo as configurações por alguma **dependência externa**, ou **assunto específico** da aplicação.
-
 ### Uso das Configurações
 
 Para usar as configurações basta acessar `Rails.configuration`:
@@ -85,4 +85,4 @@ O uso do método `config_for` do Rails facilita a organização das configuraç�
 
 Somando-se a isso, o uso de `.env.sample` e a gem **dotenv** ajuda muito a um novo desenvolvedor descobrir o que ele precisa configurar localmente para começar a trabalhar no projeto.
 
-Finalmente podemos descartar a adição de mais dependências ao projeto como [figaro](https://github.com/laserlemon/figaro) ou [settingslogic](https://github.com/settingslogic/settingslogic) que tentam resolver estes mesmos problemas e assim deixar o peojeto mais enxuto.
+Finalmente podemos descartar a adição de mais dependências ao projeto como [figaro](https://github.com/laserlemon/figaro) ou [settingslogic](https://github.com/settingslogic/settingslogic) que tentam resolver estes mesmos problemas e assim deixar o projeto mais enxuto.
