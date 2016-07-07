@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% assign locale_param = page.url | truncate: 3, "" | remove: "/" | strip %}
+{% assign locale = locale_param | strip | default: site.data.locales.first.first %}
+{% assign i18n = site.data.locales[locale] %}
 
+<!DOCTYPE html>
+<html lang="{{ locale }}">
   {% include head.html %}
 
   <body>
-
     {% include header.html %}
 
     <div class="page-content">
@@ -23,7 +25,6 @@
 
       ga('create', 'UA-80405721-1', 'auto');
       ga('send', 'pageview');
-
     </script>
 
   </body>

@@ -32,6 +32,10 @@
         display: none;
     }
 
+    .active {
+      background-color: #CCCCCC;
+    }
+
     .page-link {
         color: $text-color;
         line-height: $base-line-height;

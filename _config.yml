@@ -1,9 +1,6 @@
-title: Code Therapy
-email: vinicius.negrisolo@gmail.com
-description: >
-  This is just about coding.
 baseurl: ""
 url: "https://vnegrisolo.github.io/"
+email: vinicius.negrisolo@gmail.com
 twitter_username: vfnegrisolo
 github_username:  vnegrisolo
 markdown: kramdown
