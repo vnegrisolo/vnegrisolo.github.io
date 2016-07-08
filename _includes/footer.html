@@ -1,40 +1,26 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ locale.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
         <ul class="contact-list">
-          <li>{{ locale.title }}</li>
+          <li>{{ site.name }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li>
+            <p class="rss-subscribe">
+              subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+            </p>
+          </li>
         </ul>
       </div>
-
-      <div class="footer-col footer-col-2">
+      <div class="col-md-4">
         <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
+          <li>{% include icon-github.html username=site.github_username %}</li>
+          <li>{% include icon-twitter.html username=site.twitter_username %}</li>
         </ul>
       </div>
-
-      <div class="footer-col footer-col-3">
+      <div class="col-md-4">
         <p>{{ locale.description }}</p>
       </div>
     </div>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
   </div>
-
 </footer>
