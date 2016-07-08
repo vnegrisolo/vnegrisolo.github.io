@@ -10,7 +10,7 @@ There are a lot to consider when configuring a Rails application, such as **vari
 
 ### Organization
 
-Rails has a helper method to load a configuration file and it's very easy to use it. It's just needed to use [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
+Rails has a helper method to load a configuration file and it's very easy to use it: [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
 
 ```ruby
 module MyRailsApp
@@ -24,34 +24,31 @@ This way there's no need to keep just one `applicatin.yml` configuration file wi
 
 ### Format
 
-In short, my prefered format is `yml`, such this example:
+In short, my prefered format is `yml`, such as in this example:
 
 ```yml
 # config/github.yml
-default: &default
+development: &development
   api_url: 'https://api.github.com'
   client_id: 'my-public-client-id'
   client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
 
-development:
-  <<: *default
-
 test:
-  <<: *default
+  <<: *development
 
 staging:
-  <<: *default
+  <<: *development
   client_id: 'my-public-sandbox-client-id'
 
 production:
-  <<: *default
+  <<: *development
 ```
 
 ### Environments
 
-In that example the configuration file `config/github.yml` use the **environments** as **root keys** and Rails knows how to deal with that. This way I always create a `default` key with the default values for all environments and all environments inherit from `default`. Also we can redefine environment specific values as, in this case, `client_id` for *staging*.
+In that example the configuration file `config/github.yml` use the **environments** as **root keys**. This way the default values are set in the `development` key and all environments **inherit** from `development`. Also we can redefine environment specific values as, in this case, `client_id` for *staging*.
 
-Locally the project developers should adopt a common pattern of configuration as *url/user/pass*. However if this is not an option by any reason I would fetch the valeu with a default one, such as:
+Locally the project developers should adopt a common pattern of configuration as *url/user/pass*. However if this is not an option by any reason I would fetch the value with a default one, such as:
 
 ```yml
 database:
@@ -60,7 +57,7 @@ database:
 
 ### Credentials
 
-The main goal is to **never publish** a credential by obviously security reasons. That's why we use **environment variables** and this way this kind of configuration goes to *Heroku* dashboard or to `/etc/environment` file.
+The main goal is to **never publish** a credential by obviously security reasons. That's why we use **environment variables** and then this kind of configuration goes to *Heroku* dashboard or inside `/etc/environment` file.
 
 Locally I like to use the gem [dotenv](https://github.com/bkeepers/dotenv) always taking care to never commit a private secret. I usually install `dotenv` this way:
 
@@ -71,7 +68,7 @@ touch .env{,.sample};
 echo ".env" >> .gitignore;
 ```
 
-### Use os Configurations
+### Configurations Usage
 
 In order to use the configurations you just access `Rails.configuration`:
 

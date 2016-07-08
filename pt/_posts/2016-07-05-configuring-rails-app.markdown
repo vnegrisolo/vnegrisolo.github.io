@@ -10,7 +10,7 @@ Há muito a se considerar quando configurar uma aplicação Rails, tais como **o
 
 ### Organização
 
-Rails tem um método para carregar um arquivo de configuração muito simples de ser usado. É preciso apenas usar [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
+Rails tem um método para carregar um arquivo de configuração muito simples de ser usado: [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
 
 ```ruby
 module MyRailsApp
@@ -28,28 +28,25 @@ Em resumo, meu formato preferido é `yml` como neste exemplo:
 
 ```yml
 # config/github.yml
-default: &default
+development: &development
   api_url: 'https://api.github.com'
   client_id: 'my-public-client-id'
   client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
 
-development:
-  <<: *default
-
 test:
-  <<: *default
+  <<: *development
 
 staging:
-  <<: *default
+  <<: *development
   client_id: 'my-public-sandbox-client-id'
 
 production:
-  <<: *default
+  <<: *development
 ```
 
 ### Ambientes
 
-No exemplo o arquivo de configuração `config/github.yml` usa os **ambientes** como **chave raiz** e o Rails sabe como lidar com isso. Assim eu sempre crio uma chave `default` com os valores padrões para todos os ambientes e todos os ambientes **herdam** de `default`. Ainda podemos redefinir valores específicos para um determinado ambiente, como no caso em `client_id` para *staging*.
+No exemplo o arquivo de configuração `config/github.yml` usa os **ambientes** como **chave raiz**. Assim os valores padrão são definidos na chave `development` e todos os ambientes **herdam** de `development`. Ainda podemos redefinir valores específicos para um determinado ambiente, como no caso em `client_id` para *staging*.
 
 Localmente os desenvolvedores do projeto deveriam adotar um mesmo padrão de configuração como *url/user/pass*. Porém se isso não for possível por algum motivo eu buscaria o valor e manteria um valor default, como por exemplo:
 
@@ -81,7 +78,7 @@ url = Rails.configuration.github['api_url']
 
 ### Conclusão
 
-O uso do método `config_for` do Rails facilita a organização das configurações de uma aplicação. Assim todas as variáveis ficam contidas em arquivos específicos e nunca mais uma variável de ambiente será usada no código.
+O uso do método `config_for` do Rails facilita a organização das configurações de uma aplicação. Assim todas as variáveis ficam contidas em arquivos específicos e nunca mais uma variável de ambiente será usada dentro do código.
 
 Somando-se a isso, o uso de `.env.sample` e a gem **dotenv** ajuda muito a um novo desenvolvedor descobrir o que ele precisa configurar localmente para começar a trabalhar no projeto.
 
