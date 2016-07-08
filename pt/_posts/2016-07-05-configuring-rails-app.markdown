@@ -3,7 +3,7 @@ layout: post
 locale: pt
 title:  "Configurando uma Aplicação Rails"
 date:   2016-07-05 17:00:00 -0300
-categories: rails ruby
+categories: rails
 ---
 
 Há muito a se considerar quando configurar uma aplicação Rails, tais como **organização das variáveis**, **ambientes**, **credenciais de segurança**, etc. Dentre tantas formas diferentes de se fazer isso vou mostrar a minha preferida usando o que o Rails nos oferece com `config_for`.

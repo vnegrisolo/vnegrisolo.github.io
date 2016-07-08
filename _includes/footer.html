@@ -5,22 +5,45 @@
       <div class="col-md-4">
         <ul class="list-unstyled">
           <li>{{ site.name }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           <li>
-            <p>
-              subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
-            </p>
+            <a href="mailto:{{ site.email }}">
+              <i class="fa fa-envelope fa-lg" aria-hidden="true" title="email"></i>
+              {{ site.email }}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_uri }}">
+              <i class="fa fa-linkedin fa-lg" aria-hidden="true" title="linkedin"></i>
+              <span>{{ site.name }}</span>
+            </a>
           </li>
         </ul>
       </div>
       <div class="col-md-4">
         <ul class="list-unstyled">
-          <li>{% include icon-github.html %}</li>
-          <li>{% include icon-twitter.html %}</li>
+          <li>
+            <a href="https://github.com/{{ site.github_username }}">
+              <i class="fa fa-github fa-lg" aria-hidden="true" title="github"></i>
+              <span>{{ site.github_username }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <i class="fa fa-twitter fa-lg" aria-hidden="true" title="twitter"></i>
+              <span>@{{ site.twitter_username }}</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="col-md-4">
         <p>{{ locale.description }}</p>
+        <p>
+          subscribe
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            via RSS
+            <i class="fa fa-rss fa-lg" aria-hidden="true" title="rss"></i>
+          </a>
+        </p>
       </div>
     </div>
   </div>
