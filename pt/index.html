@@ -2,16 +2,4 @@
 layout: default
 ---
 {% include i18n.html %}
-
-<h1>Posts</h1>
-
-<ul>
-  {% for post in site.posts %}
-    {% if post.locale == locale_string %}
-      <li>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+{% include posts.html %}
