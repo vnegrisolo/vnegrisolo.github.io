@@ -6,11 +6,11 @@
 
   <body>
     {% include header.html %}
-
-    <div class="container">
-      {{ content }}
+    <div class="row main">
+      <div class="container">
+        {{ content }}
+      </div>
     </div>
-
     {% include footer.html %}
 
     <script>
@@ -25,7 +25,6 @@
 
     <script src="{{ "/js/jquery-2.2.4.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
-
   </body>
 
 </html>

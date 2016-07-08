@@ -1,3 +1,16 @@
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+footer {
+  background-color: $footer-bg-color;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
 i.fa {
-  color: #888888;
+  color: $icon-color;
 }
