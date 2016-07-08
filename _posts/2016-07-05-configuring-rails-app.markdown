@@ -13,6 +13,7 @@ There are a lot to consider when configuring a Rails application, such as **vari
 Rails has a helper method to load a configuration file and it's very easy to use it: [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
 
 ```ruby
+# config/application.rb
 module MyRailsApp
   class Application < Rails::Application
     config.github = config_for(:github)
@@ -29,8 +30,8 @@ In short, my prefered format is `yml`, such as in this example:
 ```yml
 # config/github.yml
 development: &development
-  api_url: 'https://api.github.com'
-  client_id: 'my-public-client-id'
+  api_url: https://api.github.com
+  client_id: my-public-client-id
   client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
 
 test:
@@ -38,7 +39,7 @@ test:
 
 staging:
   <<: *development
-  client_id: 'my-public-sandbox-client-id'
+  client_id: my-public-sandbox-client-id
 
 production:
   <<: *development
