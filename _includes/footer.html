@@ -2,20 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <ul class="contact-list">
+        <ul>
           <li>{{ site.name }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           <li>
-            <p class="rss-subscribe">
+            <p>
               subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
             </p>
           </li>
         </ul>
       </div>
       <div class="col-md-4">
-        <ul class="social-media-list">
-          <li>{% include icon-github.html username=site.github_username %}</li>
-          <li>{% include icon-twitter.html username=site.twitter_username %}</li>
+        <ul>
+          <li>{% include icon-github.html %}</li>
+          <li>{% include icon-twitter.html %}</li>
         </ul>
       </div>
       <div class="col-md-4">
