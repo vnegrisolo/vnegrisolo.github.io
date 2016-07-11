@@ -1,26 +1,21 @@
-.highlight {
-  pre {
-    background-color: $base02;
-    padding: 1em;
-
-    code.language-ruby:before  { background-color: $red; }
-    code.language-yml:before   { background-color: $violet; }
-    code.language-shell:before { background-color: $green; }
-
-    code {
-      color: $base1;
-
-      &:before {
-        color: $base2;
-        background-color: $base00;
-        content: attr(data-lang);
-        text-transform: uppercase;
-        padding: 0.5em 1em;
-        float: right;
-        margin: -1em;
-      }
-    }
+pre.highlight {
+  &:before {
+    color: $base2;
+    background-color: $base00;
+    content: attr(data-language);
+    text-transform: uppercase;
+    padding: 0.5em 1em;
+    float: right;
   }
+
+  &[data-language="ruby"]:before  { background-color: $red; }
+  &[data-language="yml"]:before   { background-color: $violet; }
+  &[data-language="shell"]:before { background-color: $green; }
+
+  background-color: $base02;
+  padding: 1em;
+
+  code { color: $base1; }
 
   .c1  { color: $base01; font-style: italic; } // ruby comment
   .o   { color: $red; } // ruby less than, double-colon

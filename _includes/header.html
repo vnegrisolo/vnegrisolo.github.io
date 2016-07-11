@@ -23,7 +23,7 @@
         {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {% for language in site.data.i18n %}
+        {% for language in site.data.i18n | sort: 'first' %}
           <li {% if language.first == locale_string %}class="active"{% endif %}>
             <a href="/{% if language.first != default_language %}{{ language.first }}{% endif %}">
               {{ language.last.language }}
