@@ -8,7 +8,7 @@ module Jekyll
 
     def render(context)
       @context = context
-      locale[@text]
+      locale.dig(*@text.split(' '))
     end
 
     private

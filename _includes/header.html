@@ -12,15 +12,11 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <li>
-            <a href="{{ my_page.url | prepend: site.baseurl }}">
-              {{ my_page.title }}
-            </a>
-          </li>
-          {% endif %}
-        {% endfor %}
+        <li>
+          <a href="{{ '/projects' | i18n_url: locale_string }}">
+            {% t projects %}
+          </a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% for language in site.languages %}

@@ -11,9 +11,13 @@ module Jekyll
 
     def new_i18n_pages
       pages.map do |page|
-        languages.map do |language|
+        page.data['language'] = default_language
+
+        languages[1..-1].map do |language|
           new_page = page.clone
+          new_page.data = page.data.clone
           new_page.dir = "/#{language}#{page.dir}"
+          new_page.data['language'] = language
           new_page
         end
       end.flatten
@@ -28,7 +32,11 @@ module Jekyll
     end
 
     def languages
-      @languages ||= @site.config['languages'][1..-1]
+      @languages ||= @site.config['languages']
+    end
+
+    def default_language
+      @default_language ||= languages.first
     end
   end
 end
