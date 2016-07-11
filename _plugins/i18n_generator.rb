@@ -23,12 +23,12 @@ module Jekyll
       pages.each { |page| @site.pages << page }
     end
 
-    def languages
-      @languages ||= @site.config['languages'][1..-1]
-    end
-
     def pages
       @pages ||= @site.pages.select { |page| page.name.end_with?('.html') }
+    end
+
+    def languages
+      @languages ||= @site.config['languages'][1..-1]
     end
   end
 end

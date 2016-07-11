@@ -5,8 +5,8 @@ layout: null
 {% include i18n.html %}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ locale.title | xml_escape }}</title>
-    <description>{{ locale.description | xml_escape }}</description>
+    <title>{% t title %}</title>
+    <description>{% t description %}</description>
     <link>{{ site.url }}{{ site.baseurl }}/</link>
     <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
