@@ -14,14 +14,14 @@ module Jekyll
     private
 
     def locale
-      @locale ||= locales[locale_string] || locales[default_language]
+      @locale ||= locales[locale_param] || locales[default_language]
     end
 
     def locales
       @locales ||= @context.registers[:site].data['i18n']
     end
 
-    def locale_string
+    def locale_param
       page['url'][0..3].gsub('/', '')
     end
 

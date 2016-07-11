@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
         {% for language in site.languages %}
           <li {% if language == locale_string %}class="active"{% endif %}>
-            <a href="/{% if language != default_language %}{{ language }}{% endif %}">
+            <a href="{{ page.url | i18n_url: language }}">
               {{ site.data.i18n[language].language }}
             </a>
           </li>

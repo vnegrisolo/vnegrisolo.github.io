@@ -1,11 +1,5 @@
-{% assign default_language = site.languages.first %}
-
-{% assign locale_param = page.url | truncate: 4, "" | remove: "/" %}
-{% assign locale_string = locale_param | default: default_language %}
+{% assign locale_string = page.url | truncate: 4, "" | remove: "/" %}
 
 {% unless site.data.i18n[locale_string] %}
-  {% assign locale_param = "" %}
-  {% assign locale_string = default_language %}
+  {% assign locale_string = site.languages.first %}
 {% endunless %}
-
-{% assign locale = site.data.i18n[locale_string] %}
