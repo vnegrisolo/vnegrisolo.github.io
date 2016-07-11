@@ -3,11 +3,11 @@ layout: default
 ---
 {% include i18n.html %}
 
-<h2>Posts</h2>
+<h2>Categories</h2>
 
 <dl>
   {% for post in site.posts %}
-    {% if post.locale == locale_string %}
+    {% if post.locale == locale_string and post.categories contains page.category %}
       {% include post_list_item.html post=post %}
     {% endif %}
   {% endfor %}
