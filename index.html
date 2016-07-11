@@ -3,12 +3,27 @@ layout: default
 ---
 {% include i18n.html %}
 
-<h2>Posts</h2>
-
-<dl>
-  {% for post in site.posts %}
-    {% if post.locale == locale_string %}
-      {% include post_list_item.html post=post %}
-    {% endif %}
-  {% endfor %}
-</dl>
+<div class="row">
+  <div class="col-md-10">
+    <h2>Posts</h2>
+    <dl>
+      {% for post in site.posts %}
+        {% if post.locale == locale_string %}
+          {% include post_list_item.html post=post %}
+        {% endif %}
+      {% endfor %}
+    </dl>
+  </div>
+  <div class="col-md-2">
+    <h3>Categories</h3>
+    <dl>
+      {% for category in site.categories %}
+        {% unless site.languages contains category.first %}
+          <a href="{{ category.first | prepend: "/" | i18n_url: locale_string }}">
+            {{ category.first }}
+          </a>
+        {% endunless %}
+      {% endfor %}
+    </dl>
+  </div>
+</div>

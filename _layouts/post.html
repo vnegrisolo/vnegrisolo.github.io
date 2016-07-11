@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% include i18n.html %}
 
 <article itemscope itemtype="http://schema.org/BlogPosting" class="blog-post">
   <header>
@@ -11,6 +12,14 @@ layout: default
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span itemprop="name">{{ page.author | default: site.name }}</span>
       </span>
+      in
+      {% for category in page.categories %}
+        {% unless site.languages contains category %}
+          <a href="{{ category | prepend: "/" | i18n_url: locale_string }}">
+            {{ category }}
+          </a>
+        {% endunless %}
+      {% endfor %}
     </p>
   </header>
   <div itemprop="articleBody">
