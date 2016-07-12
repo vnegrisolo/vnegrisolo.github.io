@@ -1,7 +1,7 @@
 ---
 layout: post
 locale: en
-title:  "Configuring an Rails Application"
+title:  "Configuring a Rails Application"
 date:   2016-07-05 17:00:00 -0300
 categories: rails
 ---
@@ -21,7 +21,7 @@ module MyRailsApp
 end
 ```
 
-This way there's no need to keep just one `applicatin.yml` configuration file with **all** that the application needs. That's why I group configurations by some **external dependency** or by some **specific subject**.
+This way there's no need to keep just one `application.yml` configuration file with **all** that the application needs. That's why I group configurations by some **external dependency** or by some **specific subject**.
 
 ### Format
 
