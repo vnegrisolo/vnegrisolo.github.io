@@ -13,7 +13,7 @@ Há muito a se considerar quando configurar uma aplicação Rails, tais como **o
 Rails tem um método para carregar um arquivo de configuração muito simples de ser usado: [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
 
 ```ruby
-# config/application.rb
+# path: config/application.rb
 module MyRailsApp
   class Application < Rails::Application
     config.github = config_for(:github)
@@ -28,7 +28,7 @@ Desta forma não há necessidade em se manter apenas um arquivo `application.yml
 Em resumo, meu formato preferido é `yml` como neste exemplo:
 
 ```yml
-# config/github.yml
+# path: config/github.yml
 development: &development
   api_url: https://api.github.com
   client_id: my-public-client-id
