@@ -1,99 +1,103 @@
-pre.highlight {
-  &:before {
+div.highlighter-rouge {
+  .header {
     color: $base2;
-    background-color: $base00;
-    content: attr(data-language);
-    text-transform: uppercase;
-    padding: 0.5em 1em;
-    float: right;
+    background-color: $base03;
+    padding: 0.3em 0.8em;
+    border-radius: 4px 4px 0 0;
+
+    &:before {
+      content: attr(data-path);
+      padding: 0.1em;
+    }
+
+    &:after {
+      content: attr(data-language);
+      padding: 0 0.6em;
+      float: right;
+      border-radius: 8px;
+    }
+
+    &[data-language="ruby"]:after  { background-color: $red; }
+    &[data-language="yml"]:after   { background-color: $violet; }
+    &[data-language="shell"]:after { background-color: $green; }
   }
 
-  &[data-language="ruby"]:before  { background-color: $red; }
-  &[data-language="yml"]:before   { background-color: $violet; }
-  &[data-language="shell"]:before { background-color: $green; }
+  pre {
+    color: $base1;
+    background-color: $base02;
+    padding: 0.1em 1em 1em 1em;
+    border: 0;
+    border-radius: 0 0 4px 4px;
 
-  background-color: $base02;
-  padding: 1em;
-
-  code { color: $base1; }
-
-  .c1  { color: $base01; font-style: italic; } // ruby comment
-  .o   { color: $red; } // ruby less than, double-colon
-  .p   { color: $base1; } // ruby dot, parenthesis
-  .k   { color: $green; } // ruby reserved word
-  .nn  { color: $yellow; } // ruby module name
-  .nc  { color: $yellow; } // ruby class name
-  .no  { color: $cyan; } // ruby parent class name
-  .n   { color: $base1; } // ruby variable name
-  .nf  { color: $base1; } // ruby method call
-  .ss  { color: $cyan; } // ruby symbol
-  .s1  { color: $cyan; } // ruby string
-
-  .s   { color: $blue; } // yml symbol
-  .pi  { color: $red; } // yml colon
-  .nl  { color: $yellow; } // yml inheritance parent
-  .nv  { color: $yellow; } // yml inheritance child
-
-  .s2  { color: $cyan; } // shell string
-  .nb  { color: $green; } // shell command
-  .c   { color: $base01; font-style: italic; } // shell comment
-
-  .cm  { color: $base01; font-style: italic; }
-  .cs  { color: $base01; font-style: italic; }
-
-  .kc  { color: $red; }
-  .kd  { color: $red; }
-  .kn  { color: $red; }
-  .kp  { color: $red; }
-  .kr  { color: $red; }
-  .nt  { color: $red; }
-
-  .g   { color: $base1; }
-  .l   { color: $base1; }
-  .x   { color: $base1; }
-  .m   { color: $base1; }
-  .w   { color: $base1; }
-  .ge  { color: $base1; }
-  .gr  { color: $base1; background-color: #c00000 }
-  .gi  { color: $base1; font-weight: bold; background-color: #00008b }
-  .gp  { color: $base1; }
-  .gs  { color: $base1; }
-  .gt  { color: $base1; background-color: #ff0000 }
-  .ld  { color: $base1; }
-  .na  { color: $base1; }
-  .nd  { color: $base1; }
-  .ne  { color: $base1; }
-  .nx  { color: $base1; }
-  .py  { color: $base1; }
-  .ow  { color: $base1; }
-  .mf  { color: $base1; }
-  .mh  { color: $base1; }
-  .mi  { color: $base1; }
-  .mo  { color: $base1; }
-  .bp  { color: $base1; }
-  .il  { color: $base1; }
-  .err { color: $base1; }
-
-  .sb  { color: $green; }
-  .sc  { color: $green; }
-  .sd  { color: $green; }
-  .se  { color: $green; }
-  .sh  { color: $green; }
-  .si  { color: $green; }
-  .sx  { color: $green; }
-  .sr  { color: $green; }
-
-  .vc  { color: $yellow; }
-  .vg  { color: $yellow; }
-  .vi  { color: $yellow; }
-
-  .cp  { color: #AAFFFF; font-style: italic; }
-  .gd  { color: #8a2be2; font-weight: bold; background-color: #008080 }
-  .gh  { color: #ff00ff; font-weight: bold; }
-  .go  { color: #404040; font-weight: bold; }
-  .gu  { color: #ff00ff; font-weight: bold; }
-  .kt  { color: #AAAA77; }
-  .ni  { color: #33AA00; }
-
-  .hll { background-color: #ffffcc }
+    .bp  { color: $base1; }
+    .c   { color: $base01; font-style: italic; } // shell comment
+    .c1  { color: $base01; font-style: italic; } // ruby comment
+    .cm  { color: $base01; font-style: italic; }
+    .cp  { color: #AAFFFF; font-style: italic; }
+    .cs  { color: $base01; font-style: italic; }
+    .err { color: $base1; }
+    .g   { color: $base1; }
+    .gd  { color: #8a2be2; font-weight: bold; background-color: #008080 }
+    .ge  { color: $base1; }
+    .gh  { color: #ff00ff; font-weight: bold; }
+    .gi  { color: $base1; font-weight: bold; background-color: #00008b }
+    .go  { color: #404040; font-weight: bold; }
+    .gp  { color: $base1; }
+    .gr  { color: $base1; background-color: #c00000 }
+    .gs  { color: $base1; }
+    .gt  { color: $base1; background-color: #ff0000 }
+    .gu  { color: #ff00ff; font-weight: bold; }
+    .hll { background-color: #ffffcc }
+    .il  { color: $base1; }
+    .k   { color: $green; } // ruby reserved word
+    .kc  { color: $red; }
+    .kd  { color: $red; }
+    .kn  { color: $red; }
+    .kp  { color: $green; } // ruby nil/private/attr_reader/extend
+    .kr  { color: $red; }
+    .kt  { color: #AAAA77; }
+    .l   { color: $base1; }
+    .ld  { color: $base1; }
+    .m   { color: $base1; }
+    .mf  { color: $base1; }
+    .mh  { color: $base1; }
+    .mi  { color: $base1; } // ruby integer
+    .mo  { color: $base1; }
+    .n   { color: $base1; } // ruby variable name
+    .na  { color: $base1; }
+    .nb  { color: $green; } // shell command
+    .nc  { color: $yellow; } // ruby class name
+    .nd  { color: $base1; }
+    .ne  { color: $base1; }
+    .nf  { color: $base1; } // ruby method call
+    .ni  { color: #33AA00; }
+    .nl  { color: $yellow; } // yml inheritance parent
+    .nn  { color: $yellow; } // ruby module name
+    .no  { color: $cyan; } // ruby parent class name
+    .nt  { color: $red; }
+    .nv  { color: $yellow; } // yml inheritance child
+    .nx  { color: $base1; }
+    .o   { color: $red; } // ruby less than, double-colon
+    .ow  { color: $base1; }
+    .p   { color: $base1; } // ruby dot, parenthesis
+    .pi  { color: $red; } // yml colon
+    .py  { color: $base1; }
+    .s   { color: $blue; } // yml symbol
+    .s1  { color: $cyan; } // ruby string
+    .s2  { color: $cyan; } // shell string
+    .sb  { color: $green; }
+    .sc  { color: $green; }
+    .sd  { color: $green; }
+    .se  { color: $green; }
+    .sh  { color: $green; }
+    .si  { color: $red; } // ruby string interpolation curly brackets
+    .sr  { color: $green; }
+    .ss  { color: $cyan; } // ruby symbol
+    .sx  { color: $green; }
+    .vc  { color: $yellow; }
+    .vg  { color: $yellow; }
+    .vi  { color: $blue; } // ruby instance variable
+    .w   { color: $base1; }
+    .x   { color: $base1; }
+  }
 }

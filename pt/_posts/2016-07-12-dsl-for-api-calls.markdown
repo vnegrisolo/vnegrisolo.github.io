@@ -111,8 +111,8 @@ A resposta de cada request de API é encapsulada via `ApiResponse`.
 A principal função desta classe é parsear a resposta **json**.
 
 ```ruby
+# path: app/services/api_response.rb
 class ApiResponse
-  # path: app/services/api_response.rb
   attr_reader :response
 
   def initialize(raw_response)

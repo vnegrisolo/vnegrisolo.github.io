@@ -1,11 +1,16 @@
-$('pre.highlight').map(function(i, el){
+$('div.highlighter-rouge').map(function(i, el){
   var codeSnippet = $(el);
-  var language = codeSnippet.parent().attr('class').match(/language-(\S+)/)[1];
-  codeSnippet.attr('data-language', language);
+  var language = codeSnippet.attr('class').match(/language-(\S+)/)[1];
 
   var firstCodeLine = codeSnippet.find('code span:first');
   var match = firstCodeLine.text().match(/path: (.*)/);
+
+  var header = $(document.createElement("div"));
+  header.addClass('header small');
+  header.attr('data-language', language);
   if(match) {
-    codeSnippet.attr('data-path', match[1]);
+    header.attr('data-path', match[1]);
+    firstCodeLine.hide();
   }
+  codeSnippet.prepend(header);
 });
