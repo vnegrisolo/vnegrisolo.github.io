@@ -166,7 +166,7 @@ module Github::UserService
 end
 ```
 
-Estou usando o método do Rails `config_for` para definir a configuração usada. Eu escrevi sobre isso em: [Configurando uma Aplicação Rails]({{site.url}}/pt/rails/configuring-rails-app).
+Estou usando o método do Rails `config_for` para definir a configuração usada. Eu escrevi sobre isso em: [Configurando uma Aplicação Rails]({{ '/rails/configuring-rails-app' | i18n_url }}).
 
 ### Conclusão
 

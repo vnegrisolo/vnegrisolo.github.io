@@ -19,7 +19,7 @@ layout: default
     <dl>
       {% for category in site.categories %}
         {% unless site.languages contains category.first %}
-          <a href="{{ category.first | prepend: "/" | i18n_url: locale_string }}">
+          <a href="{{ category.first | i18n_url }}">
             {{ category.first }}
           </a>
         {% endunless %}

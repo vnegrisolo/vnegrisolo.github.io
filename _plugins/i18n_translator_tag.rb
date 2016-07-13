@@ -14,23 +14,11 @@ module Jekyll
     private
 
     def locale
-      @locale ||= locales[locale_param] || locales[default_language]
+      i18n_helper.locales[i18n_helper.current_language]
     end
 
-    def locales
-      @locales ||= @context.registers[:site].data['i18n']
-    end
-
-    def locale_param
-      page['url'][0..3].gsub('/', '')
-    end
-
-    def default_language
-      @context.registers[:site].config['languages'].first
-    end
-
-    def page
-      @context.registers[:page]
+    def i18n_helper
+      @i18n_helper ||= I18nHelper.new(@context)
     end
   end
 end

@@ -15,7 +15,7 @@ layout: default
       in
       {% for category in page.categories %}
         {% unless site.languages contains category %}
-          <a href="{{ category | prepend: "/" | i18n_url: locale_string }}">
+          <a href="{{ category | i18n_url }}">
             {{ category }}
           </a>
         {% endunless %}
