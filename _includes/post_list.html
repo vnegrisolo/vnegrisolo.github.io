@@ -1,5 +1,5 @@
+{% assign posts = site.posts | where: "locale", locale_string %}
 <dl>
-  {% assign posts = site.posts | where: "locale", locale_string %}
   {% for post in posts %}
     {% include post_list_item.html post=post %}
   {% endfor %}

@@ -1,0 +1,20 @@
+- name: dotfiles
+  url: https://github.com/vnegrisolo/dotfiles
+  description:
+    en: My configuration files for shell, vim, tmux, etc
+    pt: Meus arquivos de configuração para shell, vim, tmux, etc
+- name: cch
+  url: http://vnegrisolo.github.io/cch/
+  description:
+    en: Use git commands to list altered files and then execute some another command, such as run tests
+    pt: Usa comandos git para lista arquivos alterados e então executa algum comando como rodar os testes por exemplo
+- name: pair
+  url: https://github.com/vnegrisolo/pair
+  description:
+    en: A script that allows two developers coding in pair receive the deserved credicts
+    pt: Um script que permite que as dois desenvolvedores codificando em pair receba os créditos merecidos
+- name: rspec-shell
+  url: https://github.com/vnegrisolo/rspec-shell
+  description:
+    en: A test rspec library for shell code
+    pt: Uma biblioteca de testes para rspec para códigos em shell

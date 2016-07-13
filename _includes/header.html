@@ -12,11 +12,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="{{ '/projects' | i18n_url }}">
-            {% t projects %}
-          </a>
-        </li>
+        <li><a href="{{ '/' | i18n_url }}">{% t blog %}</a></li>
+        <li><a href="{{ '/projects' | i18n_url }}">{% t projects %}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% for language in site.languages %}

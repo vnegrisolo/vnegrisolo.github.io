@@ -3,24 +3,10 @@ layout: default
 ---
 {% include i18n.html %}
 
-<div class="row">
-  <h2>Projects</h2>
-  <dl>
-    <dt>
-      <a href="https://github.com/vnegrisolo/dotfiles">dotfiles</a>
-    </dt>
-    <dd><small>dotfiles</small></dd>
-    <dt>
-      <a href="https://github.com/vnegrisolo/cch">cch</a>
-    </dt>
-    <dd><small>cch</small></dd>
-    <dt>
-      <a href="https://github.com/vnegrisolo/pair">pair</a>
-    </dt>
-    <dd><small>pair</small></dd>
-    <dt>
-      <a href="https://github.com/vnegrisolo/rspec-shell">rspec-shell</a>
-    </dt>
-    <dd><small>rspec-shell</small></dd>
-  </dl>
-</div>
+<h2>{% t projects %}</h2>
+<dl>
+  {% for project in site.data.projects %}
+    <dt><h3><a href="{{ project.url }}">{{ project.name }}</a></h3></dt>
+    <dd>{{ project.description[locale_string] }}</dd>
+  {% endfor %}
+</dl>

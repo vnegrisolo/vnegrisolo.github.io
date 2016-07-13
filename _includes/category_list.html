@@ -3,7 +3,9 @@
     {% unless site.languages contains category.first %}
       <a href="{{ category.first | i18n_url }}" class="list-group-item">
         {{ category.first }}
-        <span class="badge">{{ category.last | where: "locale", locale_string | size }}</span>
+        <span class="badge">
+          {{ category.last | where: "locale", locale_string | size }}
+        </span>
       </a>
     {% endunless %}
   {% endfor %}
