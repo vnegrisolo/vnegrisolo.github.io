@@ -3,7 +3,7 @@ layout: default
 ---
 {% include i18n.html %}
 
-<h2>Category => {{ page.category }}</h2>
+<h2>{{ page.category }}</h2>
 
 <dl>
   {% assign posts = site.posts | where: "locale", locale_string %}

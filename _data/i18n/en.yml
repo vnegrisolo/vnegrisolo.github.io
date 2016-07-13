@@ -2,3 +2,5 @@ language: English
 title: Code Therapy
 description: This is just about coding.
 projects: Projects
+posts: Posts
+categories: Categories

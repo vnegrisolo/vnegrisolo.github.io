@@ -1,0 +1,7 @@
+{% for category in include.categories %}
+  {% unless site.languages contains category %}
+    <a href="{{ category | i18n_url }}">
+      <span class="label label-default">{{ category }}</span>
+    </a>
+  {% endunless %}
+{% endfor %}

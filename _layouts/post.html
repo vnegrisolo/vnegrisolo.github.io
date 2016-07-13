@@ -12,14 +12,7 @@ layout: default
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span itemprop="name">{{ page.author | default: site.name }}</span>
       </span>
-      in
-      {% for category in page.categories %}
-        {% unless site.languages contains category %}
-          <a href="{{ category | i18n_url }}">
-            {{ category }}
-          </a>
-        {% endunless %}
-      {% endfor %}
+      {% include category_labels.html categories=page.categories %}
     </p>
   </header>
   <div itemprop="articleBody">

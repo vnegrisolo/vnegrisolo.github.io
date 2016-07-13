@@ -1,7 +1,12 @@
 <dt>
-  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-  <span class="small">{{ post.date | date: "%b %-d, %Y" }} ({{ post.categories }})</span>
+  <h3>
+    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <span class="small">
+      {{ post.date | date: "%b %-d, %Y" }}
+      {% include category_labels.html categories=post.categories %}
+    </span>
+  </h3>
 </dt>
 <dd>
-  <small>{{post.excerpt}}</small>
+  <blockquote class="small">{{post.excerpt}}</blockquote>
 </dd>
