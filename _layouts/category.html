@@ -6,8 +6,9 @@ layout: default
 <h2>Category => {{ page.category }}</h2>
 
 <dl>
-  {% for post in site.posts %}
-    {% if post.locale == locale_string and post.categories contains page.category %}
+  {% assign posts = site.posts | where: "locale", locale_string %}
+  {% for post in posts %}
+    {% if post.categories contains page.category %}
       {% include post_list_item.html post=post %}
     {% endif %}
   {% endfor %}

@@ -1,6 +1,6 @@
 <dt>
   <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-  <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+  <span class="small">{{ post.date | date: "%b %-d, %Y" }} ({{ post.categories }})</span>
 </dt>
 <dd>
   <small>{{post.excerpt}}</small>
