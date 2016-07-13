@@ -1,12 +1,25 @@
 baseurl: ""
 url: "https://vnegrisolo.github.io"
 name: Vinicius Ferreira Negrisolo
-email: vinicius.negrisolo@gmail.com
-twitter_username: vfnegrisolo
-github_username: vnegrisolo
-linkedin_uri: vinicius-ferreira-negrisolo-53146a38
 markdown: kramdown
 languages:
   - en
   - pt
 permalink: /:categories/:title
+social:
+  email:
+    link: mailto:vinicius.negrisolo@gmail.com
+    name: vinicius.negrisolo@gmail.com
+    icon: envelope
+  github:
+    link: https://github.com/vnegrisolo
+    name: vnegrisolo
+    icon: github
+  twitter:
+    link: https://twitter.com/vfnegrisolo
+    name: '@vfnegrisolo'
+    icon: twitter
+  linkedin:
+    link: https://www.linkedin.com/in/vinicius-ferreira-negrisolo-53146a38
+    name: Vinicius Ferreira Negrisolo
+    icon: linkedin
