@@ -23,3 +23,5 @@ social:
     link: https://www.linkedin.com/in/vinicius-ferreira-negrisolo-53146a38
     name: Vinicius Ferreira Negrisolo
     icon: linkedin
+gems:
+  - jekyll-sitemap
