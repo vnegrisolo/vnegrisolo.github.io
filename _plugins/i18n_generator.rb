@@ -28,7 +28,11 @@ module Jekyll
     end
 
     def pages
-      @pages ||= @site.pages.select { |page| page.name.end_with?('.html') }
+      @pages ||= @site.pages.select { |page| copy_page?(page) }
+    end
+
+    def copy_page?(page)
+      page.name.end_with?('.html') && page.name != '404.html'
     end
 
     def languages
