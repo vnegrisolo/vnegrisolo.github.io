@@ -2,7 +2,8 @@
 layout: post
 locale: pt
 title:  "DSL para Chamadas via API"
-date:   2016-07-12 17:00:00 -0300
+date:   2016-07-12 12:00:00
+last_modified_at: 2016-07-25 12:00:00
 categories: rails
 ---
 
