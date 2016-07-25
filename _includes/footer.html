@@ -1,8 +1,10 @@
 <footer class="small">
   <div class="container">
-    <div class="col-md-8">
+    <div class="col-md-4">
+      <img src="{{ site.image }}" alt="{{ site.name }}" height="80" width="80">
+    </div>
+    <div class="col-md-4">
       <ul class="list-unstyled">
-        <li>{{ site.name }}</li>
         <li>{% include social_link.html social="email" %}</li>
         <li>{% include social_link.html social="linkedin" %}</li>
         <li>{% include social_link.html social="github" %}</li>
