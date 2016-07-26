@@ -4,10 +4,18 @@ last_modified_at: 2016-07-25 12:00:00
 ---
 <h2>{{ page.category }}</h2>
 
-<dl>
-  {% for post in site.posts %}
-    {% if post.categories contains page.category %}
-      {% include post_list_item.html post=post %}
-    {% endif %}
-  {% endfor %}
-</dl>
+<div class="row">
+  <div class="col-md-10">
+    <dl>
+      {% for post in site.posts %}
+        {% if post.categories contains page.category %}
+          {% include post_list_item.html post=post %}
+        {% endif %}
+      {% endfor %}
+    </dl>
+  </div>
+  <div class="col-md-2">
+    <h3>{{ site.data.site.categories }}</h3>
+    {% include category_list.html %}
+  </div>
+</div>
