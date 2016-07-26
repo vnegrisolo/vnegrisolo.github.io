@@ -3,7 +3,7 @@ $('div.highlighter-rouge').map(function(i, el){
   var language = codeSnippet.attr('class').match(/language-(\S+)/)[1];
 
   var firstCodeLine = codeSnippet.find('code span:first');
-  var match = firstCodeLine.text().match(/path: (.*)/);
+  var match = firstCodeLine.text().match(/path: (\S*)/);
 
   var header = $(document.createElement("div"));
   header.addClass('header small');

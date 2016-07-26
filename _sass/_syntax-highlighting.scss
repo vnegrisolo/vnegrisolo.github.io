@@ -20,6 +20,8 @@ div.highlighter-rouge {
     &[data-language="ruby"]:after  { background-color: $red; }
     &[data-language="yml"]:after   { background-color: $violet; }
     &[data-language="shell"]:after { background-color: $green; }
+    &[data-language="javascript"]:after { background-color: $yellow; }
+    &[data-language="handlebars"]:after { background-color: $orange; }
   }
 
   pre {
