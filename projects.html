@@ -2,12 +2,10 @@
 layout: default
 last_modified_at: 2016-07-25 12:00:00
 ---
-{% include i18n.html %}
-
-<h2>{% t projects %}</h2>
+<h2>{{ site.data.site.projects }}</h2>
 <dl>
   {% for project in site.data.projects %}
     <dt><h3><a href="{{ project.url }}">{{ project.name }}</a></h3></dt>
-    <dd>{{ project.description[locale_string] }}</dd>
+    <dd>{{ project.description }}</dd>
   {% endfor %}
 </dl>

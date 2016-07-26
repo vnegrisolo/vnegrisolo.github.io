@@ -11,15 +11,7 @@ module Jekyll
     end
 
     def categories
-      @site.categories.keys.reject do |category|
-        languages.include?(category)
-      end
-    end
-
-    private
-
-    def languages
-      @site.config['languages']
+      @site.categories.keys
     end
   end
 

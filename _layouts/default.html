@@ -1,7 +1,5 @@
-{% include i18n.html %}
-
 <!DOCTYPE html>
-<html lang="{{ locale_string }}">
+<html lang="en">
   {% include head.html %}
   <body>
     {% include header.html %}
@@ -16,10 +14,10 @@
     {
       "@context": "http://schema.org",
       "@type": "Person",
-      "email": "{{ site.social.email.link }}",
-      "image": "{{ site.image }}",
-      "jobTitle": "{{ site.job_title }}",
-      "name": "{{ site.name }}",
+      "email": "{{ site.data.author.social.email.link }}",
+      "image": "{{ site.data.author.image }}",
+      "jobTitle": "{{ site.data.author.job_title }}",
+      "name": "{{ site.data.author.name }}",
       "url": "{{ site.url }}"
     }
     </script>
@@ -32,8 +30,8 @@
       ga('create', 'UA-80405721-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script src="{{ "/js/jquery-2.2.4.min.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/js/syntax-highlight.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/jquery-2.2.4.min.js" }}"></script>
+    <script src="{{ "/js/bootstrap.min.js" }}"></script>
+    <script src="{{ "/js/syntax-highlight.js" }}"></script>
   </body>
 </html>

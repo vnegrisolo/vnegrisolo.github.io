@@ -1,6 +1,5 @@
 ---
 layout: post
-locale: en
 title:  "Configuring a Rails Application"
 date:   2016-07-05 12:00:00
 last_modified_at: 2016-07-25 12:00:00

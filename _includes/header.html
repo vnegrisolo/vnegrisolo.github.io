@@ -7,22 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ '/' | i18n_url }}">{% t title %}</a>
+      <a class="navbar-brand" href="{{ '/' }}">{{ site.data.site.title }}</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ '/' | i18n_url }}">{% t blog %}</a></li>
-        <li><a href="{{ '/projects' | i18n_url }}">{% t projects %}</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% for language in site.languages %}
-          <li {% if language == locale_string %}class="active"{% endif %}>
-            <a href="{{ page.url | i18n_url: language }}">
-              {{ site.data.i18n[language].language }}
-            </a>
-          </li>
-        {% endfor %}
+        <li><a href="{{ '/' }}">{{ site.data.site.blog }}</a></li>
+        <li><a href="{{ '/projects' }}">{{ site.data.site.projects }}</a></li>
       </ul>
     </div>
   </div>

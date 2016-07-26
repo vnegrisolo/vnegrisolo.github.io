@@ -1,4 +1,5 @@
-<a href="{{ site.social[include.social].link }}">
-  <i class="fa fa-{{ site.social[include.social].icon }} fa-lg" aria-hidden="true" title="{{ include.social }}"></i>
-  <span>{{ site.social[include.social].name }}</span>
+{% assign social = site.data.author.social[include.social] %}
+<a href="{{ social.link }}">
+  <i class="fa fa-{{ social.icon }} fa-lg" aria-hidden="true" title="{{ include.social }}"></i>
+  <span>{{ social.name }}</span>
 </a>

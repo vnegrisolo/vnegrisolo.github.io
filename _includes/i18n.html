@@ -1,5 +1,0 @@
-{% assign locale_string = page.url | truncate: 4, "" | remove: "/" %}
-
-{% unless site.data.i18n[locale_string] %}
-  {% assign locale_string = site.languages.first %}
-{% endunless %}

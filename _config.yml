@@ -1,29 +1,5 @@
-baseurl: ""
-url: "https://vnegrisolo.github.io"
-name: Vinicius Ferreira Negrisolo
-job_title: Developer
-image: /images/vinicius.jpeg
-markdown: kramdown
-languages:
-  - en
-  - pt
+url: https://vnegrisolo.github.io
 permalink: /:categories/:title
-social:
-  email:
-    link: mailto:vinicius.negrisolo@gmail.com
-    name: vinicius.negrisolo@gmail.com
-    icon: envelope
-  github:
-    link: https://github.com/vnegrisolo
-    name: vnegrisolo
-    icon: github
-  twitter:
-    link: https://twitter.com/vfnegrisolo
-    name: '@vfnegrisolo'
-    icon: twitter
-  linkedin:
-    link: https://www.linkedin.com/in/vinicius-ferreira-negrisolo-53146a38
-    name: Vinicius Ferreira Negrisolo
-    icon: linkedin
+markdown: kramdown
 gems:
   - jekyll-sitemap

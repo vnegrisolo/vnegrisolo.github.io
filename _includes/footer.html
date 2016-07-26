@@ -1,9 +1,9 @@
 <footer class="small">
   <div class="container">
-    <div class="col-md-4">
-      <img src="{{ site.image }}" alt="{{ site.name }}" height="80" width="80">
+    <div class="col-md-2">
+      <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" height="80" width="80">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
       <ul class="list-unstyled">
         <li>{% include social_link.html social="email" %}</li>
         <li>{% include social_link.html social="linkedin" %}</li>
@@ -11,11 +11,11 @@
         <li>{% include social_link.html social="twitter" %}</li>
       </ul>
     </div>
-    <div class="col-md-4">
-      <p>{% t description %}</p>
+    <div class="col-md-2">
+      <p>{{ site.data.site.description }}</p>
       <p>
         subscribe
-        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+        <a href="{{ "/feed.xml" }}">
           via RSS
           <i class="fa fa-rss fa-lg" aria-hidden="true" title="rss"></i>
         </a>
