@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DSL for API calls</title>
+  <meta name="description" content="My goal is to encapsulate a API with service classes using a DSL similar to ActiveRecord. This way we can use methods like where, find_by, etc. In order to a...">
+  <link rel="canonical" href="https://vnegrisolo.github.io/rails/dsl-for-api-calls">
+  <link rel="alternate" type="application/rss+xml" title="Code Therapy" href="https://vnegrisolo.github.io/feed.xml">
+
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Code Therapy</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Blog</a></li>
+        <li><a href="/projects">Projects</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="row">
+      <div class="container">
+        <article itemscope itemtype="http://schema.org/BlogPosting" class="blog-post">
+  <header>
+    <h1 itemprop="name headline">DSL for API calls</h1>
+    <p class="blog-post-meta">
+      <time datetime="2016-07-12T09:00:00-03:00" itemprop="datePublished">
+        Jul 12, 2016
+      </time>
+      by
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vinicius Ferreira Negrisolo</span>
+      </span>
+      
+  <a href="/rails">
+    <span class="label label-default">rails</span>
+  </a>
+
+
+    </p>
+  </header>
+  <div itemprop="articleBody">
+    <p>My goal is to encapsulate a API with service classes using a DSL similar to <code class="highlighter-rouge">ActiveRecord</code>. This way we can use methods like <code class="highlighter-rouge">where</code>, <code class="highlighter-rouge">find_by</code>, etc. In order to achieve that I created a class to abstract a <strong>json API</strong> using the gem <strong>faraday</strong> and the result is very cool.</p>
+
+<h3 id="motivation">Motivation</h3>
+
+<p>The <a href="https://github.com/lostisland/faraday">gem faraday</a> is well known and used by Ruby on Rails community. However, for every request it’s necessary to define <strong>all parameters again</strong>. I would like to use default values and override them if needed.</p>
+
+<p>The DSL offered by the gem <code class="highlighter-rouge">faraday</code> it’s a little bit inconsistent. Some <code class="highlighter-rouge">request</code> attributes are defined via <strong>regular</strong> methods and other via <strong>setters</strong> methods, such as in the folllowing example:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">request</span><span class="p">.</span><span class="nf">url</span> <span class="n">path</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">params</span> <span class="o">=</span> <span class="n">query</span>
+</code></pre>
+</div>
+
+<p>Another reason is the API implementation abstraction using a <strong>well known DSL</strong> by Rails developers, like <code class="highlighter-rouge">ActiveRecord</code>.</p>
+
+<h3 id="dsl---domain-specific-language">DSL - Domain Specific Language</h3>
+
+<p>My <strong>intention</strong> was to create a service class where I could use it this way:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">user</span> <span class="o">=</span> <span class="no">Github</span><span class="o">::</span><span class="no">UserService</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">access_token: </span><span class="s1">'my-access-token'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>So I started creating the class <code class="highlighter-rouge">Api</code>.</p>
+
+<h3 id="api-class"><code class="highlighter-rouge">Api</code> Class</h3>
+
+<p>The <code class="highlighter-rouge">Api</code> Class represents an instance of a flexible <strong>json API</strong>.</p>
+
+<p>Its instance reuses the same <code class="highlighter-rouge">Faraday connection</code> instance by memoizing.</p>
+
+<p>Also it defines default values for:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">timeout</code></li>
+  <li><code class="highlighter-rouge">open_timeout</code></li>
+  <li><code class="highlighter-rouge">headers['Accept']</code></li>
+  <li><code class="highlighter-rouge">headers['Content-Type']</code></li>
+</ul>
+
+<p>Another important point was the API abstraction that now receives <strong>keyword arguments</strong>. This allows a cleaner and more explicitly interface than the one offered by <code class="highlighter-rouge">faraday</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: app/services/api.rb</span>
+<span class="k">class</span> <span class="nc">Api</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">url</span><span class="p">:,</span> <span class="ss">timeout: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">open_timeout: </span><span class="mi">2</span><span class="p">)</span>
+    <span class="vi">@url</span> <span class="o">=</span> <span class="n">url</span>
+    <span class="vi">@timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+    <span class="vi">@open_timeout</span> <span class="o">=</span> <span class="n">open_timeout</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">query: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">query: </span><span class="n">query</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">patch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">query: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="o">|</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">url</span> <span class="n">path</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">params</span> <span class="o">=</span> <span class="n">query</span> <span class="k">if</span> <span class="n">query</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="nf">to_json</span> <span class="k">if</span> <span class="n">body</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Accept'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
+      <span class="n">headers</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">header</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">options</span><span class="p">.</span><span class="nf">timeout</span> <span class="o">=</span> <span class="vi">@timeout</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">options</span><span class="p">.</span><span class="nf">open_timeout</span> <span class="o">=</span> <span class="vi">@open_timeout</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">connection</span>
+    <span class="vi">@connection</span> <span class="o">||=</span> <span class="no">Faraday</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">url: </span><span class="vi">@url</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">faraday</span><span class="o">|</span>
+      <span class="n">faraday</span><span class="p">.</span><span class="nf">request</span> <span class="ss">:url_encoded</span>
+      <span class="n">faraday</span><span class="p">.</span><span class="nf">adapter</span> <span class="no">Faraday</span><span class="p">.</span><span class="nf">default_adapter</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="apiresponse-class"><code class="highlighter-rouge">ApiResponse</code> Class</h3>
+
+<p>Every API response is encapsulated by <code class="highlighter-rouge">ApiResponse</code>.</p>
+
+<p>Its main goal is to parse the <strong>json</strong> response.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: app/services/api_response.rb</span>
+<span class="k">class</span> <span class="nc">ApiResponse</span>
+  <span class="kp">attr_reader</span> <span class="ss">:response</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">raw_response</span><span class="p">)</span>
+    <span class="vi">@response</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">raw_response</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@response</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Hash</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="vi">@response</span><span class="p">[</span><span class="s1">'error'</span><span class="p">]</span>
+      <span class="k">raise</span> <span class="no">Api</span><span class="o">::</span><span class="no">Error</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@response</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="apierror-class"><code class="highlighter-rouge">ApiError</code> Class</h3>
+
+<p>Another responsability of <code class="highlighter-rouge">ApiResponse</code> class is to raise an <code class="highlighter-rouge">ApiError</code> in case of the API returns any error in its content.</p>
+
+<p>This treatment could be via <strong>content</strong> or via <strong>http code</strong>, etc.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: app/services/api_error.rb</span>
+<span class="k">class</span> <span class="nc">ApiError</span> <span class="o">&lt;</span> <span class="no">StandardError</span>
+  <span class="kp">attr_reader</span> <span class="ss">:response</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="vi">@response</span> <span class="o">=</span> <span class="n">response</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="githubuserservice-service-class"><code class="highlighter-rouge">Github::UserService</code> Service Class</h3>
+
+<p>Finally, the Service Class has as its main goal to create a DSL similar to <code class="highlighter-rouge">ActiveRecord</code> and then abstract the API complexity.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: app/services/github/user_service.rb</span>
+<span class="k">module</span> <span class="nn">Github::UserService</span>
+  <span class="kp">extend</span> <span class="nb">self</span>
+
+  <span class="k">def</span> <span class="nf">find_by</span><span class="p">(</span><span class="n">access_token</span><span class="p">:)</span>
+    <span class="n">api</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+      <span class="ss">path: </span><span class="s1">'user'</span><span class="p">,</span>
+      <span class="ss">headers: </span><span class="p">{</span> <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s2">"token </span><span class="si">#{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">api</span>
+    <span class="vi">@api</span> <span class="o">||=</span> <span class="no">Api</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">url: </span><span class="no">Rails</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">github</span><span class="p">[</span><span class="s1">'api_url'</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>I’m using the Rails method <code class="highlighter-rouge">config_for</code> for defining the configuration. I wrote about that on: <a href="/rails/configuring-rails-app">Configuring a Rails Application</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>A <code class="highlighter-rouge">Api</code> Class allowed us the reuse of well spread patterns into Rails community, such as <strong>convention over configuration</strong>, <strong>ActiveRecord pattern</strong>, <strong>using Hashes over json Strings</strong>, <strong>error treatment</strong>, etc.</p>
+
+<p>All these brings more agility on application development and maintenance, because new developers understand the project faster.</p>
+
+  </div>
+</article>
+
+      </div>
+    </div>
+    <footer class="small">
+  <div class="container">
+    <div class="col-md-2">
+      <img src="/images/vinicius.jpeg" alt="Vinicius Ferreira Negrisolo" height="80" width="80">
+    </div>
+    <div class="col-md-8">
+      <ul class="list-unstyled">
+        <li>
+<a href="mailto:vinicius.negrisolo@gmail.com">
+  <i class="fa fa-envelope fa-lg" aria-hidden="true" title="email"></i>
+  <span>vinicius.negrisolo@gmail.com</span>
+</a>
+</li>
+        <li>
+<a href="https://www.linkedin.com/in/vinicius-ferreira-negrisolo-53146a38">
+  <i class="fa fa-linkedin fa-lg" aria-hidden="true" title="linkedin"></i>
+  <span>Vinicius Ferreira Negrisolo</span>
+</a>
+</li>
+        <li>
+<a href="https://github.com/vnegrisolo">
+  <i class="fa fa-github fa-lg" aria-hidden="true" title="github"></i>
+  <span>vnegrisolo</span>
+</a>
+</li>
+        <li>
+<a href="https://twitter.com/vfnegrisolo">
+  <i class="fa fa-twitter fa-lg" aria-hidden="true" title="twitter"></i>
+  <span>@vfnegrisolo</span>
+</a>
+</li>
+      </ul>
+    </div>
+    <div class="col-md-2">
+      <p>This is just about coding.</p>
+      <p>
+        subscribe
+        <a href="/feed.xml">
+          via RSS
+          <i class="fa fa-rss fa-lg" aria-hidden="true" title="rss"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "email": "mailto:vinicius.negrisolo@gmail.com",
+      "image": "/images/vinicius.jpeg",
+      "jobTitle": "Developer",
+      "name": "Vinicius Ferreira Negrisolo",
+      "url": "https://vnegrisolo.github.io"
+    }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80405721-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/syntax-highlight.js"></script>
+  </body>
+</html>

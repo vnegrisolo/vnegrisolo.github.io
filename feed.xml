@@ -1,32 +1,431 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.data.site.title }}</title>
-    <description>{{ site.data.site.description }}</description>
-    <link>{{ site.url }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
+    <title>Code Therapy</title>
+    <description>This is just about coding.</description>
+    <link>https://vnegrisolo.github.io/</link>
+    <atom:link href="https://vnegrisolo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 26 Jul 2016 17:21:30 -0300</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2016 17:21:30 -0300</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
 
-    {% assign posts = site.posts | limit: 10 %}
-    {% for post in posts %}
+    
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>First Ember Application</title>
+        <description>&lt;p&gt;&lt;strong&gt;Ember JS&lt;/strong&gt; is a Javascript framework for ambitious Web Applications. This means that you can build &lt;strong&gt;great applications&lt;/strong&gt;, with tons of &lt;strong&gt;user interactions&lt;/strong&gt; in a very &lt;strong&gt;efficient&lt;/strong&gt; way. In this post I’ll tell how to create a simple EmberJS Web Application.&lt;/p&gt;
+
+&lt;h3 id=&quot;install-ember&quot;&gt;Install Ember&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://emberjs.com/&quot;&gt;Ember&lt;/a&gt; uses NodeJs and its &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt; (node package manager) to manage some of dependencies, including Ember itself.&lt;/p&gt;
+
+&lt;p&gt;It also depends on &lt;a href=&quot;https://bower.io/&quot;&gt;bower&lt;/a&gt; to be installed. So make sure you have all of them installed initially:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node -v
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; v6.2.0&lt;/span&gt;
+npm -v
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; 3.9.0&lt;/span&gt;
+bower -v
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; 1.7.9&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then install the last release version of Ember, in this case &lt;code class=&quot;highlighter-rouge&quot;&gt;2.7&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install -g ember-cli@2.7
+ember -v
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; ember-cli: 2.7.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; node: 6.2.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; os: darwin x64&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;create-an-ember-project&quot;&gt;Create an Ember project&lt;/h3&gt;
+
+&lt;p&gt;For creating an Ember project with the name &lt;code class=&quot;highlighter-rouge&quot;&gt;quickstart&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ember new quickstart
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;quickstart
+ember server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will create the project, access the project folder and then start Ember server. You can see your app at &lt;a href=&quot;http://localhost:4200/&quot;&gt;http://localhost:4200/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;ember-concepts&quot;&gt;Ember Concepts&lt;/h3&gt;
+
+&lt;p&gt;The main goal when building an Ember app is to understand the user interface you want to build. In a uri perspective, all folder structure represents a nested resource. Ember uses that to organize &lt;strong&gt;Routes&lt;/strong&gt; and &lt;strong&gt;Templates&lt;/strong&gt;. Here it is a simple description of Ember Classes:&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;Router&lt;/strong&gt; receives a hit from the user and dispatches to a specific &lt;strong&gt;Route&lt;/strong&gt;. There is just one Router per application and is stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/router.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In a specific &lt;strong&gt;Route&lt;/strong&gt; you can fetch data from the server based on uri and query params and then it’s controller is called.&lt;/p&gt;
+
+&lt;p&gt;A &lt;strong&gt;Controller&lt;/strong&gt; can do the same as the Route and it’s being discontinued by the Ember community, so please &lt;strong&gt;don’t use Controllers&lt;/strong&gt;. You can just ignore them when creating a new app, but if you are working in a legacy Ember app you need to know that Controllers in Ember are &lt;strong&gt;Singletons&lt;/strong&gt;. So it will keep a state in it. This could cause some weird behavior or bugs.&lt;/p&gt;
+
+&lt;p&gt;Finally a &lt;strong&gt;Template&lt;/strong&gt; related to its Route is called and rendered using &lt;a href=&quot;http://handlebarsjs.com/&quot;&gt;handlebars&lt;/a&gt; for basic conditionals, loops and variable outputs.&lt;/p&gt;
+
+&lt;p&gt;As I said &lt;strong&gt;Routes&lt;/strong&gt; and &lt;strong&gt;Templates&lt;/strong&gt; are related to the uri, but sometimes there are some logic and templates that could be reused. To do that you might need to use a &lt;strong&gt;Component&lt;/strong&gt;. A &lt;strong&gt;Component&lt;/strong&gt; can have both a component class to fetch some data from the server and also it’s template. &lt;strong&gt;Components&lt;/strong&gt; are not stick to the uri.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ember-core-concepts.png&quot; class=&quot;img-responsive&quot; alt=&quot;Ember Core Concepts&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;generating-some-code&quot;&gt;Generating some code&lt;/h3&gt;
+
+&lt;p&gt;The easiest and fastest way to create your code in Ember is to use ember-cli generators. Run the following to know all generators available:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ember &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;generate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s start generating a route &lt;code class=&quot;highlighter-rouge&quot;&gt;hello&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ember generate route hello
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; installing route&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt;   create app/routes/hello.js&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt;   create app/templates/hello.hbs&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; updating router&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt;   add route hello&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; installing route-test&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt;   create tests/unit/routes/hello-test.js&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add a model that just return a string:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// path: app/routes/hello.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ember&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;ember&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ember&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;World&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Finally show it in the template:&lt;/p&gt;
+
+&lt;div class=&quot;language-handlebars highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- path: app/templates/hello.hbs --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;greeting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello &lt;span class=&quot;k&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}}&lt;/span&gt;!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Go to &lt;a href=&quot;http://localhost:4200/hello&quot;&gt;http://localhost:4200/hello&lt;/a&gt; and check you first Ember Route and Template.&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-your-app&quot;&gt;Testing your App&lt;/h3&gt;
+
+&lt;p&gt;Let’s create an &lt;strong&gt;Acceptance Test&lt;/strong&gt; in order to test the app in the User’s perspective:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ember generate acceptance-test hello
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; installing acceptance-test&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt;   create tests/acceptance/hello-test.js&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This is a simple and straightforward test that verifies the &lt;strong&gt;current url&lt;/strong&gt; and the &lt;strong&gt;content&lt;/strong&gt; produced when the user hits &lt;code class=&quot;highlighter-rouge&quot;&gt;/hello&lt;/code&gt; page:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;qunit&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moduleForAcceptance&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;ember-quickstart/tests/helpers/module-for-acceptance&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;moduleForAcceptance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Acceptance | hello&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;visiting /hello&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;/hello&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;.greeting&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;andThen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;currentURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/hello&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;.greeting&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Hello World!&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It’s time to check if your tests are passing at &lt;a href=&quot;http://localhost:4200/tests&quot;&gt;http://localhost:4200/tests&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the &lt;strong&gt;core concepts&lt;/strong&gt; of Ember. Also use Ember &lt;strong&gt;generators&lt;/strong&gt; and other &lt;strong&gt;ember-cli tools&lt;/strong&gt; to gain speed on development and use &lt;strong&gt;tests&lt;/strong&gt; as the best friend you can have when coding. You’ll find yourself as an Ember developer in a blink. Good luck!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Jul 2016 09:00:00 -0300</pubDate>
+        <link>https://vnegrisolo.github.io/ember/first-ember-application</link>
+        <guid isPermaLink="true">https://vnegrisolo.github.io/ember/first-ember-application</guid>
+        
+        
+        <category>ember</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>DSL for API calls</title>
+        <description>&lt;p&gt;My goal is to encapsulate a API with service classes using a DSL similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord&lt;/code&gt;. This way we can use methods like &lt;code class=&quot;highlighter-rouge&quot;&gt;where&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;find_by&lt;/code&gt;, etc. In order to achieve that I created a class to abstract a &lt;strong&gt;json API&lt;/strong&gt; using the gem &lt;strong&gt;faraday&lt;/strong&gt; and the result is very cool.&lt;/p&gt;
+
+&lt;h3 id=&quot;motivation&quot;&gt;Motivation&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/lostisland/faraday&quot;&gt;gem faraday&lt;/a&gt; is well known and used by Ruby on Rails community. However, for every request it’s necessary to define &lt;strong&gt;all parameters again&lt;/strong&gt;. I would like to use default values and override them if needed.&lt;/p&gt;
+
+&lt;p&gt;The DSL offered by the gem &lt;code class=&quot;highlighter-rouge&quot;&gt;faraday&lt;/code&gt; it’s a little bit inconsistent. Some &lt;code class=&quot;highlighter-rouge&quot;&gt;request&lt;/code&gt; attributes are defined via &lt;strong&gt;regular&lt;/strong&gt; methods and other via &lt;strong&gt;setters&lt;/strong&gt; methods, such as in the folllowing example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Another reason is the API implementation abstraction using a &lt;strong&gt;well known DSL&lt;/strong&gt; by Rails developers, like &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;dsl---domain-specific-language&quot;&gt;DSL - Domain Specific Language&lt;/h3&gt;
+
+&lt;p&gt;My &lt;strong&gt;intention&lt;/strong&gt; was to create a service class where I could use it this way:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;UserService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;access_token: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;my-access-token&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So I started creating the class &lt;code class=&quot;highlighter-rouge&quot;&gt;Api&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;api-class&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Api&lt;/code&gt; Class&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Api&lt;/code&gt; Class represents an instance of a flexible &lt;strong&gt;json API&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Its instance reuses the same &lt;code class=&quot;highlighter-rouge&quot;&gt;Faraday connection&lt;/code&gt; instance by memoizing.&lt;/p&gt;
+
+&lt;p&gt;Also it defines default values for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;timeout&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;open_timeout&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;headers[&#39;Accept&#39;]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;headers[&#39;Content-Type&#39;]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another important point was the API abstraction that now receives &lt;strong&gt;keyword arguments&lt;/strong&gt;. This allows a cleaner and more explicitly interface than the one offered by &lt;code class=&quot;highlighter-rouge&quot;&gt;faraday&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: app/services/api.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Api&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;timeout: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;open_timeout: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@open_timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open_timeout&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;query: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;query: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ApiResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ApiResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ApiResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;patch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ApiResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;patch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ApiResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;query: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_json&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Accept&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;application/json&#39;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Content-Type&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;application/json&#39;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@timeout&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open_timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@open_timeout&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Faraday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;url: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;faraday&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;faraday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:url_encoded&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;faraday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;adapter&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Faraday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;default_adapter&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;apiresponse-class&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ApiResponse&lt;/code&gt; Class&lt;/h3&gt;
+
+&lt;p&gt;Every API response is encapsulated by &lt;code class=&quot;highlighter-rouge&quot;&gt;ApiResponse&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Its main goal is to parse the &lt;strong&gt;json&lt;/strong&gt; response.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: app/services/api_response.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApiResponse&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:response&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;error&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;apierror-class&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ApiError&lt;/code&gt; Class&lt;/h3&gt;
+
+&lt;p&gt;Another responsability of &lt;code class=&quot;highlighter-rouge&quot;&gt;ApiResponse&lt;/code&gt; class is to raise an &lt;code class=&quot;highlighter-rouge&quot;&gt;ApiError&lt;/code&gt; in case of the API returns any error in its content.&lt;/p&gt;
+
+&lt;p&gt;This treatment could be via &lt;strong&gt;content&lt;/strong&gt; or via &lt;strong&gt;http code&lt;/strong&gt;, etc.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: app/services/api_error.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApiError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;StandardError&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:response&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;githubuserservice-service-class&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Github::UserService&lt;/code&gt; Service Class&lt;/h3&gt;
+
+&lt;p&gt;Finally, the Service Class has as its main goal to create a DSL similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord&lt;/code&gt; and then abstract the API complexity.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: app/services/github/user_service.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Github::UserService&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;path: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;user&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Authorization&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;token &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;api&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;url: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;api_url&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I’m using the Rails method &lt;code class=&quot;highlighter-rouge&quot;&gt;config_for&lt;/code&gt; for defining the configuration. I wrote about that on: &lt;a href=&quot;/rails/configuring-rails-app&quot;&gt;Configuring a Rails Application&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;Api&lt;/code&gt; Class allowed us the reuse of well spread patterns into Rails community, such as &lt;strong&gt;convention over configuration&lt;/strong&gt;, &lt;strong&gt;ActiveRecord pattern&lt;/strong&gt;, &lt;strong&gt;using Hashes over json Strings&lt;/strong&gt;, &lt;strong&gt;error treatment&lt;/strong&gt;, etc.&lt;/p&gt;
+
+&lt;p&gt;All these brings more agility on application development and maintenance, because new developers understand the project faster.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jul 2016 09:00:00 -0300</pubDate>
+        <link>https://vnegrisolo.github.io/rails/dsl-for-api-calls</link>
+        <guid isPermaLink="true">https://vnegrisolo.github.io/rails/dsl-for-api-calls</guid>
+        
+        
+        <category>rails</category>
+        
+      </item>
+    
+      <item>
+        <title>Configuring a Rails Application</title>
+        <description>&lt;p&gt;There are a lot to consider when configuring a Rails application, such as &lt;strong&gt;variables organization&lt;/strong&gt;, &lt;strong&gt;environments&lt;/strong&gt;, &lt;strong&gt;security credentials&lt;/strong&gt;, etc. Among so many different ways to do that I’m going to show my prefered way using what Rails has to offer with &lt;code class=&quot;highlighter-rouge&quot;&gt;config_for&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;organization&quot;&gt;Organization&lt;/h3&gt;
+
+&lt;p&gt;Rails has a helper method to load a configuration file and it’s very easy to use it: &lt;a href=&quot;http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for&quot;&gt;config_for&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: config/application.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyRailsApp&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Application&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This way there’s no need to keep just one &lt;code class=&quot;highlighter-rouge&quot;&gt;application.yml&lt;/code&gt; configuration file with &lt;strong&gt;all&lt;/strong&gt; that the application needs. That’s why I group configurations by some &lt;strong&gt;external dependency&lt;/strong&gt; or by some &lt;strong&gt;specific subject&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;format&quot;&gt;Format&lt;/h3&gt;
+
+&lt;p&gt;In short, my prefered format is &lt;code class=&quot;highlighter-rouge&quot;&gt;yml&lt;/code&gt;, such as in this example:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# path: config/github.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;development&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;api_url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://api.github.com&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;client_id&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my-public-client-id&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;client_secret&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&#39;GITHUB_CLIENT_SECRET&#39;] %&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*development&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;staging&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*development&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;client_id&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my-public-sandbox-client-id&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*development&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;environments&quot;&gt;Environments&lt;/h3&gt;
+
+&lt;p&gt;In that example the configuration file &lt;code class=&quot;highlighter-rouge&quot;&gt;config/github.yml&lt;/code&gt; use the &lt;strong&gt;environments&lt;/strong&gt; as &lt;strong&gt;root keys&lt;/strong&gt;. This way the default values are set in the &lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt; key and all environments &lt;strong&gt;inherit&lt;/strong&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt;. Also we can redefine environment specific values as, in this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;client_id&lt;/code&gt; for &lt;em&gt;staging&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Locally the project developers should adopt a common pattern of configuration as &lt;em&gt;url/user/pass&lt;/em&gt;. However if this is not an option by any reason I would fetch the value with a default one, such as:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&#39;DB_USER&#39;] || &#39;admin&#39; %&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;credentials&quot;&gt;Credentials&lt;/h3&gt;
+
+&lt;p&gt;The main goal is to &lt;strong&gt;never publish&lt;/strong&gt; a credential by obviously security reasons. That’s why we use &lt;strong&gt;environment variables&lt;/strong&gt; and then this kind of configuration goes to &lt;em&gt;Heroku&lt;/em&gt; dashboard or inside &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/environment&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Locally I like to use the gem &lt;a href=&quot;https://github.com/bkeepers/dotenv&quot;&gt;dotenv&lt;/a&gt; always taking care to never commit a private secret. I usually install &lt;code class=&quot;highlighter-rouge&quot;&gt;dotenv&lt;/code&gt; this way:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gem &#39;dotenv-rails&#39;, groups: [:development, :test]&quot;&lt;/span&gt; &amp;gt;&amp;gt; Gemfile;
+bundle;
+touch .env&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;,.sample&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.env&quot;&lt;/span&gt; &amp;gt;&amp;gt; .gitignore;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;configurations-usage&quot;&gt;Configurations Usage&lt;/h3&gt;
+
+&lt;p&gt;In order to use the configurations you just access &lt;code class=&quot;highlighter-rouge&quot;&gt;Rails.configuration&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;api_url&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;The usage of Rails &lt;code class=&quot;highlighter-rouge&quot;&gt;config_for&lt;/code&gt; simplifies the organization of application configuration. Then all variables are hold into specific files and you never will use an environment variable inside the code anymore.&lt;/p&gt;
+
+&lt;p&gt;Additionally, the usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;.env.sample&lt;/code&gt; and the gem &lt;strong&gt;dotenv&lt;/strong&gt; helps a new developer to find out what’s needed to configure locally for starting to work on the project.&lt;/p&gt;
+
+&lt;p&gt;Finally we can discard to add more dependencies to the project such as &lt;a href=&quot;https://github.com/laserlemon/figaro&quot;&gt;figaro&lt;/a&gt; or &lt;a href=&quot;https://github.com/settingslogic/settingslogic&quot;&gt;settingslogic&lt;/a&gt; because they just try to solve the same problems and then let the project with less dependencies.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jul 2016 09:00:00 -0300</pubDate>
+        <link>https://vnegrisolo.github.io/rails/configuring-rails-app</link>
+        <guid isPermaLink="true">https://vnegrisolo.github.io/rails/configuring-rails-app</guid>
+        
+        
+        <category>rails</category>
+        
+      </item>
+    
   </channel>
 </rss>
