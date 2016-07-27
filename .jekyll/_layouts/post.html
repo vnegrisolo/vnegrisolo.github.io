@@ -19,3 +19,21 @@ layout: default
     {{ content }}
   </div>
 </article>
+<nav aria-label="...">
+  <ul class="pager">
+    {% if page.previous.url %}
+      <li>
+        <a href="{{page.previous.url}}" class="btn btn-lg">
+          <span aria-hidden="true">&larr;</span> Previous
+        </a>
+      </li>
+    {% endif %}
+    {% if page.next.url %}
+      <li>
+        <a href="{{page.next.url}}" class="btn btn-lg">
+          Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
