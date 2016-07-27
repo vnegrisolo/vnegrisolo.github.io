@@ -166,7 +166,7 @@ module Github::UserService
 end
 ```
 
-I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails Application]({{ '/rails/configuring-rails-app' }}).
+I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails Application](/rails/configuring-rails-app).
 
 ### Conclusion
 

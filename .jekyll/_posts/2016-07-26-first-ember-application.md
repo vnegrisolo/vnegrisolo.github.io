@@ -119,6 +119,7 @@ ember generate acceptance-test hello
 This is a simple and straightforward test that verifies the **current url** and the **content** produced when the user hits `/hello` page:
 
 ```javascript
+// path: tests/acceptance/hello-test.js
 import { test } from 'qunit';
 import moduleForAcceptance from 'ember-quickstart/tests/helpers/module-for-acceptance';
 

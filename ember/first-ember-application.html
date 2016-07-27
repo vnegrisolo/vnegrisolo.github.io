@@ -170,7 +170,8 @@ ember server
 
 <p>This is a simple and straightforward test that verifies the <strong>current url</strong> and the <strong>content</strong> produced when the user hits <code class="highlighter-rouge">/hello</code> page:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">test</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'qunit'</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// path: tests/acceptance/hello-test.js</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">test</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'qunit'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">moduleForAcceptance</span> <span class="nx">from</span> <span class="s1">'ember-quickstart/tests/helpers/module-for-acceptance'</span><span class="p">;</span>
 
 <span class="nx">moduleForAcceptance</span><span class="p">(</span><span class="s1">'Acceptance | hello'</span><span class="p">);</span>
@@ -205,6 +206,12 @@ ember server
         </a>
       </li>
     
+    
+      <li>
+        <a href="/ember/why-ember-js" class="btn btn-lg">
+          Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
     
   </ul>
 </nav>
