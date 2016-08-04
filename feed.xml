@@ -5,8 +5,8 @@
     <description>Coding is fun, so let's share some thoughts, ideas, opinions and code for all. Code for all!</description>
     <link>https://vnegrisolo.github.io/</link>
     <atom:link href="https://vnegrisolo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Jul 2016 18:00:25 -0300</pubDate>
-    <lastBuildDate>Wed, 27 Jul 2016 18:00:25 -0300</lastBuildDate>
+    <pubDate>Thu, 04 Aug 2016 13:24:09 -0400</pubDate>
+    <lastBuildDate>Thu, 04 Aug 2016 13:24:09 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
 
     
@@ -111,9 +111,9 @@
 
 &lt;p&gt;The first of all, Ember is &lt;strong&gt;fast&lt;/strong&gt; and it has to be said. Ember had some problems in the past when re-rendering big lists. A lot of issues were created to improve performance.&lt;/p&gt;
 
-&lt;p&gt;Anyway, there’s a big promising project &lt;a href=&quot;https://github.com/tildeio/glimmer&quot;&gt;glimmer&lt;/a&gt; that seems to solve all performance issues for good. This project was inspired by React’s Virtual DOM and uses a Stream Tree to identify and apply the changes in the DOM.&lt;/p&gt;
+&lt;p&gt;Anyway, there’s a big promising project &lt;a href=&quot;https://github.com/tildeio/glimmer&quot;&gt;glimmer 2&lt;/a&gt; that seems to solve all performance issues in rendering for good. This project was inspired by React’s Virtual DOM and uses a Stream Tree to identify and apply the changes in the DOM. The results were so good that they added into Ember &lt;code class=&quot;highlighter-rouge&quot;&gt;2.9.0-alpha.1&lt;/code&gt;, so it will be part of Ember soon.&lt;/p&gt;
 
-&lt;p&gt;Another performance issue is related to the first load time. Again there’s a promising project to solve this problem: &lt;a href=&quot;https://github.com/ember-fastboot/fastboot&quot;&gt;fastboot&lt;/a&gt;. &lt;strong&gt;Fastboot&lt;/strong&gt; is a server side Ember application provided by NodeJS and it retrieves a ready html when the application is load for the first time.&lt;/p&gt;
+&lt;p&gt;Another performance issue is related to the first load time. Again there’s a promising project to solve this problem: &lt;a href=&quot;https://github.com/ember-fastboot/fastboot&quot;&gt;fastboot&lt;/a&gt;. &lt;strong&gt;Fastboot&lt;/strong&gt; is a server side Ember application provided by &lt;strong&gt;NodeJS&lt;/strong&gt; and it retrieves a ready html when the application is loaded for the first time.&lt;/p&gt;
 
 &lt;h3 id=&quot;problem-2-ember-doesnt-work-with-seo&quot;&gt;Problem 2: Ember doesn’t work with SEO&lt;/h3&gt;
 
@@ -125,7 +125,7 @@
 
 &lt;p&gt;In a nutshell: &lt;strong&gt;Ember is great!&lt;/strong&gt; The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 27 Jul 2016 09:00:00 -0300</pubDate>
+        <pubDate>Wed, 27 Jul 2016 08:00:00 -0400</pubDate>
         <link>https://vnegrisolo.github.io/ember/why-ember-js</link>
         <guid isPermaLink="true">https://vnegrisolo.github.io/ember/why-ember-js</guid>
         
@@ -271,7 +271,7 @@ ember server
 
 &lt;p&gt;Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the &lt;strong&gt;core concepts&lt;/strong&gt; of Ember. Also use Ember &lt;strong&gt;generators&lt;/strong&gt; and other &lt;strong&gt;ember-cli tools&lt;/strong&gt; to gain speed on development and use &lt;strong&gt;tests&lt;/strong&gt; as the best friend you can have when coding. You’ll find yourself as an Ember developer in a blink. Good luck!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 26 Jul 2016 09:00:00 -0300</pubDate>
+        <pubDate>Tue, 26 Jul 2016 08:00:00 -0400</pubDate>
         <link>https://vnegrisolo.github.io/ember/first-ember-application</link>
         <guid isPermaLink="true">https://vnegrisolo.github.io/ember/first-ember-application</guid>
         
@@ -452,7 +452,7 @@ ember server
 
 &lt;p&gt;All these brings more agility on application development and maintenance, because new developers understand the project faster.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 12 Jul 2016 09:00:00 -0300</pubDate>
+        <pubDate>Tue, 12 Jul 2016 08:00:00 -0400</pubDate>
         <link>https://vnegrisolo.github.io/rails/dsl-for-api-calls</link>
         <guid isPermaLink="true">https://vnegrisolo.github.io/rails/dsl-for-api-calls</guid>
         
@@ -542,7 +542,7 @@ touch .env&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;,.sample&lt;span class=&
 
 &lt;p&gt;Finally we can discard to add more dependencies to the project such as &lt;a href=&quot;https://github.com/laserlemon/figaro&quot;&gt;figaro&lt;/a&gt; or &lt;a href=&quot;https://github.com/settingslogic/settingslogic&quot;&gt;settingslogic&lt;/a&gt; because they just try to solve the same problems and then let the project with less dependencies.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 05 Jul 2016 09:00:00 -0300</pubDate>
+        <pubDate>Tue, 05 Jul 2016 08:00:00 -0400</pubDate>
         <link>https://vnegrisolo.github.io/rails/configuring-rails-app</link>
         <guid isPermaLink="true">https://vnegrisolo.github.io/rails/configuring-rails-app</guid>
         
