@@ -104,9 +104,9 @@ Write tests in Ember is so cheap, so easy to maintain and `ember-cli-mirage` has
 
 The first of all, Ember is **fast** and it has to be said. Ember had some problems in the past when re-rendering big lists. A lot of issues were created to improve performance.
 
-Anyway, there's a big promising project [glimmer](https://github.com/tildeio/glimmer) that seems to solve all performance issues for good. This project was inspired by React's Virtual DOM and uses a Stream Tree to identify and apply the changes in the DOM.
+Anyway, there's a big promising project [glimmer 2](https://github.com/tildeio/glimmer) that seems to solve all performance issues in rendering for good. This project was inspired by React's Virtual DOM and uses a Stream Tree to identify and apply the changes in the DOM. The results were so good that they added into Ember `2.9.0-alpha.1`, so it will be part of Ember soon.
 
-Another performance issue is related to the first load time. Again there's a promising project to solve this problem: [fastboot](https://github.com/ember-fastboot/fastboot). **Fastboot** is a server side Ember application provided by NodeJS and it retrieves a ready html when the application is load for the first time.
+Another performance issue is related to the first load time. Again there's a promising project to solve this problem: [fastboot](https://github.com/ember-fastboot/fastboot). **Fastboot** is a server side Ember application provided by **NodeJS** and it retrieves a ready html when the application is loaded for the first time.
 
 ### Problem 2: Ember doesn't work with SEO
 
