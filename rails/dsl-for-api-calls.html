@@ -104,35 +104,17 @@
 
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: app/services/api.rb</span>
 <span class="k">class</span> <span class="nc">Api</span>
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">url</span><span class="p">:,</span> <span class="ss">timeout: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">open_timeout: </span><span class="mi">2</span><span class="p">)</span>
-    <span class="vi">@url</span> <span class="o">=</span> <span class="n">url</span>
-    <span class="vi">@timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">url</span><span class="p">:,</span> <span class="ss">timeout: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">open_timeout: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">mime_type: </span><span class="s1">'application/json'</span><span class="p">)</span>
+    <span class="vi">@url</span>          <span class="o">=</span> <span class="n">url</span>
+    <span class="vi">@timeout</span>      <span class="o">=</span> <span class="n">timeout</span>
     <span class="vi">@open_timeout</span> <span class="o">=</span> <span class="n">open_timeout</span>
+    <span class="vi">@mime_type</span>    <span class="o">=</span> <span class="n">mime_type</span>
   <span class="k">end</span>
 
-  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">query: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">query: </span><span class="n">query</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
-    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
-    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
-    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
-    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">patch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">headers: </span><span class="p">{})</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
-    <span class="no">ApiResponse</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">))</span>
+  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">path</span><span class="p">:,</span> <span class="ss">method: :get</span><span class="p">,</span> <span class="ss">query: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">body: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{})</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">query: </span><span class="n">query</span><span class="p">,</span> <span class="ss">body: </span><span class="n">body</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">request</span><span class="p">)</span>
+    <span class="no">Response</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
@@ -142,11 +124,11 @@
       <span class="n">request</span><span class="p">.</span><span class="nf">url</span> <span class="n">path</span>
       <span class="n">request</span><span class="p">.</span><span class="nf">params</span> <span class="o">=</span> <span class="n">query</span> <span class="k">if</span> <span class="n">query</span>
       <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="nf">to_json</span> <span class="k">if</span> <span class="n">body</span>
-      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Accept'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
-      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
-      <span class="n">headers</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">header</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
       <span class="n">request</span><span class="p">.</span><span class="nf">options</span><span class="p">.</span><span class="nf">timeout</span> <span class="o">=</span> <span class="vi">@timeout</span>
       <span class="n">request</span><span class="p">.</span><span class="nf">options</span><span class="p">.</span><span class="nf">open_timeout</span> <span class="o">=</span> <span class="vi">@open_timeout</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Accept'</span><span class="p">]</span> <span class="o">=</span> <span class="vi">@mime_type</span>
+      <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="vi">@mime_type</span>
+      <span class="n">headers</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">header</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
@@ -198,6 +180,17 @@
 </code></pre>
 </div>
 
+<h3 id="api-initializer">API initializer</h3>
+
+<p>In order to instantiate an API I created this initializer:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># path: config/initializers/github_api.rb</span>
+<span class="no">GITHUB_API</span> <span class="o">=</span> <span class="no">Api</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">url: </span><span class="no">Rails</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">github</span><span class="p">[</span><span class="s1">'api_url'</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<p>I’m using the Rails method <code class="highlighter-rouge">config_for</code> for defining the configuration. I wrote about that on: <a href="/rails/configuring-rails-app">Configuring a Rails Application</a>.</p>
+
 <h3 id="githubuserservice-service-class"><code class="highlighter-rouge">Github::UserService</code> Service Class</h3>
 
 <p>Finally, the Service Class has as its main goal to create a DSL similar to <code class="highlighter-rouge">ActiveRecord</code> and then abstract the API complexity.</p>
@@ -207,22 +200,14 @@
   <span class="kp">extend</span> <span class="nb">self</span>
 
   <span class="k">def</span> <span class="nf">find_by</span><span class="p">(</span><span class="n">access_token</span><span class="p">:)</span>
-    <span class="n">api</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+    <span class="no">GITHUB_API</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span>
       <span class="ss">path: </span><span class="s1">'user'</span><span class="p">,</span>
       <span class="ss">headers: </span><span class="p">{</span> <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s2">"token </span><span class="si">#{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
     <span class="p">)</span>
   <span class="k">end</span>
-
-  <span class="kp">private</span>
-
-  <span class="k">def</span> <span class="nf">api</span>
-    <span class="vi">@api</span> <span class="o">||=</span> <span class="no">Api</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">url: </span><span class="no">Rails</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">github</span><span class="p">[</span><span class="s1">'api_url'</span><span class="p">])</span>
-  <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
 </div>
-
-<p>I’m using the Rails method <code class="highlighter-rouge">config_for</code> for defining the configuration. I wrote about that on: <a href="/rails/configuring-rails-app">Configuring a Rails Application</a>.</p>
 
 <h3 id="conclusion">Conclusion</h3>
 

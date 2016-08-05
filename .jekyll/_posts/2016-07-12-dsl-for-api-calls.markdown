@@ -2,7 +2,7 @@
 layout: post
 title:  "DSL for API calls"
 date:   2016-07-12 12:00:00
-last_modified_at: 2016-07-25 12:00:00
+last_modified_at: 2016-08-05 12:00:00
 categories: rails
 ---
 
@@ -49,35 +49,17 @@ Another important point was the API abstraction that now receives **keyword argu
 ```ruby
 # path: app/services/api.rb
 class Api
-  def initialize(url:, timeout: 5, open_timeout: 2)
-    @url = url
-    @timeout = timeout
+  def initialize(url:, timeout: 5, open_timeout: 2, mime_type: 'application/json')
+    @url          = url
+    @timeout      = timeout
     @open_timeout = open_timeout
+    @mime_type    = mime_type
   end
 
-  def get(path:, query: nil, headers: {})
-    request = request(path, query: query, headers: headers)
-    ApiResponse.new(connection.get(&request))
-  end
-
-  def post(path:, body: nil, headers: {})
-    request = request(path, body: body, headers: headers)
-    ApiResponse.new(connection.post(&request))
-  end
-
-  def put(path:, body: nil, headers: {})
-    request = request(path, body: body, headers: headers)
-    ApiResponse.new(connection.put(&request))
-  end
-
-  def patch(path:, body: nil, headers: {})
-    request = request(path, body: body, headers: headers)
-    ApiResponse.new(connection.patch(&request))
-  end
-
-  def delete(path:, headers: {})
-    request = request(path, headers: headers)
-    ApiResponse.new(connection.delete(&request))
+  def call(path:, method: :get, query: nil, body: nil, headers: {})
+    request = request(path, query: query, body: body, headers: headers)
+    response = connection.send(method, &request)
+    Response.new(response)
   end
 
   private
@@ -87,11 +69,11 @@ class Api
       request.url path
       request.params = query if query
       request.body = body.to_json if body
-      request.headers['Accept'] = 'application/json'
-      request.headers['Content-Type'] = 'application/json'
-      headers.each { |header, value| request.headers[header] = value }
       request.options.timeout = @timeout
       request.options.open_timeout = @open_timeout
+      request.headers['Accept'] = @mime_type
+      request.headers['Content-Type'] = @mime_type
+      headers.each { |header, value| request.headers[header] = value }
     end
   end
 
@@ -142,6 +124,17 @@ class ApiError < StandardError
 end
 ```
 
+### API initializer
+
+In order to instantiate an API I created this initializer:
+
+```ruby
+# path: config/initializers/github_api.rb
+GITHUB_API = Api.new(url: Rails.configuration.github['api_url'])
+```
+
+I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails Application](/rails/configuring-rails-app).
+
 ### `Github::UserService` Service Class
 
 Finally, the Service Class has as its main goal to create a DSL similar to `ActiveRecord` and then abstract the API complexity.
@@ -152,21 +145,13 @@ module Github::UserService
   extend self
 
   def find_by(access_token:)
-    api.get(
+    GITHUB_API.call(
       path: 'user',
       headers: { 'Authorization' => "token #{access_token}" }
     )
   end
-
-  private
-
-  def api
-    @api ||= Api.new(url: Rails.configuration.github['api_url'])
-  end
 end
 ```
-
-I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails Application](/rails/configuring-rails-app).
 
 ### Conclusion
 
