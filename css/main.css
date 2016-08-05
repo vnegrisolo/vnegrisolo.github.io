@@ -106,13 +106,13 @@ div.highlighter-rouge pre {
   div.highlighter-rouge pre .kc {
     color: #dc322f; }
   div.highlighter-rouge pre .kd {
-    color: #dc322f; }
+    color: #b58900; }
   div.highlighter-rouge pre .kn {
     color: #dc322f; }
   div.highlighter-rouge pre .kp {
     color: #859900; }
   div.highlighter-rouge pre .kr {
-    color: #dc322f; }
+    color: #cb4b16; }
   div.highlighter-rouge pre .kt {
     color: #AAAA77; }
   div.highlighter-rouge pre .l {
@@ -126,7 +126,7 @@ div.highlighter-rouge pre {
   div.highlighter-rouge pre .mh {
     color: #93a1a1; }
   div.highlighter-rouge pre .mi {
-    color: #93a1a1; }
+    color: #2aa198; }
   div.highlighter-rouge pre .mo {
     color: #93a1a1; }
   div.highlighter-rouge pre .n {
@@ -150,9 +150,9 @@ div.highlighter-rouge pre {
   div.highlighter-rouge pre .nn {
     color: #b58900; }
   div.highlighter-rouge pre .no {
-    color: #2aa198; }
+    color: #b58900; }
   div.highlighter-rouge pre .nt {
-    color: #dc322f; }
+    color: #cb4b16; }
   div.highlighter-rouge pre .nv {
     color: #b58900; }
   div.highlighter-rouge pre .nx {
