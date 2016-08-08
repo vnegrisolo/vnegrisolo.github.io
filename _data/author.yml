@@ -1,20 +1,3 @@
 name: Vinicius Ferreira Negrisolo
 image: /images/vinicius.jpeg
 job_title: Developer
-social:
-  email:
-    link: mailto:vinicius.negrisolo@gmail.com
-    name: vinicius.negrisolo@gmail.com
-    icon: envelope
-  github:
-    link: https://github.com/vnegrisolo
-    name: vnegrisolo
-    icon: github
-  twitter:
-    link: https://twitter.com/vfnegrisolo
-    name: '@vfnegrisolo'
-    icon: twitter
-  linkedin:
-    link: https://www.linkedin.com/in/vinicius-ferreira-negrisolo-53146a38
-    name: Vinicius Ferreira Negrisolo
-    icon: linkedin

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
   {% include head.html %}
   <body>
     {% include header.html %}
@@ -17,7 +17,7 @@
       "name": "{{ site.data.author.name }}",
       "image": "{{ site.data.author.image }}",
       "url": "{{ site.url }}",
-      "email": "{{ site.data.author.social.email.link }}",
+      "email": "{{ site.data.social.email.link }}",
       "jobTitle": "{{ site.data.author.job_title }}"
     }
     </script>
