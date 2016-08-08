@@ -4,8 +4,8 @@ title:  "Configuring a Rails Application"
 date:   2016-07-05 12:00:00
 last_modified_at: 2016-07-25 12:00:00
 categories: rails
+image: /images/rails.jpeg
 ---
-
 There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my prefered way using what Rails has to offer with `config_for`.
 
 ### Organization

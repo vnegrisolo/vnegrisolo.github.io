@@ -1,23 +1,23 @@
 ---
 layout: default
 ---
-<article itemscope itemtype="http://schema.org/BlogPosting" class="blog-post">
+<article class="blog-post">
   <header>
-    <h1 itemprop="name headline">{{ page.title }}</h1>
+    <div class="row">
+      <img src="{{ page.image }}" class="img-responsive" alt="{{ page.title }}" width="100%">
+    </div>
+    <h1>{{ page.title }}</h1>
     <p class="blog-post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
       by
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">{{ page.author | default: site.data.author.name }}</span>
-      </span>
+      <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" class="img-thumbnail img-circle" width="50px">
+      <span>{{ site.data.author.name }}</span>
       {% include category_labels.html categories=page.categories %}
     </p>
   </header>
-  <div itemprop="articleBody">
-    {{ content }}
-  </div>
+  <div>{{ content }}</div>
 </article>
 <nav aria-label="...">
   <ul class="pager">
@@ -37,3 +37,38 @@ layout: default
     {% endif %}
   </ul>
 </nav>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url }}"
+  },
+  "name": "{{ page.title }}",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.excerpt | strip_html }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}{{ page.image }}",
+    "height": "200px",
+    "width": "800px"
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.data.author.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.data.author.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.data.author.image }}",
+      "height": "200px",
+      "width": "800px"
+    }
+  }
+}
+</script>

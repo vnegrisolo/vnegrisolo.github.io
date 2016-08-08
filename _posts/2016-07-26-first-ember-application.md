@@ -4,8 +4,8 @@ title:  "First Ember Application"
 date:   2016-07-26 12:00:00
 last_modified_at: 2016-07-26 12:00:00
 categories: ember
+image: /images/javascript.png
 ---
-
 **Ember JS** is a Javascript framework for ambitious Web Applications. This means that you can build **great applications**, with tons of **user interactions** in a very **efficient** way. In this post I'll tell how to create a simple EmberJS Web Application.
 
 ### Install Ember
