@@ -1,5 +1,21 @@
 <dl>
   {% for post in site.posts %}
-    {% include post_list_item.html post=post %}
+    {% if (page.category ==  null) or (post.categories contains page.category) %}
+      <dt>
+        <h3>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <span class="small">
+            {{ post.date | date: "%b %-d, %Y" }}
+            {% include category_labels.html categories=post.categories %}
+          </span>
+        </h3>
+      </dt>
+      <dd>
+        <blockquote class="small">
+          {{ post.excerpt }}
+          <a href="{{ post.url }}">See more ...</a>
+        </blockquote>
+      </dd>
+    {% endif %}
   {% endfor %}
 </dl>
