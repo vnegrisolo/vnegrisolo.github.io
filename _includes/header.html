@@ -16,4 +16,9 @@
       </ul>
     </div>
   </div>
+  {% if page.image %}
+    <div class="row">
+      <img src="{{ page.image }}" class="img-responsive pull-left" alt="{{ page.title }}" width="100%">
+    </div>
+  {% endif %}
 </nav>
