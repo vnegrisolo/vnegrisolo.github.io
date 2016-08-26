@@ -43,7 +43,7 @@ cd quickstart
 ember server
 ```
 
-This will create the project, access the project folder and then start Ember server. You can see your app at [http://localhost:4200/](http://localhost:4200/).
+This will create the project, access the project folder and then start Ember server. You can see your app at `http://localhost:4200/`.
 
 ### Ember Concepts
 
@@ -104,7 +104,7 @@ Finally show it in the template:
 ```
 {% endraw %}
 
-Go to [http://localhost:4200/hello](http://localhost:4200/hello) and check you first Ember Route and Template.
+Go to `http://localhost:4200/hello` and check you first Ember Route and Template.
 
 ### Testing your App
 
@@ -137,7 +137,7 @@ test('visiting /hello', function(assert) {
 });
 ```
 
-It's time to check if your tests are passing at [http://localhost:4200/tests](http://localhost:4200/tests)
+It's time to check if your tests are passing at `http://localhost:4200/tests`
 
 ### Conclusion
 
