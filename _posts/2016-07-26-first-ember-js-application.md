@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "First Ember Application"
+title:  "First Ember JS Application"
 date:   2016-07-26 12:00:00
 last_modified_at: 2016-07-26 12:00:00
 categories: ember

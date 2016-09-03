@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "DSL for API calls"
+title:  "DSL for Rails API calls"
 date:   2016-07-12 12:00:00
 last_modified_at: 2016-08-05 12:00:00
 categories: rails
