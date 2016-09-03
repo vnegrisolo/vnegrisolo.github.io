@@ -1,11 +1,11 @@
-email:
-  link: mailto:vinicius.negrisolo@gmail.com
-  name: vinicius.negrisolo@gmail.com
-  icon: envelope
 github:
   link: https://github.com/vnegrisolo
   name: vnegrisolo
   icon: github
+gist:
+  link: https://gist.github.com/vnegrisolo
+  name: gist:vnegrisolo
+  icon: github-alt
 twitter:
   link: https://twitter.com/vfnegrisolo
   name: '@vfnegrisolo'

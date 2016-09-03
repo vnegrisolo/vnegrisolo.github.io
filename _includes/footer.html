@@ -3,10 +3,14 @@
     <div class="col-md-10">
       <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" height="80" width="80" class="img-responsive img-thumbnail pull-left">
       <ul class="list-unstyled">
-        <li>{% include social_link.html social="email" %}</li>
-        <li>{% include social_link.html social="linkedin" %}</li>
-        <li>{% include social_link.html social="github" %}</li>
-        <li>{% include social_link.html social="twitter" %}</li>
+        {% for social in site.data.social %}
+          <li>
+            <a href="{{ social.last.link }}">
+              <i class="fa fa-{{ social.last.icon }} fa-lg" aria-hidden="true" title="{{ social.first }}"></i>
+              <span>{{ social.last.name }}</span>
+            </a>
+          </li>
+        {% endfor %}
       </ul>
     </div>
     <div class="col-md-2">
