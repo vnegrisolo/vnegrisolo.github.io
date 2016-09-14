@@ -3,6 +3,9 @@
   {% include head.html %}
   <body>
     {% include header.html %}
+    {% if page.image %}
+      <img src="{{ page.image }}" class="img-responsive image-top" alt="{{ page.title }}">
+    {% endif %}
     <div class="row">
       <div class="container">
         {{ content }}

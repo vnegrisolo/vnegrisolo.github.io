@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,13 +12,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ '/' }}">Blog</a></li>
+        {% for category in site.categories %}
+          <li><a href="/{{ category.first }}/">{{ category.first }}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>
-  {% if page.image %}
-    <div class="row">
-      <img src="{{ page.image }}" class="img-responsive pull-left" alt="{{ page.title }}" width="100%">
-    </div>
-  {% endif %}
 </nav>

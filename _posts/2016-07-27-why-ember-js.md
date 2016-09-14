@@ -4,7 +4,7 @@ title:  "Why Ember JS"
 date:   2016-07-27 12:00:00
 last_modified_at: 2016-07-27 12:00:00
 categories: ember
-image: /images/javascript.png
+image: /images/sunset-1800x400.jpg
 ---
 Ember is a **light**, **flexible**, **efficient** and **very powerful** javascript framework for very **Ambitious** web applications. In this post I write about the greatness of Ember, why I like it, some myths and also its problems. This is an opinionated post.
 

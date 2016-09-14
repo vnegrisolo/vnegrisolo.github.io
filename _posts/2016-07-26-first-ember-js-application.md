@@ -4,7 +4,7 @@ title:  "First Ember JS Application"
 date:   2016-07-26 12:00:00
 last_modified_at: 2016-07-26 12:00:00
 categories: ember
-image: /images/javascript.png
+image: /images/coffee-1800x400.jpg
 ---
 **Ember JS** is a Javascript framework for ambitious Web Applications. This means that you can build **great applications**, with tons of **user interactions** in a very **efficient** way. In this post I'll tell how to create a simple EmberJS Web Application.
 
@@ -59,7 +59,7 @@ Finally a **Template** related to its Route is called and rendered using [handle
 
 As I said **Routes** and **Templates** are related to the uri, but sometimes there are some logic and templates that could be reused. To do that you might need to use a **Component**. A **Component** can have both a component class to fetch some data from the server and also it's template. **Components** are not stick to the uri.
 
-<img src="/images/ember-core-concepts.png" class="img-responsive" alt="Ember Core Concepts">
+<img src="/images/posts/ember-core-concepts.png" class="img-responsive" alt="Ember Core Concepts">
 
 ### Generating some code
 
