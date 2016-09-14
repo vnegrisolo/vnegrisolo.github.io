@@ -6,11 +6,12 @@ last_modified_at: 2016-07-25 12:00:00
 categories: rails
 image: /images/spoon-1800x400.jpg
 ---
+
 There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my prefered way using what Rails has to offer with `config_for`.
 
 ### Organization
 
-Rails has a helper method to load a configuration file and it's very easy to use it: [config_for](http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for):
+Rails has a helper method to load a configuration file and it's very easy to use it: [config_for][]:
 
 ```ruby
 # path: config/application.rb
@@ -60,7 +61,7 @@ database:
 
 The main goal is to **never publish** a credential by obviously security reasons. That's why we use **environment variables** and then this kind of configuration goes to *Heroku* dashboard or inside `/etc/environment` file.
 
-Locally I like to use the gem [dotenv](https://github.com/bkeepers/dotenv) always taking care to never commit a private secret. I usually install `dotenv` this way:
+Locally I like to use the gem [dotenv][] always taking care to never commit a private secret. I usually install `dotenv` this way:
 
 ```shell
 echo "gem 'dotenv-rails', groups: [:development, :test]" >> Gemfile;
@@ -83,4 +84,9 @@ The usage of Rails `config_for` simplifies the organization of application confi
 
 Additionally, the usage of `.env.sample` and the gem **dotenv** helps a new developer to find out what's needed to configure locally for starting to work on the project.
 
-Finally we can discard to add more dependencies to the project such as [figaro](https://github.com/laserlemon/figaro) or [settingslogic](https://github.com/settingslogic/settingslogic) because they just try to solve the same problems and then let the project with less dependencies.
+Finally we can discard to add more dependencies to the project such as [figaro][] or [settingslogic][] because they just try to solve the same problems and then let the project with less dependencies.
+
+[config_for]: http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for
+[dotenv]: https://github.com/bkeepers/dotenv
+[figaro]: https://github.com/laserlemon/figaro
+[settingslogic]: https://github.com/settingslogic/settingslogic
