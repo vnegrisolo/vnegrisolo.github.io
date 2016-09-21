@@ -1,6 +1,6 @@
 <div class="list-group">
   {% for category in site.categories %}
-    <a href="/{{ category.first }}/" class="list-group-item">
+    <a href="/{{ category.first }}/" class="list-group-item {% if page.category == category.first %}active{% endif %}">
       {{ category.first }}
       <span class="badge">{{ category.last | size }}</span>
     </a>
