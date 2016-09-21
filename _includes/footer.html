@@ -5,7 +5,7 @@
       <ul class="list-unstyled">
         {% for social in site.data.social %}
           <li>
-            <a href="{{ social.last.link }}">
+            <a href="{{ social.last.link }}" rel="nofollow">
               <i class="fa fa-{{ social.last.icon }} fa-lg" aria-hidden="true" title="{{ social.first }}"></i>
               <span>{{ social.last.name }}</span>
             </a>

@@ -87,6 +87,10 @@ Additionally, the usage of `.env.sample` and the gem **dotenv** helps a new deve
 Finally we can discard to add more dependencies to the project such as [figaro] or [settingslogic] because they just try to solve the same problems and then let the project with less dependencies.
 
 [config_for]:    http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for
+{:rel="nofollow"}
 [dotenv]:        https://github.com/bkeepers/dotenv
+{:rel="nofollow"}
 [figaro]:        https://github.com/laserlemon/figaro
+{:rel="nofollow"}
 [settingslogic]: https://github.com/settingslogic/settingslogic
+{:rel="nofollow"}
