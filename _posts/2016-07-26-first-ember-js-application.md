@@ -10,9 +10,9 @@ image: /images/coffee-1800x400.jpg
 
 ## Install Ember
 
-[Ember][ember] uses NodeJs and its [npm][] (node package manager) to manage some of dependencies, including Ember itself.
+[Ember][ember] uses NodeJs and its [npm] (node package manager) to manage some of dependencies, including Ember itself.
 
-It also depends on [bower][] to be installed. So make sure you have all of them installed initially:
+It also depends on [bower] to be installed. So make sure you have all of them installed initially:
 
 ```shell
 node -v
@@ -55,11 +55,11 @@ In a specific **Route** you can fetch data from the server based on uri and quer
 
 A **Controller** can do the same as the Route and it's being discontinued by the Ember community, so please **don't use Controllers**. You can just ignore them when creating a new app, but if you are working in a legacy Ember app you need to know that Controllers in Ember are **Singletons**. So it will keep a state in it. This could cause some weird behavior or bugs.
 
-Finally a **Template** related to its Route is called and rendered using [handlebars][] for basic conditionals, loops and variable outputs.
+Finally a **Template** related to its Route is called and rendered using [handlebars] for basic conditionals, loops and variable outputs.
 
 As I said **Routes** and **Templates** are related to the uri, but sometimes there are some logic and templates that could be reused. To do that you might need to use a **Component**. A **Component** can have both a component class to fetch some data from the server and also it's template. **Components** are not stick to the uri.
 
-<img src="/images/posts/ember-core-concepts.png" class="img-responsive" alt="Ember Core Concepts">
+![ember-core]
 
 ## Generating some code
 
@@ -143,7 +143,9 @@ It's time to check if your tests are passing at `http://localhost:4200/tests`
 
 Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the **core concepts** of Ember. Also use Ember **generators** and other **ember-cli tools** to gain speed on development and use **tests** as the best friend you can have when coding. You'll find yourself as an Ember developer in a blink. Good luck!
 
-[ember]: http://emberjs.com/
-[npm]: https://www.npmjs.com/
-[bower]: https://bower.io/
+[ember]:      http://emberjs.com/
+[npm]:        https://www.npmjs.com/
+[bower]:      https://bower.io/
 [handlebars]: http://handlebarsjs.com/
+[ember-core]: /images/posts/ember-core-concepts.png
+{: .img-responsive width="90%"}

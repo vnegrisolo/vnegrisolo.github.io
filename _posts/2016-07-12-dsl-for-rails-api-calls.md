@@ -10,7 +10,7 @@ My goal is to encapsulate a API with service classes using a DSL similar to `Act
 
 ## Motivation
 
-The gem [faraday][] is well known and used by Ruby on Rails community. However, for every request it's necessary to define **all parameters again**. I would like to use default values and override them if needed.
+The gem [faraday] is well known and used by Ruby on Rails community. However, for every request it's necessary to define **all parameters again**. I would like to use default values and override them if needed.
 
 The DSL offered by the gem `faraday` it's a little bit inconsistent. Some `request` attributes are defined via **regular** methods and other via **setters** methods, such as in the folllowing example:
 
@@ -159,5 +159,6 @@ A `Api` Class allowed us the reuse of well spread patterns into Rails community,
 
 All these brings more agility on application development and maintenance, because new developers understand the project faster.
 
-[faraday]: https://github.com/lostisland/faraday
+[faraday]:         https://github.com/lostisland/faraday
 [configure-rails]: /rails/configuring-rails-app
+*[DSL]: Domain Specific Language

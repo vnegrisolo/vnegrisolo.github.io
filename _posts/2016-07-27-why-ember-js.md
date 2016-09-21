@@ -63,7 +63,7 @@ Developers just need to work with models. Serialization is handled by the framew
 
 SPA stands for **Single Page Application** and it means that all necessary code (HTML, Javascript, CSS) will be loaded at once in a single page load. After that the flow is controlled by the Javascript, in this case by Ember. And then Ember exchange data with the server using Ajax calls.
 
-This myth is based on the default way of Ember to work. Without any configuration Ember will append it's controls to `body` of the html response and then take care about the user flow. So if you have a legacy application and wants to add a small Ember piece of code you can [configure][] your app to just take care of an specific element instead of `body`:
+This myth is based on the default way of Ember to work. Without any configuration Ember will append it's controls to `body` of the html response and then take care about the user flow. So if you have a legacy application and wants to add a small Ember piece of code you can [configure] your app to just take care of an specific element instead of `body`:
 
 {: data-path="app/app.js"}
 ```javascript
@@ -96,7 +96,7 @@ Ember.Router.extend({
 
 Ember uses [QUnit][qunit] for tests. I wrote a very simple acceptance test [First Ember JS Application][first-ember-app] and you can see the power of testing inside the user perspective, following its clicks and asserting from html generated.
 
-Another great library, non built-in, but used by most of Ember applications is [ember-cli-mirage][]. This library is used to mock the server responses, it keeps an in-memory database, it comes with **factories**, etc. It's usually used on the tests, but can also be used in development environment.
+Another great library, non built-in, but used by most of Ember applications is [ember-cli-mirage]. This library is used to mock the server responses, it keeps an in-memory database, it comes with **factories**, etc. It's usually used on the tests, but can also be used in development environment.
 
 Write tests in Ember is so cheap, so easy to maintain and `ember-cli-mirage` has a great importance in that.
 
@@ -106,7 +106,7 @@ The first of all, Ember is **fast** and it has to be said. Ember had some proble
 
 Anyway, there's a big promising project [glimmer 2][glimmer-2] that seems to solve all performance issues in rendering for good. This project was inspired by React's Virtual DOM and uses a Stream Tree to identify and apply the changes in the DOM. The results were so good that they added into Ember `2.9.0-alpha.1`, so it will be part of Ember soon.
 
-Another performance issue is related to the first load time. Again there's a promising project to solve this problem: [fastboot][]. **Fastboot** is a server side Ember application provided by **NodeJS** and it retrieves a ready html when the application is loaded for the first time.
+Another performance issue is related to the first load time. Again there's a promising project to solve this problem: [fastboot]. **Fastboot** is a server side Ember application provided by **NodeJS** and it retrieves a ready html when the application is loaded for the first time.
 
 ## Problem 2: Ember doesn't work with SEO
 
@@ -118,12 +118,15 @@ So **Fastboot** solves two problems at once (performance on first load and SEO) 
 
 In a nutshell: **Ember is great!** The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.
 
-[broccoli]: https://github.com/broccolijs/broccoli
-[babel]: https://babeljs.io/
-[ember-observer]: https://emberobserver.com/
-[configure]: https://guides.emberjs.com/v2.7.0/configuring-ember/embedding-applications/
-[qunit]: https://qunitjs.com/
-[first-ember-app]: /ember/first-ember-application#testing-your-app
+[broccoli]:         https://github.com/broccolijs/broccoli
+[babel]:            https://babeljs.io/
+[ember-observer]:   https://emberobserver.com/
+[configure]:        https://guides.emberjs.com/v2.7.0/configuring-ember/embedding-applications/
+[qunit]:            https://qunitjs.com/
+[first-ember-app]:  /ember/first-ember-application#testing-your-app
 [ember-cli-mirage]: http://www.ember-cli-mirage.com/
-[glimmer-2]: https://github.com/tildeio/glimmer
-[fastboot]: https://github.com/ember-fastboot/fastboot
+[glimmer-2]:        https://github.com/tildeio/glimmer
+[fastboot]:         https://github.com/ember-fastboot/fastboot
+*[DOM]: Document Object Model
+*[SPA]: Single Page Application
+*[SEO]: Search Engine Optimization
