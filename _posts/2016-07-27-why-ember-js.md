@@ -8,11 +8,11 @@ image: /images/sunset-1800x400.jpg
 ---
 Ember is a **light**, **flexible**, **efficient** and **very powerful** javascript framework for very **Ambitious** web applications. In this post I write about the greatness of Ember, why I like it, some myths and also its problems. This is an opinionated post.
 
-### Convention over Configuration
+## Convention over Configuration
 
 Ember was built with an amazing concept, strongly implemented in the Rails community: **Convention over Configuration**. This means that there are some patterns to follow that the application relies on. These patterns are so well spread that developers move from projects and start to produce very fast.
 
-### Ember Tooling
+## Ember Tooling
 
 To start with let's start with tooling. Ember comes with `ember-cli` that is a **command line toolset** for Ember. With `ember-cli` your project a lot of integrations for free.
 
@@ -32,12 +32,12 @@ The last great point of tooling is **generators**. Ember comes with a lot of cod
 ember help generate
 ```
 
-### Router => The Best of Ember
+## Router => The Best of Ember
 
 The Ember **Router** is responsible for handling the current URL and map it to one or more **Route**. It uses the basic concept of nested resources that URL give to us through its folder structure and all **Routes** and **Templates** follow the same structure. The code becomes well segmented by the uri structure. Also developers know exactly which file the code will be. Here's an example:
 
+{: data-path="app/router.js"}
 ```javascript
-// path: app/router.js
 Router.map(function() {
   this.route("photo", { path: "photo/:id" }, function() {
     this.route("comment", { path: "comment/:id" });
@@ -49,7 +49,7 @@ Ember changes the url in the browser for every transition and it does that using
 
 Additionally to that Ember will load correctly all the application when a full page refresh is required by the user, or when it shares a url with other user. So it's kind of having the benefits os a regular server application, but all made in the browser, just hitting the user to get data through ajax.
 
-### Json API Adapter => ember-data
+## Json API Adapter => ember-data
 
 As I said before data communication between browser and server is made by Ajax calls through `ember-data`. It's a kind of ORM (object-relational mapping) over HTTP. It's built in with Ember Applications already so you don't need to install it or configure it to start to use.
 
@@ -59,14 +59,14 @@ Following a convention like **JsonAPI** is good start point for modeling data be
 
 Developers just need to work with models. Serialization is handled by the framework. This is a really big deal. Let's worry with stuff that matters for the product.
 
-### Myth: Ember is used just for SPA => **False**
+## Myth: Ember is used just for SPA => **False**
 
 SPA stands for **Single Page Application** and it means that all necessary code (HTML, Javascript, CSS) will be loaded at once in a single page load. After that the flow is controlled by the Javascript, in this case by Ember. And then Ember exchange data with the server using Ajax calls.
 
 This myth is based on the default way of Ember to work. Without any configuration Ember will append it's controls to `body` of the html response and then take care about the user flow. So if you have a legacy application and wants to add a small Ember piece of code you can [configure][] your app to just take care of an specific element instead of `body`:
 
+{: data-path="app/app.js"}
 ```javascript
-// path: app/app.js
 export default Ember.Application.extend({
   rootElement: '#app'
 });
@@ -76,8 +76,8 @@ This way you can have more than one Ember App per page and other javascript fram
 
 You may need to prevent url changes by Ember:
 
+{: data-path="config/environment.js"}
 ```javascript
-// path: config/environment.js
 var ENV = {
   locationType: 'none'
 };
@@ -85,14 +85,14 @@ var ENV = {
 
 Finally you can restrict Ember to handle specific uri:
 
+{: data-path="app/router.js"}
 ```javascript
-// path: app/router.js
 Ember.Router.extend({
   rootURL: '/blog/'
 });
 ```
 
-### Testing
+## Testing
 
 Ember uses [QUnit][qunit] for tests. I wrote a very simple acceptance test [First Ember JS Application][first-ember-app] and you can see the power of testing inside the user perspective, following its clicks and asserting from html generated.
 
@@ -100,7 +100,7 @@ Another great library, non built-in, but used by most of Ember applications is [
 
 Write tests in Ember is so cheap, so easy to maintain and `ember-cli-mirage` has a great importance in that.
 
-### Problem 1: Ember is slow => **False**
+## Problem 1: Ember is slow => **False**
 
 The first of all, Ember is **fast** and it has to be said. Ember had some problems in the past when re-rendering big lists. A lot of issues were created to improve performance.
 
@@ -108,13 +108,13 @@ Anyway, there's a big promising project [glimmer 2][glimmer-2] that seems to sol
 
 Another performance issue is related to the first load time. Again there's a promising project to solve this problem: [fastboot][]. **Fastboot** is a server side Ember application provided by **NodeJS** and it retrieves a ready html when the application is loaded for the first time.
 
-### Problem 2: Ember doesn't work with SEO
+## Problem 2: Ember doesn't work with SEO
 
 Ember isn't great with SEO (search engine optimization). The truth is that there are some applications that don't care about SEO, but some does, so this is a big issue. This seems to be an issue with search engine crawlers and javascript. Anyway we need to solve that. And the solution here is again **Fastboot** project.
 
 So **Fastboot** solves two problems at once (performance on first load and SEO) by rendering in the server side, so the crawler can index the full page.
 
-### Conclusion
+## Conclusion
 
 In a nutshell: **Ember is great!** The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.
 

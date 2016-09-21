@@ -1,15 +1,18 @@
-$('div.highlighter-rouge').map(function(){
-  var codeSnippet = $(this);
-  var language = codeSnippet.attr('class').match(/language-(\S+)/)[1];
-
-  var firstCodeLine = codeSnippet.find('code span:first');
-  var match = firstCodeLine.text().match(/path: (\S*)/);
-
-  var header = $('<div />', { 'class': 'header small' });
-  header.attr('data-language', language);
-  if(match) {
-    header.attr('data-path', match[1]);
-    firstCodeLine.hide();
+SyntaxHighlight = {
+  buildHeader: function(lang, path){
+    return $('<div />', {
+      'class': 'header small',
+      'data-lang': lang,
+      'data-path': path
+    });
   }
-  codeSnippet.prepend(header);
+}
+
+$('div.highlighter-rouge').map(function(){
+  var el = $(this);
+  var lang = el.attr('class').match(/language-(\S+)/)[1];
+  var path = el.data('path');
+  var header = SyntaxHighlight.buildHeader(lang, path);
+
+  el.prepend(header);
 });

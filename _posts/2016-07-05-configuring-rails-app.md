@@ -9,12 +9,12 @@ image: /images/spoon-1800x400.jpg
 
 There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my prefered way using what Rails has to offer with `config_for`.
 
-### Organization
+## Organization
 
 Rails has a helper method to load a configuration file and it's very easy to use it: [config_for][]:
 
+{: data-path="config/application.rb"}
 ```ruby
-# path: config/application.rb
 module MyRailsApp
   class Application < Rails::Application
     config.github = config_for(:github)
@@ -24,12 +24,12 @@ end
 
 This way there's no need to keep just one `application.yml` configuration file with **all** that the application needs. That's why I group configurations by some **external dependency** or by some **specific subject**.
 
-### Format
+## Format
 
 In short, my prefered format is `yml`, such as in this example:
 
+{: data-path="config/github.yml"}
 ```yml
-# path: config/github.yml
 development: &development
   api_url: https://api.github.com
   client_id: my-public-client-id
@@ -46,7 +46,7 @@ production:
   <<: *development
 ```
 
-### Environments
+## Environments
 
 In that example the configuration file `config/github.yml` use the **environments** as **root keys**. This way the default values are set in the `development` key and all environments **inherit** from `development`. Also we can redefine environment specific values as, in this case, `client_id` for *staging*.
 
@@ -57,7 +57,7 @@ database:
   user: <%= ENV['DB_USER'] || 'admin' %>
 ```
 
-### Credentials
+## Credentials
 
 The main goal is to **never publish** a credential by obviously security reasons. That's why we use **environment variables** and then this kind of configuration goes to *Heroku* dashboard or inside `/etc/environment` file.
 
@@ -70,7 +70,7 @@ touch .env{,.sample};
 echo ".env" >> .gitignore;
 ```
 
-### Configurations Usage
+## Configurations Usage
 
 In order to use the configurations you just access `Rails.configuration`:
 
@@ -78,7 +78,7 @@ In order to use the configurations you just access `Rails.configuration`:
 url = Rails.configuration.github['api_url']
 ```
 
-### Conclusion
+## Conclusion
 
 The usage of Rails `config_for` simplifies the organization of application configuration. Then all variables are hold into specific files and you never will use an environment variable inside the code anymore.
 

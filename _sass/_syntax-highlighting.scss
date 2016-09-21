@@ -11,17 +11,18 @@ div.highlighter-rouge {
     }
 
     &:after {
-      content: attr(data-language);
+      content: attr(data-lang);
       padding: 0 0.6em;
       float: right;
       border-radius: 8px;
     }
 
-    &[data-language="ruby"]:after       { background-color: $red; }
-    &[data-language="yml"]:after        { background-color: $violet; }
-    &[data-language="shell"]:after      { background-color: $green; }
-    &[data-language="javascript"]:after { background-color: $yellow; }
-    &[data-language="handlebars"]:after { background-color: $orange; }
+    &[data-lang="handlebars"]:after { background-color: $orange; }
+    &[data-lang="javascript"]:after { background-color: $yellow; }
+    &[data-lang="json"]:after       { background-color: $blue; }
+    &[data-lang="ruby"]:after       { background-color: $red; }
+    &[data-lang="shell"]:after      { background-color: $green; }
+    &[data-lang="yml"]:after        { background-color: $violet; }
   }
 
   pre {

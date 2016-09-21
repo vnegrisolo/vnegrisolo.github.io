@@ -8,7 +8,7 @@ image: /images/coffee-1800x400.jpg
 ---
 **Ember JS** is a Javascript framework for ambitious Web Applications. This means that you can build **great applications**, with tons of **user interactions** in a very **efficient** way. In this post I'll tell how to create a simple EmberJS Web Application.
 
-### Install Ember
+## Install Ember
 
 [Ember][ember] uses NodeJs and its [npm][] (node package manager) to manage some of dependencies, including Ember itself.
 
@@ -33,7 +33,7 @@ ember -v
 # => os: darwin x64
 ```
 
-### Create an Ember project
+## Create an Ember project
 
 For creating an Ember project with the name `quickstart`:
 
@@ -45,7 +45,7 @@ ember server
 
 This will create the project, access the project folder and then start Ember server. You can see your app at `http://localhost:4200/`.
 
-### Ember Concepts
+## Ember Concepts
 
 The main goal when building an Ember app is to understand the user interface you want to build. In a uri perspective, all folder structure represents a nested resource. Ember uses that to organize **Routes** and **Templates**. Here it is a simple description of Ember Classes:
 
@@ -61,7 +61,7 @@ As I said **Routes** and **Templates** are related to the uri, but sometimes the
 
 <img src="/images/posts/ember-core-concepts.png" class="img-responsive" alt="Ember Core Concepts">
 
-### Generating some code
+## Generating some code
 
 The easiest and fastest way to create your code in Ember is to use ember-cli generators. Run the following to know all generators available:
 
@@ -84,8 +84,8 @@ ember generate route hello
 
 Add a model that just return a string:
 
+{: data-path="app/routes/hello.js"}
 ```javascript
-// path: app/routes/hello.js
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -98,15 +98,15 @@ export default Ember.Route.extend({
 Finally show it in the template:
 
 {% raw %}
+{: data-path="app/templates/hello.hbs"}
 ```handlebars
-<!-- path: app/templates/hello.hbs -->
 <div class="greeting">Hello {{model}}!</div>
 ```
 {% endraw %}
 
 Go to `http://localhost:4200/hello` and check you first Ember Route and Template.
 
-### Testing your App
+## Testing your App
 
 Let's create an **Acceptance Test** in order to test the app in the User's perspective:
 
@@ -118,8 +118,8 @@ ember generate acceptance-test hello
 
 This is a simple and straightforward test that verifies the **current url** and the **content** produced when the user hits `/hello` page:
 
+{: data-path="tests/acceptance/hello-test.js"}
 ```javascript
-// path: tests/acceptance/hello-test.js
 import { test } from 'qunit';
 import moduleForAcceptance from 'ember-quickstart/tests/helpers/module-for-acceptance';
 
@@ -139,7 +139,7 @@ test('visiting /hello', function(assert) {
 
 It's time to check if your tests are passing at `http://localhost:4200/tests`
 
-### Conclusion
+## Conclusion
 
 Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the **core concepts** of Ember. Also use Ember **generators** and other **ember-cli tools** to gain speed on development and use **tests** as the best friend you can have when coding. You'll find yourself as an Ember developer in a blink. Good luck!
 
