@@ -123,7 +123,7 @@ In a nutshell: **Ember is great!** The community has built great tools and libra
 [ember-observer]:   https://emberobserver.com/
 [configure]:        https://guides.emberjs.com/v2.7.0/configuring-ember/embedding-applications/
 [qunit]:            https://qunitjs.com/
-[first-ember-app]:  /ember/first-ember-application#testing-your-app
+[first-ember-app]:  /ember/first-ember-js-application#testing-your-app
 [ember-cli-mirage]: http://www.ember-cli-mirage.com/
 [glimmer-2]:        https://github.com/tildeio/glimmer
 [fastboot]:         https://github.com/ember-fastboot/fastboot
