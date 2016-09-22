@@ -5,11 +5,6 @@ div.highlighter-rouge {
     padding: 0.3em 0.8em;
     border-radius: 4px 4px 0 0;
 
-    &:before {
-      content: attr(data-path);
-      padding: 0.1em;
-    }
-
     &:after {
       content: attr(data-lang);
       padding: 0 0.6em;
