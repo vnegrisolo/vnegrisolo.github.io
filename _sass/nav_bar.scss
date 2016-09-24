@@ -1,10 +1,9 @@
 nav.navbar {
-  background-color: $color_bg_nav_bar;
   border-radius: 0;
   min-height: $height_nav_bar;
 
   a {
-    color: $color_link_nav_bar;
+    color: $color_text_inverse;
     letter-spacing: 2px;
     line-height: $height_nav_bar - 30px;
     text-transform: uppercase;
@@ -19,21 +18,18 @@ nav.navbar {
   li a {
     font-weight: 400;
   }
-  li.active a {
-    color: $color_link_nav_bar_active;
+  li.active a, li:hover a {
+    background-color: $color_text_inverse;
+    color: $color_bg_inverse;
     font-weight: 800;
-  }
-  li:hover a {
-    background-color: $color_bg_nav_bar;
-    color: $color_link_nav_bar_active;
   }
 
   .navbar-toggle {
-    border-color: $color_link_nav_bar;
+    border-color: $color_text_inverse;
     margin: ($height_nav_bar - 34px)/2;
-  }
 
-  .navbar-toggle .icon-bar {
-    background-color: $color_link_nav_bar;
+    .icon-bar {
+      background-color: $color_text_inverse;
+    }
   }
 }

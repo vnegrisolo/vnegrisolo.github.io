@@ -1,0 +1,14 @@
+footer {
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  img.img-thumbnail {
+    margin-right: 15px;
+    background-color: $color_text_inverse;
+    border-color: $color_text_inverse;
+  }
+
+  ul li {
+    padding-bottom: 5px;
+  }
+}

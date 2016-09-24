@@ -1,19 +1,31 @@
 body {
-  background-color: $bg-color;
-  color: $text-color;
+  background-color: $color_bg;
+  color: $color_text;
   font-family: $base-font-family;
   font-size: $base-font-size;
   padding-top: $height_nav_bar;
 }
 
-footer {
-  background-color: $footer-bg-color;
-  padding-top: 3em;
-  padding-bottom: 3em;
+a, a:hover {
+  color: $color_link;
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: 600;
 }
 
 i.fa {
-  color: $icon-color;
+  color: $gray1;
+}
+
+.inverse {
+  background-color: $color_bg_inverse;
+  color: $color_text_inverse;
+
+  i.fa {
+    color: $gray4;
+  }
 }
 
 .image-top {
