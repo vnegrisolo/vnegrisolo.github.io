@@ -1,7 +1,7 @@
 div.highlighter-rouge {
   .header {
-    color: $base2;
-    background-color: $base03;
+    color: $light1;
+    background-color: $dark1;
     padding: 0.3em 0.8em;
     border-radius: 4px 4px 0 0;
 
@@ -21,32 +21,32 @@ div.highlighter-rouge {
   }
 
   pre {
-    color: $base1;
-    background-color: $base02;
+    color: $gray4;
+    background-color: $dark2;
     padding: 0.1em 1em 1em 1em;
     border: 0;
     border-radius: 0 0 4px 4px;
 
-    .bp  { color: $base1; }
-    .c   { color: $base01; font-style: italic; }
-    .c1  { color: $base01; font-style: italic; }
-    .cm  { color: $base01; font-style: italic; }
+    .bp  { color: $gray4; }
+    .c   { color: $gray1; font-style: italic; }
+    .c1  { color: $gray1; font-style: italic; }
+    .cm  { color: $gray1; font-style: italic; }
     .cp  { color: #AAFFFF; font-style: italic; }
-    .cs  { color: $base01; font-style: italic; }
-    .err { color: $base1; }
-    .g   { color: $base1; }
+    .cs  { color: $gray1; font-style: italic; }
+    .err { color: $gray4; }
+    .g   { color: $gray4; }
     .gd  { color: #8a2be2; font-weight: bold; background-color: #008080 }
-    .ge  { color: $base1; }
+    .ge  { color: $gray4; }
     .gh  { color: #ff00ff; font-weight: bold; }
-    .gi  { color: $base1; font-weight: bold; background-color: #00008b }
+    .gi  { color: $gray4; font-weight: bold; background-color: #00008b }
     .go  { color: #404040; font-weight: bold; }
-    .gp  { color: $base1; }
-    .gr  { color: $base1; background-color: #c00000 }
-    .gs  { color: $base1; }
-    .gt  { color: $base1; background-color: #ff0000 }
+    .gp  { color: $gray4; }
+    .gr  { color: $gray4; background-color: #c00000 }
+    .gs  { color: $gray4; }
+    .gt  { color: $gray4; background-color: #ff0000 }
     .gu  { color: #ff00ff; font-weight: bold; }
     .hll { background-color: #ffffcc }
-    .il  { color: $base1; }
+    .il  { color: $gray4; }
     .k   { color: $green; }
     .kc  { color: $red; }
     .kd  { color: $yellow; }
@@ -54,32 +54,32 @@ div.highlighter-rouge {
     .kp  { color: $green; }
     .kr  { color: $orange; }
     .kt  { color: #AAAA77; }
-    .l   { color: $base1; }
-    .ld  { color: $base1; }
-    .m   { color: $base1; }
-    .mf  { color: $base1; }
-    .mh  { color: $base1; }
+    .l   { color: $gray4; }
+    .ld  { color: $gray4; }
+    .m   { color: $gray4; }
+    .mf  { color: $gray4; }
+    .mh  { color: $gray4; }
     .mi  { color: $cyan; }
-    .mo  { color: $base1; }
-    .n   { color: $base1; }
-    .na  { color: $base1; }
+    .mo  { color: $gray4; }
+    .n   { color: $gray4; }
+    .na  { color: $gray4; }
     .nb  { color: $green; }
     .nc  { color: $yellow; }
-    .nd  { color: $base1; }
-    .ne  { color: $base1; }
-    .nf  { color: $base1; }
+    .nd  { color: $gray4; }
+    .ne  { color: $gray4; }
+    .nf  { color: $gray4; }
     .ni  { color: #33AA00; }
     .nl  { color: $yellow; }
     .nn  { color: $yellow; }
     .no  { color: $yellow; }
     .nt  { color: $orange; }
     .nv  { color: $yellow; }
-    .nx  { color: $base1; }
+    .nx  { color: $gray4; }
     .o   { color: $red; }
-    .ow  { color: $base1; }
-    .p   { color: $base1; }
+    .ow  { color: $gray4; }
+    .p   { color: $gray4; }
     .pi  { color: $red; }
-    .py  { color: $base1; }
+    .py  { color: $gray4; }
     .s   { color: $blue; }
     .s1  { color: $cyan; }
     .s2  { color: $cyan; }
@@ -95,7 +95,7 @@ div.highlighter-rouge {
     .vc  { color: $yellow; }
     .vg  { color: $yellow; }
     .vi  { color: $blue; }
-    .w   { color: $base1; }
-    .x   { color: $base1; }
+    .w   { color: $gray4; }
+    .x   { color: $gray4; }
   }
 }

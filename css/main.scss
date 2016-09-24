@@ -3,14 +3,14 @@
 ---
 @charset "utf-8";
 
-$base03:  #002b36;
-$base02:  #073642;
-$base01:  #586e75;
-$base00:  #657b83;
-$base0:   #839496;
-$base1:   #93a1a1;
-$base2:   #eee8d5;
-$base3:   #fdf6e3;
+$dark1:   #002b36;
+$dark2:   #073642;
+$gray1:   #586e75;
+$gray2:   #657b83;
+$gray3:   #839496;
+$gray4:   #93a1a1;
+$light1:  #eee8d5;
+$light2:  #fdf6e3;
 $yellow:  #b58900;
 $orange:  #cb4b16;
 $red:     #dc322f;
@@ -23,8 +23,8 @@ $green:   #859900;
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size: 16px;
 
-$color_bg_nav_bar: $base03;
-$color_link_nav_bar: $base3;
+$color_bg_nav_bar: $dark1;
+$color_link_nav_bar: $light2;
 $color_link_nav_bar_active: $cyan;
 
 $height_nav_bar: 70px;
