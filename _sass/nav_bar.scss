@@ -6,17 +6,11 @@ nav.navbar {
     color: $color_text_inverse;
     letter-spacing: 2px;
     line-height: $height_nav_bar - 30px;
-    text-transform: uppercase;
   }
   a.navbar-brand {
-    font-weight: 200;
-
     img {
       margin-right: 15px;
     }
-  }
-  li a {
-    font-weight: 400;
   }
   li.active a, li:hover a {
     background-color: $color_text_inverse;

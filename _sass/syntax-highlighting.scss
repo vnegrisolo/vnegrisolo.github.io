@@ -1,4 +1,6 @@
 div.highlighter-rouge {
+  font-size: 0.9em;
+
   .header {
     color: $light1;
     background-color: $dark1;
@@ -21,6 +23,7 @@ div.highlighter-rouge {
   }
 
   pre {
+    font-size: 0.9em;
     color: $gray4;
     background-color: $dark2;
     padding: 0.1em 1em 1em 1em;

@@ -6,6 +6,11 @@ body {
   padding-top: $height_nav_bar;
 }
 
+p {
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 a, a:hover {
   color: $color_link;
   text-decoration: none;
@@ -31,4 +36,38 @@ i.fa {
 .image-top {
   width: 100%;
   max-height: 150px;
+}
+
+code {
+  background-color: $color_text_inverse;
+  color: $color_bg_inverse;
+}
+
+.light {
+  color: $color_text_inverse;
+}
+
+time {
+  font-style: italic;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.button {
+  border: 1px;
+  border-color: $color_bg_inverse;
+  border-radius: 0.5em;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-style: solid;
+  font-size: 0.7em;
+  padding: 5px;
+}
+
+.pager a {
+  margin: 1em;
 }

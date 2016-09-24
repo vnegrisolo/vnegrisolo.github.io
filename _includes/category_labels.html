@@ -1,5 +1,3 @@
 {% for category in include.categories %}
-  <a href="/{{ category }}/">
-    <span class="label label-default">{{ category }}</span>
-  </a>
+  <a href="/{{category}}/" class="button uppercase">{{category}}</a>
 {% endfor %}

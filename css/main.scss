@@ -34,6 +34,5 @@ $color_link: $cyan;
 $height_nav_bar: 70px;
 
 $text-color: #111111;
-$blog-post-meta-color: #999999;
 
-@import "base", "nav_bar", "footer", "blog-post", "syntax-highlighting", "bookmark-link";
+@import "base", "nav_bar", "footer", "syntax-highlighting", "bookmark-link";

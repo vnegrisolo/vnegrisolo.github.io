@@ -1,7 +1,7 @@
 SyntaxHighlight = {
   buildHeader: function(lang, path){
     return $('<div/>', {
-      'class': 'header small',
+      'class': 'header',
       'data-lang': lang
     }).prepend(path || '&nbsp;');
   }
