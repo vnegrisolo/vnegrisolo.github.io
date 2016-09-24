@@ -3,7 +3,7 @@ body {
   color: $text-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  padding-top: $header-height;
+  padding-top: $height_nav_bar;
 }
 
 footer {
@@ -14,11 +14,6 @@ footer {
 
 i.fa {
   color: $icon-color;
-}
-
-nav.navbar {
-  border-radius: 0;
-  min-height: $header-height;
 }
 
 .image-top {

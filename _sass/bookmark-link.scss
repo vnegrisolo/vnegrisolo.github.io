@@ -16,8 +16,8 @@ h1,h2,h3,h4,h5,h6 {
   &:before {
     display: block;
     content: " ";
-    margin-top: -($header-height + 5px);
-    height: ($header-height + 5px);
+    margin-top: -($height_nav_bar + 5px);
+    height: ($height_nav_bar + 5px);
     visibility: hidden;
   }
 }
