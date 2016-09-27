@@ -4,8 +4,10 @@
       <dt>
         <h3>
           <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="small">
-            {{ post.date | date: "%b %-d, %Y" }}
+          <span class="light small">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%b %-d, %Y" }}
+            </time>
             {% include category_labels.html categories=post.categories %}
           </span>
         </h3>
@@ -13,7 +15,6 @@
       <dd>
         <blockquote class="small">
           {{ post.excerpt }}
-          <a href="{{ post.url }}">See more ...</a>
         </blockquote>
       </dd>
     {% endif %}
