@@ -7,16 +7,17 @@ layout: default
     <p class="light small">
       <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" class="img-thumbnail img-circle" width="50px">
       <span>{{ site.data.author.name }}</span> |
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%b %-d, %Y" }}
-      </time>
+      {% include time.html date=page.date %}
       {% include category_labels.html categories=page.categories %}
     </p>
   </header>
   <div>{{ content }}</div>
 </article>
 
-{% include pager.html %}
+<hr>
+<h4>Read also:</h4>
+{% include post_list_item.html post=page.next %}
+{% include post_list_item.html post=page.previous %}
 
 <script type="application/ld+json">
 {

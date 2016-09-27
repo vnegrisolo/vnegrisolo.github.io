@@ -1,0 +1,12 @@
+{% assign post = include.post %}
+
+<dt>
+  <h3>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="light small">
+      {% include time.html date=post.date %}
+      {% include category_labels.html categories=post.categories %}
+    </span>
+  </h3>
+</dt>
+<dd><blockquote class="small">{{ post.excerpt }}</blockquote></dd>
