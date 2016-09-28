@@ -14,10 +14,7 @@ layout: default
   <div>{{ content }}</div>
 </article>
 
-<hr>
-<h4>Read also:</h4>
-{% include post_list_item.html post=page.next %}
-{% include post_list_item.html post=page.previous %}
+{% include pager.html %}
 
 <script type="application/ld+json">
 {
