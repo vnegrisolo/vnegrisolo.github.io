@@ -159,6 +159,5 @@ A `Api` Class allowed us the reuse of well spread patterns into Rails community,
 All these brings more agility on application development and maintenance, because new developers understand the project faster.
 
 [faraday]:         https://github.com/lostisland/faraday
-{:rel="nofollow"}
 [configure-rails]: /rails/configuring-rails-app
 *[DSL]: Domain Specific Language

@@ -143,12 +143,8 @@ It's time to check if your tests are passing at `http://localhost:4200/tests`
 Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the **core concepts** of Ember. Also use Ember **generators** and other **ember-cli tools** to gain speed on development and use **tests** as the best friend you can have when coding. You'll find yourself as an Ember developer in a blink. Good luck!
 
 [ember]:      http://emberjs.com/
-{:rel="nofollow"}
 [npm]:        https://www.npmjs.com/
-{:rel="nofollow"}
 [bower]:      https://bower.io/
-{:rel="nofollow"}
 [handlebars]: http://handlebarsjs.com/
-{:rel="nofollow"}
 [ember-core]: /images/posts/ember-core-concepts.png
 {: .img-responsive width="90%"}

@@ -119,21 +119,13 @@ In a nutshell: **Ember is great!** The community has built great tools and libra
 
 [first-ember-app]:  /ember/first-ember-js-application#testing-your-app
 [broccoli]:         https://github.com/broccolijs/broccoli
-{:rel="nofollow"}
 [babel]:            https://babeljs.io/
-{:rel="nofollow"}
 [ember-observer]:   https://emberobserver.com/
-{:rel="nofollow"}
 [configure]:        https://guides.emberjs.com/v2.7.0/configuring-ember/embedding-applications/
-{:rel="nofollow"}
 [qunit]:            https://qunitjs.com/
-{:rel="nofollow"}
 [ember-cli-mirage]: http://www.ember-cli-mirage.com/
-{:rel="nofollow"}
 [glimmer-2]:        https://github.com/tildeio/glimmer
-{:rel="nofollow"}
 [fastboot]:         https://github.com/ember-fastboot/fastboot
-{:rel="nofollow"}
 *[DOM]: Document Object Model
 *[SPA]: Single Page Application
 *[SEO]: Search Engine Optimization
