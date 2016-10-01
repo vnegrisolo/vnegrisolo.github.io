@@ -5,6 +5,7 @@ date:   2016-07-26 12:00:00
 last_modified_at: 2016-07-26 12:00:00
 categories: ember
 ---
+
 **Ember JS** is a Javascript framework for ambitious Web Applications. This means that you can build **great applications**, with tons of **user interactions** in a very **efficient** way. In this post I'll tell how to create a simple EmberJS Web Application.
 
 ## Install Ember
@@ -146,5 +147,5 @@ Ember is a powerful Javascript framework and yet very simple to start and mainta
 [npm]:        https://www.npmjs.com/
 [bower]:      https://bower.io/
 [handlebars]: http://handlebarsjs.com/
-[ember-core]: /images/posts/ember-core-concepts.png
+[ember-core]: /images/posts/ember-core-concepts.png 'Ember Core Concepts'
 {: .img-responsive width="90%"}

@@ -5,6 +5,7 @@ date:   2016-07-27 12:00:00
 last_modified_at: 2016-07-27 12:00:00
 categories: ember
 ---
+
 Ember is a **light**, **flexible**, **efficient** and **very powerful** javascript framework for very **Ambitious** web applications. In this post I write about the greatness of Ember, why I like it, some myths and also its problems. This is an opinionated post.
 
 ## Convention over Configuration
@@ -117,7 +118,7 @@ So **Fastboot** solves two problems at once (performance on first load and SEO) 
 
 In a nutshell: **Ember is great!** The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.
 
-[first-ember-app]:  /ember/first-ember-js-application#testing-your-app
+[first-ember-app]:  /ember/first-ember-js-application#testing-your-app 'First Ember JS Application'
 [broccoli]:         https://github.com/broccolijs/broccoli
 [babel]:            https://babeljs.io/
 [ember-observer]:   https://emberobserver.com/
@@ -126,6 +127,7 @@ In a nutshell: **Ember is great!** The community has built great tools and libra
 [ember-cli-mirage]: http://www.ember-cli-mirage.com/
 [glimmer-2]:        https://github.com/tildeio/glimmer
 [fastboot]:         https://github.com/ember-fastboot/fastboot
+
 *[DOM]: Document Object Model
 *[SPA]: Single Page Application
 *[SEO]: Search Engine Optimization

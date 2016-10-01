@@ -5,6 +5,7 @@ date:   2016-07-12 12:00:00
 last_modified_at: 2016-08-05 12:00:00
 categories: rails
 ---
+
 My goal is to encapsulate a API with service classes using a DSL similar to `ActiveRecord`. This way we can use methods like `where`, `find_by`, etc. In order to achieve that I created a class to abstract a **json API** using the gem **faraday** and the result is very cool.
 
 ## Motivation
@@ -159,5 +160,6 @@ A `Api` Class allowed us the reuse of well spread patterns into Rails community,
 All these brings more agility on application development and maintenance, because new developers understand the project faster.
 
 [faraday]:         https://github.com/lostisland/faraday
-[configure-rails]: /rails/configuring-rails-app
+[configure-rails]: /rails/configuring-rails-app 'Configuring a Rails App'
+
 *[DSL]: Domain Specific Language

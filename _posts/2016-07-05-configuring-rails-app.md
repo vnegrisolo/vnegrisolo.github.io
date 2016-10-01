@@ -29,20 +29,20 @@ In short, my prefered format is `yml`, such as in this example:
 
 {: data-path="config/github.yml"}
 ```yml
-development: &development
+default: &default
   api_url: https://api.github.com
   client_id: my-public-client-id
   client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
 
-test:
-  <<: *development
+development:
+  <<: *default
 
-staging:
-  <<: *development
-  client_id: my-public-sandbox-client-id
+test:
+  <<: *default
 
 production:
-  <<: *development
+  <<: *default
+  client_id: my-public-client-id-for-production
 ```
 
 ## Environments
