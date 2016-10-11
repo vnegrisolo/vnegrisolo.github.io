@@ -6,7 +6,7 @@ last_modified_at: 2016-07-25 12:00:00
 categories: rails
 ---
 
-There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my prefered way using what Rails has to offer with `config_for`.
+There are a lot to consider when configuring a Rails application, such as **variables organization**, **environments**, **security credentials**, etc. Among so many different ways to do that I'm going to show my preferred way using what Rails has to offer with `config_for`.
 
 ## Organization
 
@@ -25,7 +25,7 @@ This way there's no need to keep just one `application.yml` configuration file w
 
 ## Format
 
-In short, my prefered format is `yml`, such as in this example:
+In short, my preferred format is `yml`, such as in this example:
 
 {: data-path="config/github.yml"}
 ```yml

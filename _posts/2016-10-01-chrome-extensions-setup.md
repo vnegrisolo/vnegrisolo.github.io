@@ -4,10 +4,10 @@ title:  "Chrome Extensions - Part 1 - Setup"
 date:   2016-10-01 12:00:00
 last_modified_at: 2016-10-01 12:00:00
 categories: javascript
-tags: chrome-extension
+series: chrome-extension
 ---
 
-Here's a 1st/3 post regarding **Chrome Extension Development**, and for ilustrating I'll use my own [netflex] plugin as example. This is a powerful way to add features to the user for existing pages that you don't even have access to the code. It's crazy how many possible solutions you can come with.
+Here's a 1st/3 post regarding **Chrome Extension Development**, and for illustrating I'll use my own [netflex] plugin as example. This is a powerful way to add features to the user for existing pages that you don't even have access to the code. It's crazy how many possible solutions you can come up with.
 
 ## Chrome Extension
 
@@ -15,7 +15,7 @@ Chrome Extensions are **plugins** to be installed **specifically in Chrome** thr
 
 Developing a Chrome plugin is easy and here it is [chrome-extension] documentation. They are actually a bunch of **javascript/css/html** files packaged in **signed/zipped** one. Chrome also updates every installed plugin for the user if a new release comes in, super handy. Developers can also set a price for plugins and make some money with that 💰, or you can open the source code making it free for everybody and contribute to the community. 💸
 
-In fact Chrome Extensions are a simple way to interact with thrid part pages and add the features you think that should be there. That's why I started my [netflex] plugin and here is my final [netflex-code].
+In fact Chrome Extensions are a simple way to interact with third part pages and add the features you think that should be there. That's why I started my [netflex] plugin and here is my final [netflex-code].
 
 ## Setup
 

@@ -12,7 +12,7 @@ My goal is to encapsulate a API with service classes using a DSL similar to `Act
 
 The gem [faraday] is well known and used by Ruby on Rails community. However, for every request it's necessary to define **all parameters again**. I would like to use default values and override them if needed.
 
-The DSL offered by the gem `faraday` it's a little bit inconsistent. Some `request` attributes are defined via **regular** methods and other via **setters** methods, such as in the folllowing example:
+The DSL offered by the gem `faraday` it's a little bit inconsistent. Some `request` attributes are defined via **regular** methods and other via **setters** methods, such as in the following example:
 
 ```ruby
 request.url path
@@ -109,7 +109,7 @@ end
 
 ## `ApiError` Class
 
-Another responsability of `ApiResponse` class is to raise an `ApiError` in case of the API returns any error in its content.
+Another responsibility of `ApiResponse` class is to raise an `ApiError` in case of the API returns any error in its content.
 
 This treatment could be via **content** or via **http code**, etc.
 

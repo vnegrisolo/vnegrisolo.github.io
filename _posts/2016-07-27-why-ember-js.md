@@ -14,7 +14,7 @@ Ember was built with an amazing concept, strongly implemented in the Rails commu
 
 ## Ember Tooling
 
-To start with let's start with tooling. Ember comes with `ember-cli` that is a **command line toolset** for Ember. With `ember-cli` your project a lot of integrations for free.
+To start with let's start with tooling. Ember comes with `ember-cli` that is a **command line toolset** for Ember. With `ember-cli` your project a lot of integration for free.
 
 The first integration is with a very fast **asset pipeline**: [Broccoli][broccoli]. So if you want to use coffee script or another technology that requires some task on the build step you can do that with Broccoli.
 
@@ -47,7 +47,7 @@ Router.map(function() {
 
 Ember changes the url in the browser for every transition and it does that using HTML5 `pushstate`. This way when the user clicks a link handled by Ember, the **content** will change, the **url** will change, the url will be part of the browser **history**. All of this **without a full page refresh**.
 
-Additionally to that Ember will load correctly all the application when a full page refresh is required by the user, or when it shares a url with other user. So it's kind of having the benefits os a regular server application, but all made in the browser, just hitting the user to get data through ajax.
+Additionally to that Ember will load correctly all the application when a full page refresh is required by the user, or when it shares a url with other user. So it's kind of having the benefits of a regular server application, but all made in the browser, just hitting the user to get data through ajax.
 
 ## Json API Adapter => ember-data
 
