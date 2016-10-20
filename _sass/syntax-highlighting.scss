@@ -20,6 +20,7 @@
     }
 
     &[data-lang="handlebars"]:after { background-color: $orange; }
+    &[data-lang="html"]:after       { background-color: $magenta; }
     &[data-lang="javascript"]:after { background-color: $yellow; }
     &[data-lang="json"]:after       { background-color: $blue; }
     &[data-lang="ruby"]:after       { background-color: $red; }
