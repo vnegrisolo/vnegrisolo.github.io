@@ -17,9 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         {% assign pageCategory = page.category | default: page.categories.first %}
         {% for category in site.categories %}
-          <li class="{% if pageCategory == category.first %}active{% endif %}">
-            <a href="/{{ category.first }}/">{{ category.first }}</a>
-          </li>
+          {% include header_link.html uri=category.first %}
         {% endfor %}
       </ul>
     </div>

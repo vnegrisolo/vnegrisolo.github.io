@@ -1,0 +1,5 @@
+{% assign uri = include.uri %}
+{% assign root = page.url | split: '/' %}
+<li class="{% if root[1] == uri %}active{% endif %}">
+  <a href="/{{uri}}">{{uri}}</a>
+</li>
