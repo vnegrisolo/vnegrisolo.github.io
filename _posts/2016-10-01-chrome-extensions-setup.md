@@ -145,9 +145,12 @@ In the following post we'll see how to build a PageAction **popup**.
 [chrome-web-store]:   https://chrome.google.com/webstore/category/apps
 [netflex-code]:       https://github.com/vnegrisolo/netflex, 'NetFlex Code'
 [netflex]:            https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib, 'NetFlex'
+
 [extension-enabled]:  /images/posts/chrome-extension-enabled.png  'NetFlex enabled'
 {: .img-responsive width="70%"}
 [extension-disabled]: /images/posts/chrome-extension-disabled.png 'NetFlex disabled'
 {: .img-responsive width="70%"}
 [extension-install]: /images/posts/chrome-extension-install.png 'NetFlex install'
 {: .img-responsive width="90%"}
+
+*[ES2015]: ECMAScript 2015, also known as ES6

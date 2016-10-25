@@ -56,10 +56,6 @@ As you see this is my **popup** that displays some movie titles and has two butt
     <hr/>
 
     <p>
-      <button class="netflex-toggle" data-message="actions">Actions</button>
-      => Selecting buttons
-    </p>
-    <p>
       <button class="netflex-toggle" data-message="display">Display</button>
       => Show/Hide List
     </p>
@@ -116,6 +112,7 @@ window.onload = () => new NetFlexPopup().init();
 
 The goal with Popups in Chrome Extensions are to support your app with a separate full html/js/css files. In this case you don't need to worry about conflicts, because it will be loaded in different browser `windows`. Then you can retrieve information saved in your storage (HTML5 Local Storage as example). You can send some messages to the main page and in this can manipulate the main page based on user interacting with the popup.
 
+[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib, 'NetFlex'
 [page-action]: /javascript/chrome-extensions-setup#page-action-or-browse-action 'Chrome Extensions - Page Action'
 [background-js]: /javascript/chrome-extensions-setup#background-js-file 'Chrome Extensions - Background JS'
 

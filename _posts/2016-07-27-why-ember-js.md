@@ -131,3 +131,4 @@ In a nutshell: **Ember is great!** The community has built great tools and libra
 *[DOM]: Document Object Model
 *[SPA]: Single Page Application
 *[SEO]: Search Engine Optimization
+*[ES2015]: ECMAScript 2015, also known as ES6
