@@ -9,9 +9,9 @@ SyntaxHighlight = {
 
 $('div.highlighter-rouge').each(function(){
   var $el = $(this);
-  var lang = $el.attr('class').match(/language-(\S+)/)[1];
-  var path = $el.data('path');
-  var header = SyntaxHighlight.buildHeader(lang, path);
+  var lang = $el.attr('class').match(/language-(\S+)/);
+  var title = $el.data('path');
+  var header = SyntaxHighlight.buildHeader(lang && lang[1], title);
 
   $el.prepend(header);
 });
