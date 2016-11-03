@@ -15,7 +15,10 @@ layout: default
 </article>
 
 {% include series.html %}
-{% include pager.html %}
+
+{% unless page.pager == false %}
+  {% include pager.html %}
+{% endunless %}
 
 <script type="application/ld+json">
 {
