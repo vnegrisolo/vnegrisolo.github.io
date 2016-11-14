@@ -25,6 +25,7 @@
     &[data-lang="json"]:after       { background-color: $blue; }
     &[data-lang="ruby"]:after       { background-color: $red; }
     &[data-lang="shell"]:after      { background-color: $green; }
+    &[data-lang="vim"]:after        { background-color: $cyan; }
     &[data-lang="yml"]:after        { background-color: $violet; }
   }
 }
