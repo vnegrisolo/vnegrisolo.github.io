@@ -1,16 +1,23 @@
 .highlighter-rouge {
-  &, .header, pre {
-    background-color: $dark2;
-    color: $gray4;
-    font-size: 0.9em;
-    border-radius: 4px;
-    border: 0;
-  }
+  background-color: $dark2;
+  color: $gray4;
+}
+
+code.highlighter-rouge {
+  padding: 0.3rem;
+  font-size: 0.9em;
+}
+
+div.highlighter-rouge {
+  padding: 0;
+  border: 2px solid $dark1;
+  font-size: 0.9em;
 
   .header {
     background-color: $dark1;
     color: $light1;
     padding: 0.3em 0.8em;
+    font-size: 0.9em;
 
     &:after {
       content: attr(data-lang);
@@ -28,10 +35,13 @@
     &[data-lang="vim"]:after        { background-color: $cyan; }
     &[data-lang="yml"]:after        { background-color: $violet; }
   }
-}
 
-.highlighter-rouge {
   pre {
+    background-color: $dark2;
+    color: $gray4;
+    font-size: 0.9em;
+    border: 0;
+
     .bp  { color: $gray4; }
     .c   { color: $gray1; font-style: italic; }
     .c1  { color: $gray1; font-style: italic; }
