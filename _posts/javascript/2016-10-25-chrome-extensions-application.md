@@ -7,7 +7,7 @@ categories: javascript
 series: chrome-extension
 ---
 
-That's the final part of a series regarding **Chrome Extension Development**. In this post I'm using a simple version of [netflex] for showing how to configure the injection of your `js/css` files into an existing thrid part website. Also how to receive a message from your popup and then interact with the main application.
+That's the final part of a series regarding **Chrome Extension Development**. In this post I'm using a simple version of [NetFlex][netflex] for showing how to configure the injection of your `js/css` files into an existing thrid part website. Also how to receive a message from your popup and then interact with the main application.
 
 # Injecting js/css files
 
@@ -34,7 +34,7 @@ In this case these files will be inject when the URL matches with the node `cont
 
 Here is an image of how NetFlex works:
 
-![extension-netflix]
+![netflex-netflix]
 
 It's possible to notice that the plugin adds a button above the movies with it's title. If the user hits this button the whole movie will be hidden. In this case a user can hide already watched movies, or just a movie that it's not desirable.
 
@@ -98,10 +98,6 @@ With chrome extensions it's possible to interact with existing pages. And you do
 
 In addition remember that google chrome uses ES2015 already, so new javascript syntax for free.
 
-[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib, 'NetFlex'
-
-[extension-netflix]: /images/posts/chrome-extension-netflix.png 'Netflix With NetFlex'
-{: .img-responsive width="90%"}
-
-*[URL]: Uniform Resource Locator
-*[ES2015]: ECMAScript 2015, also known as ES6
+{% include markdown/acronyms.md %}
+{% include markdown/links.md %}
+{% include markdown/images.md %}

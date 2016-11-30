@@ -7,19 +7,19 @@ categories: javascript
 series: chrome-extension
 ---
 
-This is the 2nd/3 post about **Chrome Extension Development**, and in this post I'm going to talk about **Popup**. Using [netflex] as an example let's see how to configure a Popup, what you can do with it and how to send messages from your Popup and the main page.
+This is the 2nd/3 post about **Chrome Extension Development**, and in this post I'm going to talk about **Popup**. Using [NetFlex][netflex] as an example let's see how to configure a Popup, what you can do with it and how to send messages from your Popup and the main page.
 
 ## Popup
 
 Popup is a HTML file that will be loaded when the user hits your extension icon.
 
-![extension-popup]
+![netflex-popup]
 
 As you see this is my **popup** that displays some movie titles and has two buttons for sending **actions** to the main page.
 
 ## Configuration
 
-**Popup** is configured inside either **page_action** or **browser_action**. In this case I'm using a [page-action], so my popup configuration goes undes `page_action` node:
+**Popup** is configured inside either **page_action** or **browser_action**. In this case I'm using a [Page Action][blog-page-action], so my popup configuration goes undes `page_action` node:
 
 {: data-path="manifest.json"}
 ```json
@@ -112,9 +112,6 @@ window.onload = () => new NetFlexPopup().init();
 
 The goal with Popups in Chrome Extensions are to support your app with a separate full html/js/css files. In this case you don't need to worry about conflicts, because it will be loaded in different browser `windows`. Then you can retrieve information saved in your storage (HTML5 Local Storage as example). You can send some messages to the main page and in this can manipulate the main page based on user interacting with the popup.
 
-[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib, 'NetFlex'
-[page-action]: /javascript/chrome-extensions-setup#page-action-or-browse-action 'Chrome Extensions - Page Action'
-[background-js]: /javascript/chrome-extensions-setup#background-js-file 'Chrome Extensions - Background JS'
-
-[extension-popup]: /images/posts/chrome-extension-popup.png 'NetFlex Popup'
-{: .img-responsive width="90%"}
+{% include markdown/acronyms.md %}
+{% include markdown/links.md %}
+{% include markdown/images.md %}

@@ -142,5 +142,6 @@ Both classes `Struct` and `OpenStruct` seems to solve the same problem, but it's
 - if you need some **custom implementation**, such as additional methods, you have to use `Struct`
 - otherwise you can basically choose any of these that you'll be fine, so it's just chose the preferred flavor
 
-[ruby-struct]:      https://ruby-doc.org/core-2.3.2/Struct.html
-[ruby-open-struct]: http://ruby-doc.org/stdlib-2.3.2/libdoc/ostruct/rdoc/OpenStruct.html
+{% include markdown/acronyms.md %}
+{% include markdown/links.md %}
+{% include markdown/images.md %}
