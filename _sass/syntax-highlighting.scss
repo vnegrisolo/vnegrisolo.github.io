@@ -27,6 +27,7 @@ div.highlighter-rouge {
       border-radius: 8px;
     }
 
+    &[data-lang="elixir"]:after     { background-color: $purple; }
     &[data-lang="handlebars"]:after { background-color: $orange; }
     &[data-lang="html"]:after       { background-color: $magenta; }
     &[data-lang="javascript"]:after { background-color: $yellow; }
@@ -101,7 +102,7 @@ div.highlighter-rouge {
     .s2  { color: $cyan; }
     .sb  { color: $green; }
     .sc  { color: $green; }
-    .sd  { color: $green; }
+    .sd  { color: $gray1; font-style: italic; }
     .se  { color: $green; }
     .sh  { color: $green; }
     .si  { color: $red; }
