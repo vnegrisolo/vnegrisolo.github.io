@@ -6,11 +6,11 @@ last_modified_at: 2017-06-15 12:00:00
 categories: elixir
 ---
 
-How easy is to build a **Factory** solution for **Elixir** applications? In this post I share a simple **20ish lines-of-code** solution including its testing ✅. Check this out and start using factories for building data for tests and seed.
+How easy is to build a **Factory** solution for **Elixir** applications? In this post I share a simple **20ish lines-of-code** solution and its testing ✅. Check this out and start using factories for building data for tests and seed.
 
 ## The Goal
 
-The main goal here is to build a Factory 🏭 system for structs on an Elixir app. For being in the same page, struct is just a "named" Map with pre-defined keys and default values. Back to the problem... The solution has to be **easy** to create, maintain and test. The idea behind factories is to reuse the same functions to build similar data, sort of building-blocks tool.
+The main goal here is to build a Factory 🏭 system for structs on an Elixir app. The solution has to be **easy** to create, maintain and test. The idea behind factories is to reuse the same functions to build similar data, sort of building-blocks tool.
 
 The first part of this is the factories definition, in other words how the data will be created. For that I'd like to have a separate module with all definitions my application will need. Let's use a lot of function **pattern match** here. Here is a simple example:
 
@@ -46,7 +46,7 @@ Another aspect to be highlighted is that the `Factories` definitions and `Repo` 
 
 Both `build` and `create` functions receive the struct name and a list of attributes for **overriding** factory defaults.
 
-Last detail to watch is the usage of the pipe operator `|>`. This operator fits really well on both methods because the main idea here is to build something and for every step change it to the next step. ❤️
+Last detail to watch is the usage of the pipe operator `|>`. This operator fits really well on both methods because the main idea here is to build something and change it for each step it pass through. ❤️
 
 {: data-path="test/support/ex_factory.ex"}
 ```elixir
@@ -100,7 +100,7 @@ end
 
 All tests are joint under the same `describe` and `test` because I want to make this post as short as I can, but I usually keep each assertion on its own `test` definition.
 
-A bonus here is the fact that `doctest MyApp.ExFactory` are defined just after the dummy classes, so you can use them on your executable examples. 😍
+A bonus here is the fact that `doctest MyApp.ExFactory` is defined just after the dummy classes, so you can use them on your executable examples. 😍
 
 ## Traits for DRY factories
 
@@ -262,7 +262,7 @@ defmodule MyApp.ExFactory do
 end
 ```
 
-Elixir is a functional programming, so there is no object holding a state for you. The resolution was actually an opportunity to use the module `Agent` 👀. I just needed to implement `start_link` and call it from `test/test_helper.exs`. Also I have `next_int` but that's the sequence implementation.
+Elixir is a functional programming, so there is no object holding a state for you. The resolution was actually an opportunity to use the module `Agent` 👀. I just needed to implement `start_link` and call it from `test/test_helper.exs`. Also I have `next_int` but that's the sequence implementation, pretty straightforward.
 
 {: data-path="test/test_helper.exs"}
 ```elixir
@@ -361,7 +361,7 @@ Remember you can import `build` and `create` functions into your test cases modu
 
 {: data-path="test/support/data_case.ex"}
 ```elixir
-defmodule SharingCode.DataCase do
+defmodule MyApp.DataCase do
 
   ...
 
@@ -369,7 +369,7 @@ defmodule SharingCode.DataCase do
     quote do
       ...
 
-      import SharingCode.ExFactory
+      import MyApp.ExFactory
     end
   end
 
