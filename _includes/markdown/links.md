@@ -8,6 +8,9 @@
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
 [netflex-code]: https://github.com/vnegrisolo/netflex, 'NetFlex Code'
 
+<!-- Git Doc -->
+[git-log]: https://git-scm.com/docs/git-log
+
 <!-- Github projects -->
 [gh-broccoli]: https://github.com/broccolijs/broccoli
 [gh-dotenv]: https://github.com/bkeepers/dotenv
@@ -16,6 +19,9 @@
 [gh-figaro]: https://github.com/laserlemon/figaro
 [gh-glimmer-2]: https://github.com/tildeio/glimmer
 [gh-settingslogic]: https://github.com/settingslogic/settingslogic
+
+<!-- Github -->
+[gh-blog-commits-wrong-order]: https://help.github.com/articles/why-are-my-commits-in-the-wrong-order/
 
 <!-- Ruby Doc -->
 [ruby-kernel-backtick]: http://ruby-doc.org/core-2.3.3/Kernel.html#method-i-60
