@@ -1,5 +1,4 @@
 url: https://vnegrisolo.github.io
 permalink: /:categories/:title
-markdown: kramdown
-gems:
+plugins:
   - jekyll-sitemap

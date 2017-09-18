@@ -5,7 +5,7 @@ layout: default
   <div class="col-md-12">
     <dl>
       {% for post in site.posts %}
-        {% if (page.category ==  null) or (post.categories contains page.category) %}
+        {% if page.category ==  null or post.categories contains page.category %}
           {% include post_list_item.html post=post %}
         {% endif %}
       {% endfor %}
