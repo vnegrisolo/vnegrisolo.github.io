@@ -8,10 +8,14 @@
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
 [netflex-code]: https://github.com/vnegrisolo/netflex, 'NetFlex Code'
 
+[dk-startup-order]: https://docs.docker.com/compose/startup-order/
+[dk-wait-for-it-inspiration]: https://github.com/vishnubob/wait-for-it
+
 <!-- Git Doc -->
 [git-log]: https://git-scm.com/docs/git-log
 
 <!-- Github projects -->
+[gh-wait-for]: https://github.com/vnegrisolo/wait-for
 [gh-broccoli]: https://github.com/broccolijs/broccoli
 [gh-dotenv]: https://github.com/bkeepers/dotenv
 [gh-faraday]: https://github.com/lostisland/faraday
