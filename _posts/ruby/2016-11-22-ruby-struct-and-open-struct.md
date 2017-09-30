@@ -3,7 +3,7 @@ layout: post
 title:  "Ruby Struct and OpenStruct classes"
 date:   2016-11-22 12:00:00
 last_modified_at: 2016-11-22 12:00:00
-categories: ruby
+categories: Ruby
 ---
 
 Ruby `Struct` and `OpenStruct` are two different classes that handle to keep some data into a class instance. Although they have similar name and features they are actually very different in usage. Let's highlight the differences between these two classes and find out the best scenarios for using each one.

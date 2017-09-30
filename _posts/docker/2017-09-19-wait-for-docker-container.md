@@ -3,7 +3,7 @@ layout: post
 title:  "Wait for Docker Container"
 date:   2017-09-19 12:00:00
 last_modified_at: 2017-09-19 12:00:00
-categories: docker
+categories: Docker
 ---
 
 You may have some docker 🐳 containers 📦 to start your app but there are some startup order to be followed. You are probably using a solution such as `docker-compose` and wonder why they don't have this implemented yet? On this blog post I'll present my solution for this problem, a very simple shell script for waiting a container.

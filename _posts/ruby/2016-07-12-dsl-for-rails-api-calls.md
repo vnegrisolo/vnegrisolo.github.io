@@ -3,8 +3,8 @@ layout: post
 title:  "DSL for Rails API calls"
 date:   2016-07-12 12:00:00
 last_modified_at: 2016-08-05 12:00:00
-categories: ruby
-tags: rails
+categories: Ruby
+tags: Rails
 ---
 
 My goal is to encapsulate a API with service classes using a DSL similar to `ActiveRecord`. This way we can use methods like `where`, `find_by`, etc. In order to achieve that I created a class to abstract a **json API** using the gem **faraday** and the result is very cool.

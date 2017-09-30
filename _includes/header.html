@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top inverse uppercase">
+<nav class="navbar navbar-fixed-top inverse">
   <div class="container container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,10 +15,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        {% assign pageCategory = page.category | default: page.categories.first %}
         {% assign categories = site.categories | sort %}
         {% for category in categories %}
-          {% include header_link.html uri=category.first %}
+          {% include header_link.html name=category.first %}
         {% endfor %}
       </ul>
     </div>

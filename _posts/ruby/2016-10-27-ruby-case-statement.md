@@ -3,7 +3,7 @@ layout: post
 title:  "Ruby Case Statement and the `threequals`"
 date:   2016-10-27 12:00:00
 last_modified_at: 2016-10-27 12:00:00
-categories: ruby
+categories: Ruby
 ---
 
 Ruby `case/when/else` statement uses the Ruby operator `===`, also known as **threequals**. There are some nice implementations of `===` that we have to know. So let's see some of them.

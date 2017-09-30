@@ -3,7 +3,7 @@ layout: post
 title:  "Ruby CLI Script"
 date:   2016-11-28 12:00:00
 last_modified_at: 2016-11-28 12:00:00
-categories: ruby
+categories: Ruby
 ---
 
 To create **CLI script** that runs Ruby code is super fast and straightforward. With that you can run any Ruby code **directly from terminal**, including your **own gem**. Let's take a look what's need to be done in order to get a nice maintainable CLI script written in Ruby.

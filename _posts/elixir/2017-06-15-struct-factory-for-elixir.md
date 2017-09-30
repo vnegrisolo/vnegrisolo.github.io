@@ -3,7 +3,7 @@ layout: post
 title:  "Struct Factory for Elixir"
 date:   2017-06-15 12:00:00
 last_modified_at: 2017-06-15 12:00:00
-categories: elixir
+categories: Elixir
 ---
 
 How easy is to build a **Factory** solution for **Elixir** applications? In this post I share a simple **20ish lines-of-code** solution and its testing ✅. Check this out and start using factories for building data for tests and seed.

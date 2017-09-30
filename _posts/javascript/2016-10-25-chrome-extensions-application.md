@@ -3,7 +3,7 @@ layout: post
 title:  "Chrome Extensions - Part 3 - Application"
 date:   2016-10-25 12:00:00
 last_modified_at: 2016-10-25 12:00:00
-categories: javascript
+categories: JavaScript
 series: chrome-extension
 ---
 

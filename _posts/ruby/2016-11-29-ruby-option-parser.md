@@ -3,7 +3,7 @@ layout: post
 title:  "Ruby OptionParser"
 date:   2016-11-29 12:00:00
 last_modified_at: 2016-11-29 12:00:00
-categories: ruby
+categories: Ruby
 ---
 
 In order to parse user inputs passed to **CLI Scripts** we can use the Ruby class `OptionParser`. With that it's possible to define an argument specification like **required/optional**, or **restrict values** or even convert into a **specified class**. Find out how to configure `OptionParser` and use it.

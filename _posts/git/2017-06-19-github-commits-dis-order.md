@@ -3,7 +3,7 @@ layout: post
 title:  "Github commits dis-order"
 date:   2017-06-19 12:00:00
 last_modified_at: 2017-06-19 12:00:00
-categories: git
+categories: Git
 ---
 
 Have you ever noticed that sometimes **Github** lists your commits in a **weird order**? I'd say disordered. Was that a **bug**? Or was that a **feature**? Was that the developer fault? Should we blame `git rebase`? All these questions and a **hacky trick** as an alternative solution.
