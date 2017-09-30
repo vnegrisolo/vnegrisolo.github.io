@@ -50,15 +50,7 @@ time {
   text-transform: uppercase;
 }
 
-.button {
-  border: 1px;
-  border-color: $color_bg_inverse;
-  border-radius: 0.5em;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-right-style: solid;
-  border-style: solid;
-  font-size: 0.7em;
-  padding: 5px;
+.label-light {
+  background-color: $light1;
+  color: $cyan;
 }

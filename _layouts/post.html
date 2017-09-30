@@ -9,7 +9,8 @@ layout: default
       <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" class="img-thumbnail img-circle" width="50px">
       <span>{{ site.data.author.name }}</span> |
       {% include time.html date=page.date %}
-      {% include category_labels.html categories=page.categories %}
+      {% include labels.html labels=page.categories %}
+      {% include labels.html labels=page.tags %}
     </p>
   </header>
   <div>{{ content }}</div>

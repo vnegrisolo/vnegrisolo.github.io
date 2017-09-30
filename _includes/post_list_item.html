@@ -5,7 +5,8 @@
     <a href="{{ post.url }}">{{ post.title }}</a>
     <span class="light small">
       {% include time.html date=post.date %}
-      {% include category_labels.html categories=post.categories %}
+      {% include labels.html labels=post.categories %}
+      {% include labels.html labels=post.tags %}
     </span>
   </h3>
 </dt>
