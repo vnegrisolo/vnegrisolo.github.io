@@ -3,6 +3,7 @@
 [blog-es2015-classes]:  /javascript/es2015-classes 'ES2015 Classes'
 [blog-page-action]:     /javascript/chrome-extensions-setup#page-action-or-browse-action 'Chrome Extensions - Page Action'
 [blog-configure-rails]: /rails/configuring-rails-app 'Configuring a Rails App'
+[blog-docker-wait-for]: /docker/wait-for-docker-container 'Wait for Docker container'
 
 <!-- NetFlex -->
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'

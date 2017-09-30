@@ -4,6 +4,6 @@ https://vnegrisolo.github.io/
 ## Development
 
 ```shell
-bundle install
+gem install jekyll
 jekyll server
 ```
