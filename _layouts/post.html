@@ -32,12 +32,6 @@ layout: default
   "name": "{{ page.title }}",
   "headline": "{{ page.title }}",
   "description": "{{ page.excerpt | strip_html }}",
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ site.url }}{{ page.image }}",
-    "height": "200px",
-    "width": "800px"
-  },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
   "author": {
