@@ -27,7 +27,7 @@ I'll use as an example a simple Ruby on Rails application to show how to configu
 
 So let's start with the `Dockerfile` that's used to build Docker images.
 
-{: .hightlight.col-md-6 data-path="Dockerfile"}
+{: .highlighter-rouge.col-md-6 data-path="Dockerfile"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
@@ -51,7 +51,7 @@ RUN bundle install
 # assets:precompile is useless in dev
 ```
 
-{: .col-md-6 data-path="Dockerfile.prod"}
+{: .highlighter-rouge.col-md-6 data-path="Dockerfile.prod"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
