@@ -17,7 +17,12 @@
       <ul class="nav navbar-nav navbar-right">
         {% assign categories = site.categories | sort %}
         {% for category in categories %}
-          {% include header_link.html name=category.first %}
+          {% assign name = category.first %}
+          {% assign uri = name | downcase %}
+          {% assign root = page.url | split: '/' %}
+          <li class="{% if root[1] == uri %}active{% endif %}">
+            <a href="/{{uri}}">{{name}}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>

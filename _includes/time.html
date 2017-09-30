@@ -1,5 +1,5 @@
 {% assign date = include.date %}
 
-<time datetime="{ { date | date_to_xmlschema }}">
+<time datetime="{{ date | date_to_xmlschema }}">
   {{ date | date: "%b %-d, %Y" }}
 </time>
