@@ -6,13 +6,18 @@ body {
   padding-top: $height_nav_bar;
 }
 
+.inverse {
+  background-color: $color_bg_inverse;
+  color: $color_text_inverse;
+}
+
 p {
   line-height: 1.5em;
   margin-bottom: 1.5em;
 }
 
 a, a:hover {
-  color: $color_link;
+  color: $cyan;
   text-decoration: none;
 }
 
@@ -21,16 +26,7 @@ a:hover {
 }
 
 i.fa {
-  color: $gray1;
-}
-
-.inverse {
-  background-color: $color_bg_inverse;
-  color: $color_text_inverse;
-
-  i.fa {
-    color: $gray4;
-  }
+  color: $gray_dark;
 }
 
 .image-top {
@@ -38,19 +34,11 @@ i.fa {
   max-height: 150px;
 }
 
-.light {
-  color: $color_text_inverse;
-}
-
 time {
   font-style: italic;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
-.label-light {
-  background-color: $light1;
-  color: $gray4;
+.label {
+  background-color: $lighter;
+  color: $gray_light;
 }

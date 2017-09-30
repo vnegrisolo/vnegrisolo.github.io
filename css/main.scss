@@ -3,37 +3,32 @@
 ---
 @charset "utf-8";
 
-$dark1:   #002b36;
-$dark2:   #073642;
-$gray1:   #586e75;
-$gray2:   #657b83;
-$gray3:   #839496;
-$gray4:   #93a1a1;
-$light1:  #eee8d5;
-$light2:  #fdf6e3;
-$yellow:  #b58900;
-$orange:  #cb4b16;
-$red:     #dc322f;
-$magenta: #d33682;
-$violet:  #6c71c4;
-$purple:  #800080;
-$blue:    #268bd2;
-$cyan:    #2aa198;
-$green:   #859900;
+$darker:     #002b36;
+$dark:       #073642;
+$gray_dark:  #586e75;
+$gray_light: #93a1a1;
+$light:      #eee8d5;
+$lighter:    #fdf6e3;
+$yellow:     #b58900;
+$orange:     #cb4b16;
+$red:        #dc322f;
+$magenta:    #d33682;
+$violet:     #6c71c4;
+$purple:     #800080;
+$blue:       #268bd2;
+$cyan:       #2aa198;
+$green:      #859900;
+$white:      #ffffff;
 
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size: 20px;
 
-$color_bg: rbg(255,255,255);
-$color_bg_inverse: $dark1;
+$color_bg:   $white;
+$color_text: $gray_dark;
 
-$color_text: $gray1;
-$color_text_inverse: $gray4;
-
-$color_link: $cyan;
+$color_bg_inverse:   $darker;
+$color_text_inverse: $gray_light;
 
 $height_nav_bar: 70px;
-
-$text-color: #111111;
 
 @import "base", "nav_bar", "footer", "syntax-highlighting", "bookmark-link";
