@@ -11,13 +11,13 @@ Should we use Docker 🐳 for local development ❓? It seems easy to argue to n
 
 ## Some context
 
-Docker 🐳 is a great approach for packaging your application and its requirements. You can automate every step to automate it's creation including packages to install, environment variable, manipulating files, running commands, etc. For all these reasons a lot of companies are adopting it on 🚀 production.
+Docker 🐳 is a great tool for packaging your application and its requirements. You can automate every step to automate it's creation including packages to install, environment variable, manipulating files, running commands, etc. For all these reasons a lot of companies are adopting it on 🚀 production.
 
 On the other hand in order to develop and test a single application sometimes it's needed to run several other ones. Also application may need some dependencies like key-value store, caching, databases, search engines, messaging services and so on. For modern and well constructed applications this might not be a big problem, but for legacy ones this scenario is a 😱 nightmare.
 
 **Unfortunately** there are innumerous reasons for not running an application locally so let's face it and use all the convenience of Docker for your development mode as well.
 
-To reinforce my opinion, for a faster and better development we **should always run applications on local** host machine. This post is about when this is not possible.
+To reinforce my opinion, for a **faster** and **better** development we **should always run applications on local** host machine. You usually have more control, it's easily debug it, etc. Anyway, this post is about when this is not possible.
 
 ## The approach
 
@@ -39,10 +39,10 @@ RUN apk --no-cache add \
 
 COPY bin/wait-for /usr/local/bin/
 
-bundle config --global jobs 4
-bundle config --global retry 3
-
 RUN gem install bundler
+RUN bundle config --global jobs 4
+RUN bundle config --global retry 3
+
 COPY Gemfile* /app/
 # rails default to RAILS_ENV=development
 RUN bundle install
@@ -63,10 +63,10 @@ RUN apk --no-cache add \
 
 COPY bin/wait-for /usr/local/bin/
 
-bundle config --global jobs 4
-bundle config --global retry 3
-
 RUN gem install bundler
+RUN bundle config --global jobs 4
+RUN bundle config --global retry 3
+
 COPY Gemfile* /app/
 ENV RAILS_ENV=production
 RUN bundle install --without development test
@@ -75,7 +75,9 @@ COPY . /app/
 RUN bundle exec rails assets:precompile
 ```
 
-The idea behind this code snippets is to show that we want to make the images as similar as it possible, but let's face its differences. In this case **library dependencies** will change. Another difference is on extra steps for production such as precompiling assets.
+The idea behind this code snippets is to show that we want to make the images as similar as it possible, but let's face it, there are differences. In this case **library dependencies** will change. Another difference is on extra steps for production such as precompiling assets. But it could be more than that.
+
+In **production** mode I am copying all files from the application (except the ignored ones) into `/app` folder. I don't do that in **development** mode because I want to override it with files I have it on my host machine. In this case I can change them and this will be automatically read by the running container.
 
 ## Compose the enviroment
 
@@ -127,11 +129,15 @@ services:
     env_file: [".env.prod"]
 ```
 
-A difference to be highlighted here is the usage of `volume` entry on **development** mode. As soon as a developer change the code it will be reflected inside the dev container.
+First thing is the explicit usage of a suffix `_dev` or `_prod`. I'm still not convinced that this is great, but so far that's not clear to me I preferred to have docker service names very explicitly so I can avoid bad usage of environments. It might be very dangerous to try destroy a **development** database and ends up destroying a **production** one.
 
-The way that we deal with environment variables will change as well, in this case for **production** I am loading these values from a file that's ignored from my git repo.
+A difference to be highlighted is the usage of `volume` entry on **development** mode. As I mentioned before, as soon as a developer change the code it will be reflected inside the web_dev container.
 
-Read my blog post about [Wait for Docker container][blog-docker-wait-for] to understand how to do that.
+The way that we deal with environment variables will change as well. In this case for **production** I am loading these values from a file that's ignored from my git repo. I am pretty sure that this is not the best solution but that's also not the scope of this post.
+
+Read my blog post about [Wait for Docker container][blog-docker-wait-for] to understand how to do that if you want.
+
+Finally you may want to reuse part of this yml configuration, so take a look into [docker-compose override files][dk-compose-override]. This might be a good solution for big projects with extensive configurations.
 
 ## Ignore files
 
@@ -169,9 +175,11 @@ RAILS_SERVE_STATIC_FILES=true
 SECRET_KEY_BASE=123abc
 ```
 
+Remember this is just used by **production** environment and this is ignored by `git`.
+
 ## Running containers
 
-With all that set here I have some commands to test both environments:
+With all that set here I have some **example commands** to test both environments:
 
 {: .hightlight.col-md-6}
 ```shell
@@ -207,7 +215,7 @@ These are just a sample of how to interact with our containers using `docker-com
 
 ## Conclusion
 
-Docker may help us to work on 💩 brown-field projects. Or you just don't want to install a lot of applications to start with. In one case or the other I hope you have enjoyed 👍 this reading.
+Docker may help us to work on 💩 brown-field projects. Or you just don't want to install a lot of applications to start with right? In one case or the other I hope you have enjoyed 👍 this reading.
 
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
