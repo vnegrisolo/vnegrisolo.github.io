@@ -4,11 +4,21 @@ body {
   font-family: $base-font-family;
   font-size: $base-font-size;
   padding-top: $height_nav_bar;
+
+  ::selection {
+    background-color: $color_bg_inverse;
+    color: $color_text_inverse;
+  }
 }
 
 .inverse {
   background-color: $color_bg_inverse;
   color: $color_text_inverse;
+
+  ::selection {
+    background-color: $color_bg;
+    color: $color_text;
+  }
 }
 
 p {
