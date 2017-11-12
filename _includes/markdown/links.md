@@ -55,9 +55,14 @@
 [chrome-extension]: https://developer.chrome.com/extensions
 [chrome-web-store]: https://chrome.google.com/webstore/category/apps
 
+<!-- Javascript -->
+[babel]:             https://babeljs.io/
+[bower]:             https://bower.io/
+[brunch]:            http://brunch.io/
+[nodejs]:            https://nodejs.org/en/
+[npm]:               https://www.npmjs.com/
+[npm-check-updates]: https://www.npmjs.com/package/npm-check-updates
+[qunit]:             https://qunitjs.com/
+
 <!-- Other -->
-[babel]:      https://babeljs.io/
-[bower]:      https://bower.io/
 [handlebars]: http://handlebarsjs.com/
-[npm]:        https://www.npmjs.com/
-[qunit]:      https://qunitjs.com/
