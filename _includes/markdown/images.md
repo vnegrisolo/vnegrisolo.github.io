@@ -11,3 +11,6 @@
 {: .img-responsive width="90%"}
 [netflex-popup]: /images/posts/netflex/popup.png 'NetFlex Popup'
 {: .img-responsive width="90%"}
+
+[user-post-comment-erd]: /images/posts/user-post-comment-erd.png 'User/Post/Comment ERD'
+{: .img-responsive width="50%"}
