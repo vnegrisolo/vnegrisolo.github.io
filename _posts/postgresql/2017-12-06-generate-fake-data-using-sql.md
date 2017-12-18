@@ -105,6 +105,8 @@ These are the inserted `users`:
 (10 rows) Time: 5.159 ms
 ```
 
+I've got strongly inspired by this amazing [PG Cast - Generating Fake Email Addresses][pg-cast-fake-data].
+
 This was easy, let's move on and see how to choose random DB references.
 
 ## Choosing Random Relationships
@@ -209,7 +211,7 @@ And the generated random data:
    9 |       4 |      50 | Here some comment 9
   10 |       7 |      38 | Here some comment 10
 
- (10 rows) Time: 1.987 ms
+(10 rows) Time: 1.987 ms
 ```
 
 ## Conclusion

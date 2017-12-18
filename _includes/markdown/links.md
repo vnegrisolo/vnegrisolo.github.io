@@ -68,3 +68,4 @@
 
 <!-- Other -->
 [handlebars]: http://handlebarsjs.com/
+[pg-cast-fake-data]: https://www.pgcasts.com/episodes/4/generating-fake-email-addresses/
