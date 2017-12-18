@@ -1,9 +1,11 @@
 <!-- My Blog Posts -->
-[blog-first-ember]:     /ember/first-ember-js-application#testing-your-app 'First Ember JS Application'
-[blog-es2015-classes]:  /javascript/es2015-classes 'ES2015 Classes'
-[blog-page-action]:     /javascript/chrome-extensions-setup#page-action-or-browse-action 'Chrome Extensions - Page Action'
-[blog-configure-rails]: /rails/configuring-rails-app 'Configuring a Rails App'
 [blog-docker-wait-for]: /docker/wait-for-docker-container 'Wait for Docker container'
+
+[blog-first-ember]: /javascript/first-ember-js-application#testing-your-app 'First Ember JS Application'
+[blog-es2015-classes]: /javascript/es2015-classes 'ES2015 Classes'
+[blog-page-action]: /javascript/chrome-extensions-setup#page-action-or-browse-action 'Chrome Extensions - Page Action'
+[blog-sql-generate-fake-data]: /postgresql/generate-fake-data-using-sql 'Generate fake data using SQL'
+[blog-configure-rails]: /ruby/configuring-rails-app 'Configuring a Rails App'
 
 <!-- NetFlex -->
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
