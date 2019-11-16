@@ -6,5 +6,5 @@ https://vnegrisolo.github.io/
 ```shell
 gem install bundler
 bundle install
-jekyll server
+bundle exec jekyll server
 ```
