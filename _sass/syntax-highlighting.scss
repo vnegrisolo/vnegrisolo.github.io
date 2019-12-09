@@ -6,24 +6,25 @@
 code.highlighter-rouge {
   background-color: $light;
   padding: 0.3rem;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 div.highlighter-rouge {
+  display: inline-block;
   padding: 0;
   margin-bottom: 1rem;
   border: 2px solid $darker;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 
   .header {
     background-color: $darker;
     color: $white;
-    padding: 0.3em 0.8em;
-    font-size: 0.9em;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
 
     &:after {
       content: attr(data-lang);
-      padding: 0 1em;
+      padding: 0 1rem;
       float: right;
       border-radius: 8px;
     }
@@ -44,8 +45,9 @@ div.highlighter-rouge {
   pre {
     background-color: $dark;
     color: $gray_light;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     border: 0;
+    margin: 1rem;
 
     .bp  { color: $gray_light; }
     .c   { color: $gray_dark; font-style: italic; }

@@ -1,9 +1,8 @@
 a.bookmark {
-  width: 25px;
-  padding-top: 5px;
   float: left;
-  margin-left: -25px;
-  font-size: 0.7em;
+  padding-top: 0.3rem;
+  margin-left: -1.3rem;
+  font-size: 1.4rem;
   visibility: hidden;
 }
 
@@ -13,11 +12,12 @@ h1,h2,h3,h4,h5,h6 {
       visibility: visible;
     }
   }
+
   &:before {
     display: block;
     content: " ";
-    margin-top: -($height_nav_bar + 5px);
-    height: ($height_nav_bar + 5px);
+    margin-top: -($height_top_menu + 0.3rem);
+    height: ($height_top_menu + 0.3rem);
     visibility: hidden;
   }
 }

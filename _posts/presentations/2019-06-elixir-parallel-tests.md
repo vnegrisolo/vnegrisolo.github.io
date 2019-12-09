@@ -196,7 +196,7 @@ just follow the README so far
 41     end
 42   end
 44   def maybe_allow_sandbox(socket), do: socket
-45  
+45
 46   if Walletex.env() == :test do
 47     defp maybe_assign_ecto_sandbox_pid(socket, %{"ecto_sandbox_pid" => pid}) when pid != nil do
 49       assign(socket, :ecto_sandbox_pid, Walletex.Process.deserialize(pid))

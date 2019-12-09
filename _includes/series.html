@@ -2,9 +2,11 @@
   <hr>
   <h4>Serie: <em>{{page.series}}</em></h4>
 
-  {% for post in site.posts %}
-    {% if (post != page) and (post.series contains page.series) %}
-      {% include post_list_item.html post=post %}
-    {% endif %}
-  {% endfor %}
+  <dl class="posts">
+    {% for post in site.posts %}
+      {% if (post != page) and (post.series contains page.series) %}
+        {% include post_list_item.html post=post %}
+      {% endif %}
+    {% endfor %}
+  </dl>
 {% endunless %}

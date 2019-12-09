@@ -15,5 +15,5 @@ setup: # Setup the App.
 	bundle install
 
 server: # Run Server
-	sleep 3 && open http://127.0.0.1:4000 &
+	sleep 3 && open http://localhost:4000 &
 	bundle exec jekyll server

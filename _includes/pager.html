@@ -1,8 +1,10 @@
 <hr>
 <h4>Read also:</h4>
-{% if page.next %}
-  {% include post_list_item.html post=page.next %}
-{% endif %}
-{% if page.previous %}
-  {% include post_list_item.html post=page.previous %}
-{% endif %}
+<dl class="posts">
+  {% if page.next %}
+    {% include post_list_item.html post=page.next %}
+  {% endif %}
+  {% if page.previous %}
+    {% include post_list_item.html post=page.previous %}
+  {% endif %}
+</dl>

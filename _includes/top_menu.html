@@ -1,0 +1,24 @@
+<nav class="top-menu inverse">
+  <ul class="container">
+    <li class="top-menu-logo">
+      <a alt="{{ site.data.site.title }} Logo" href="{{ '/' }}">
+        <img src="/images/logo.png" alt="{{ site.data.site.title }}">
+      </a>
+    </li>
+    <li class="top-menu-brand">
+      <a alt="{{ site.data.site.title }}" href="{{ '/' }}">
+        <span>{{ site.data.site.title }}</span>
+      </a>
+    </li>
+
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+    {% assign name = category.first %}
+    {% assign uri = name | downcase %}
+    {% assign root = page.url | split: '/' %}
+    <li class="{% if root[1] == uri %}active{% endif %}">
+      <a alt="{{name}}" href="/{{uri}}">{{name}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

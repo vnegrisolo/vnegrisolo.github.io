@@ -19,7 +19,7 @@ Both [Struct][ruby-struct] and [OpenStruct][ruby-open-struct] classes were made 
 
 Check this out:
 
-{: .col-md-6 data-path="struct-example.rb"}
+{: data-path="struct-example.rb"}
 ```ruby
 PersonStruct = Struct.new(:name)
 joe = PersonStruct.new('Joe Smith')
@@ -41,7 +41,7 @@ joe_one == joe_two
 #=> true
 ```
 
-{: .col-md-6 data-path="open-struct-example.rb"}
+{: data-path="open-struct-example.rb"}
 ```ruby
 require 'ostruct'
 mary = OpenStruct.new(name: 'Mary Smith')

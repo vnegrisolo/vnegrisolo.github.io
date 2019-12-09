@@ -27,7 +27,7 @@ I'll use as an example a simple Ruby on Rails application to show how to configu
 
 So let's start with the `Dockerfile` that's used to build Docker images.
 
-{: .highlighter-rouge.col-md-6 data-path="Dockerfile"}
+{: data-path="Dockerfile"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
@@ -51,7 +51,7 @@ RUN bundle install
 # assets:precompile is useless in dev
 ```
 
-{: .highlighter-rouge.col-md-6 data-path="Dockerfile.prod"}
+{: data-path="Dockerfile.prod"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
@@ -83,7 +83,7 @@ In **production** mode I am copying all files from the application (except the i
 
 Here it comes my `docker-compose.yml` files:
 
-{: .col-md-6 data-path="docker-compose.yml"}
+{: data-path="docker-compose.yml"}
 ```yml
 ---
 version: "3"
@@ -106,7 +106,7 @@ services:
       POSTGRES_PASSWORD: postgres
 ```
 
-{: .col-md-6 data-path="docker-compose.prod.yml"}
+{: data-path="docker-compose.prod.yml"}
 ```yml
 ---
 version: "3"
@@ -143,7 +143,7 @@ Finally you may want to reuse part of this yml configuration, so take a look int
 
 It's nice to reinforce that `git` and `docker` have its ignore files for different purposes. This is how I set my ignore files to work:
 
-{: .col-md-6 data-path=".gitignore"}
+{: data-path=".gitignore"}
 ```
 .bundle/
 .env.prod
@@ -151,7 +151,7 @@ log/
 tmp/
 ```
 
-{: .col-md-6 data-path=".dockerignore"}
+{: data-path=".dockerignore"}
 ```
 .bundle/
 .dockerignore
@@ -181,7 +181,6 @@ Remember this is just used by **production** environment and this is ignored by 
 
 With all that set here I have some **example commands** to test both environments:
 
-{: .hightlight.col-md-6}
 ```shell
 alias dc="docker-compose"
 
@@ -196,7 +195,6 @@ dc run -it web_dev bundle exec rails console
 dc down
 ```
 
-{: .hightlight.col-md-6}
 ```shell
 alias dc="docker-compose -f docker-compose.prod.yml"
 

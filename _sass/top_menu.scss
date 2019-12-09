@@ -1,0 +1,47 @@
+nav.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  ul {
+    display: flex;
+
+    li {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      height: $height_top_menu;
+
+      a {
+        letter-spacing: 1px;
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
+
+    li.top-menu-logo a {
+      padding: 0;
+    }
+
+    li.top-menu-brand {
+      flex-grow: 1;
+    }
+
+    li:hover {
+      background-color: $darker;
+    }
+
+    li.top-menu-logo:hover {
+      background-color: $dark;
+    }
+
+    li.top-menu-brand:hover {
+      background-color: $dark;
+    }
+
+    li.active {
+      background-color: $white;
+    }
+  }
+}

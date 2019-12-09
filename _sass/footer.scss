@@ -1,14 +1,30 @@
 footer {
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding: 2rem 0;
 
-  img.img-thumbnail {
-    margin-right: 15px;
-    background-color: $color_text_inverse;
-    border-color: $color_text_inverse;
-  }
+  div {
+    display: flex;
+    flex-flow: row wrap;
 
-  ul li {
-    padding-bottom: 5px;
+    img {
+      height: 6rem;
+      width: 6rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      flex-grow: 1;
+      padding: 0;
+      margin: 0 0 1rem 0;
+
+      li {
+        list-style-type: none;
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
   }
 }

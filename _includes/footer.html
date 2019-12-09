@@ -1,27 +1,23 @@
-<footer class="small inverse">
+<footer class="inverse small">
   <div class="container">
-    <div class="col-md-8">
-      <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" height="100" width="100" class="img-responsive img-thumbnail pull-left">
-      <ul class="list-unstyled">
-        {% for social in site.data.social %}
-          <li>
-            <a href="{{ social.last.link }}" rel="nofollow">
-              <i class="fa fa-{{ social.last.icon }} fa-lg" aria-hidden="true" title="{{ social.first }}"></i>
-              <span>{{ social.last.name }}</span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <p>{{ site.data.site.description }}</p>
-      <p>
-        subscribe via
-        <a href="{{ "/feed.xml" }}">
-          RSS
-          <i class="fa fa-rss fa-lg" aria-hidden="true" title="rss"></i>
-        </a>
-      </p>
-    </div>
+    <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}">
+    <ul class="list-unstyled">
+      {% for social in site.data.social %}
+        <li>
+          <a alt="{{ social.first }} - {{ social.last.name }}" target="_blank" href="{{ social.last.link }}" rel="nofollow">
+            <i class="fa fa-{{ social.last.icon }} fa-lg" aria-hidden="true" title="{{ social.first }}"></i>
+            <span>{{ social.last.name }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <p>
+      {{ site.data.site.description }}<br/>
+      subscribe via
+      <a alt="RSS" target="_blank" href="{{ '/feed.xml' }}">
+        RSS
+        <i class="fa fa-rss fa-lg" aria-hidden="true" title="rss"></i>
+      </a>
+    </p>
   </div>
 </footer>

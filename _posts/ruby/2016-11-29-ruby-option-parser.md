@@ -12,7 +12,6 @@ In order to parse user inputs passed to **CLI Scripts** we can use the Ruby clas
 
 It's quite common for **CLI Scripts** to receive arguments like:
 
-{: .table.table-striped.table-hover}
 | --------------- | ----------------------------- |
 | flag and value  | description                   |
 | --------------- | ----------------------------- |
@@ -72,9 +71,9 @@ Maybe the easiest way to explain how to configure and use `OptionParser` is prov
 Config = Struct.new(*%i[color drink lang fun point sports time user]) do
   DRINKS = %i[water tea beer]
   LANGS  = {
-    de: 'Anna',
-    en: 'Alex',
-    fr: 'Amelie',
+    de: 'Deutsch',
+    en: 'English',
+    fr: 'Français',
   }
 
   def self.drinks
@@ -196,7 +195,7 @@ If we run this script with the `--help` flag:
 #=> Specific options:
 #=>     -c, --color=COLOR                Favorite Color
 #=>     -d, --drink=DRINK                Drink: [:water, :tea, :beer]
-#=>     -l, --lang=LANG                  Lang: {:de=>"Anna", :en=>"Alex", :fr=>"Amelie"}
+#=>     -l, --lang=LANG                  Lang: {:de=>"Deutsch", :en=>"English", :fr=>"Français"}
 #=>     -f, --[no-]fun                   Run with Fun Mode
 #=>     -p, --point=POINT                Points
 #=>     -s, --sports=X,Y,Z               Favorite Sports
@@ -207,12 +206,19 @@ If we run this script with the `--help` flag:
 Now running the same script **setting** a lot of different flags:
 
 ```shell
-./my-ruby-script -c blue -d tea -l en -f -p 5 -s hockey,soccer,rugby -t 14/07/2016-08:53:20 -u 1                            
+./my-ruby-script -c blue \
+                 -d tea \
+                 -l en \
+                 -f \
+                 -p 5 \
+                 -s hockey,soccer,rugby \
+                 -t 14/07/2016-08:53:20 \
+                 -u 1;
 
 #=> #<struct Config
 #=>   color="blue",
 #=>   drink=:tea,
-#=>   lang="Alex",
+#=>   lang="English",
 #=>   fun=true,
 #=>   point=5.0,
 #=>   sports=["hockey", "soccer", "rugby"],
