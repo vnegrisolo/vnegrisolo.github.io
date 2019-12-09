@@ -1,17 +1,12 @@
-SyntaxHighlight = {
-  buildHeader: function(lang, path){
-    return $('<div/>', {
-      'class': 'header',
-      'data-lang': lang
-    }).prepend(path || '&nbsp;');
-  }
-}
+document.querySelectorAll("div.highlighter-rouge").forEach(el => {
+  var lang = el.getAttribute("class").match(/language-(\S+)/);
+  var title = el.dataset.path;
+  console.warn({lang, title});
 
-$('div.highlighter-rouge').each(function(){
-  var $el = $(this);
-  var lang = $el.attr('class').match(/language-(\S+)/);
-  var title = $el.data('path');
-  var header = SyntaxHighlight.buildHeader(lang && lang[1], title);
+  var header = document.createElement("div");
+  header.setAttribute("class", "header");
+  header.setAttribute("data-lang", lang && lang[1]);
+  header.innerHTML = title || "&nbsp;";
 
-  $el.prepend(header);
+  el.prepend(header);
 });
