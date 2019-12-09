@@ -1,10 +1,10 @@
-<footer class="inverse small">
+<footer class="inverse">
   <div class="container">
     <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}">
-    <ul class="list-unstyled">
+    <ul>
       {% for social in site.data.social %}
         <li>
-          <a alt="{{ social.first }} - {{ social.last.name }}" target="_blank" href="{{ social.last.link }}" rel="nofollow">
+          <a alt="{{ social.first }} - {{ social.last.name }}" target="_blank" href="{{ social.last.link }}" rel="noreferrer">
             <i class="fa fa-{{ social.last.icon }} fa-lg" aria-hidden="true" title="{{ social.first }}"></i>
             <span>{{ social.last.name }}</span>
           </a>

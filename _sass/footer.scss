@@ -19,12 +19,16 @@ footer {
 
       li {
         list-style-type: none;
-        margin-bottom: 0.3rem;
+        margin-bottom: 1rem;
       }
     }
 
     p {
       margin-bottom: 1rem;
+    }
+
+    a {
+      color: $gray_lighter;
     }
   }
 }
