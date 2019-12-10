@@ -18,6 +18,19 @@ nav.top-menu {
         letter-spacing: 1px;
         font-size: 1rem;
         padding: 0.5rem;
+
+        img.icon {
+          display: none;
+        }
+
+        @media (max-width: 600px) {
+          img.icon {
+            display: block;
+          }
+          span {
+            display: none;
+          }
+        }
       }
     }
 

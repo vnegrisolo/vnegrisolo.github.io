@@ -17,7 +17,10 @@
     {% assign uri = name | downcase %}
     {% assign root = page.url | split: '/' %}
     <li class="{% if root[1] == uri %}active{% endif %}">
-      <a alt="{{name}}" href="/{{uri}}">{{name}}</a>
+      <a alt="{{name}}" href="/{{uri}}">
+        <img class="icon" src="/svgs/{{uri}}.svg" alt="{{name}}">
+        <span>{{name}}</span>
+      </a>
     </li>
     {% endfor %}
   </ul>
