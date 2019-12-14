@@ -25,11 +25,11 @@ nav.top-menu {
 
         @media (max-width: 600px) {
           svg {
+            fill: $gray_lighter;
             display: block;
             height: 1.3rem;
             width: 1.3rem;
             margin: 0 0.2rem;
-            fill: $gray_lighter;
           }
 
           span {
@@ -68,7 +68,7 @@ nav.top-menu {
         svg {
           fill: $dark;
         }
-    }
+      }
     }
   }
 }

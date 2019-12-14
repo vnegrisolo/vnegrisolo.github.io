@@ -36,10 +36,10 @@ footer {
       color: $gray_lighter;
 
       svg {
+        fill: $gray_lighter;
         height: 1.3rem;
         width: 1.3rem;
         margin-right: 0.3rem;
-        fill: $gray_lighter;
       }
     }
   }
