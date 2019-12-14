@@ -5,7 +5,7 @@
       {% for social in site.data.social %}
         <li>
           <a alt="{{ social.first }} - {{ social.last.name }}" target="_blank" href="{{ social.last.link }}" rel="noreferrer">
-            <img class="icon" src="/svgs/{{ social.last.icon }}.svg" alt="{{social.first}}">
+            {% include svgs/{{ social.last.icon }}.svg %}
             <span>{{ social.last.name }}</span>
           </a>
         </li>
@@ -16,7 +16,7 @@
       subscribe via
       <a alt="RSS" target="_blank" href="{{ '/feed.xml' }}">
         RSS
-        <img class="icon" src="/svgs/rss.svg" alt="RSS">
+        {% include svgs/rss.svg %}
       </a>
     </p>
   </div>

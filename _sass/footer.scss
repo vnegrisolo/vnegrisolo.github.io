@@ -34,6 +34,13 @@ footer {
 
     a {
       color: $gray_lighter;
+
+      svg {
+        height: 1.3rem;
+        width: 1.3rem;
+        margin-right: 0.3rem;
+        fill: $gray_lighter;
+      }
     }
   }
 }

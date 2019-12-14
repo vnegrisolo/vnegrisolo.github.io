@@ -18,7 +18,7 @@
     {% assign root = page.url | split: '/' %}
     <li class="{% if root[1] == uri %}active{% endif %}">
       <a alt="{{name}}" href="/{{uri}}">
-        <img class="icon" src="/svgs/{{uri}}.svg" alt="{{name}}">
+        {% include svgs/{{ uri }}.svg %}
         <span>{{name}}</span>
       </a>
     </li>

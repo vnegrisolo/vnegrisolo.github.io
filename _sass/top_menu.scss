@@ -19,14 +19,19 @@ nav.top-menu {
         font-size: 1rem;
         padding: 0.5rem;
 
-        img.icon {
+        svg {
           display: none;
         }
 
         @media (max-width: 600px) {
-          img.icon {
+          svg {
             display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            margin: 0 0.2rem;
+            fill: $gray_lighter;
           }
+
           span {
             display: none;
           }
@@ -59,7 +64,11 @@ nav.top-menu {
 
       a {
         color: $dark;
-      }
+
+        svg {
+          fill: $dark;
+        }
+    }
     }
   }
 }
