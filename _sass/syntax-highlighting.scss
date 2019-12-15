@@ -11,7 +11,7 @@ code.highlighter-rouge {
 
 div.highlighter-rouge {
   display: inline-block;
-  vertical-align:top;
+  vertical-align: top;
   padding: 0;
   margin-bottom: 1rem;
   border: 2px solid $darker;
@@ -54,13 +54,24 @@ div.highlighter-rouge {
   a.clipboard-copy {
     display: none;
     cursor: pointer;
+    float: right;
+    position: relative;
 
     svg {
-      fill: $lighter;
-      height: 1rem;
-      width: 1rem;
-      float: right;
-      margin: 0.5rem;
+      fill: $gray_light;
+      height: 1.2rem;
+      width: 1.2rem;
+      padding: 0.8rem;
+      position: absolute;
+      right: 0;
+      background-color: $darker;
+      border-radius: 0 0 0 8px;
+    }
+
+    &:focus {
+      svg {
+        fill: $lighter;
+      }
     }
   }
 
