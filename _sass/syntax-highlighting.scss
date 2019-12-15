@@ -11,10 +11,12 @@ code.highlighter-rouge {
 
 div.highlighter-rouge {
   display: inline-block;
+  vertical-align:top;
   padding: 0;
   margin-bottom: 1rem;
   border: 2px solid $darker;
   font-size: 0.9rem;
+  max-width: 100%;
 
   &:hover {
     a.clipboard-copy {
@@ -68,6 +70,7 @@ div.highlighter-rouge {
     font-size: 0.9rem;
     border: 0;
     margin: 0.5rem 0.8rem;
+    overflow-x: scroll;
 
     .bp  { color: $gray_light; }
     .c   { color: $gray_dark; font-style: italic; }
