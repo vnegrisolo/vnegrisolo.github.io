@@ -26,7 +26,7 @@ document.querySelectorAll("div.highlighter-rouge").forEach(el => {
 
   const header = document.createElement("div");
   header.setAttribute("class", "header");
-  header.setAttribute("data-lang", lang && lang[1] || "");
+  header.setAttribute("data-lang", lang && lang[1] !== "plaintext" && lang[1] || "");
   header.innerHTML = title || "&nbsp;";
 
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");

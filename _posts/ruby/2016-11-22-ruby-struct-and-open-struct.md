@@ -19,46 +19,48 @@ Both [Struct][ruby-struct] and [OpenStruct][ruby-open-struct] classes were made 
 
 Check this out:
 
+{: class="two-column"}
 {: data-path="struct-example.rb"}
 ```ruby
 PersonStruct = Struct.new(:name)
-joe = PersonStruct.new('Joe Smith')
+joe = PersonStruct.new('Joe')
 
 joe.name
-#=> Joe Smith
+#=> Joe
 joe[:name]
-#=> Joe Smith
+#=> Joe
 joe['name']
-#=> Joe Smith
+#=> Joe
 
 joe.name = 'Not Joe anymore'
 joe.name
 #=> Not Joe anymore
 
-joe_one = PersonStruct.new('Joe Smith')
-joe_two = PersonStruct.new('Joe Smith')
+joe_one = PersonStruct.new('Joe')
+joe_two = PersonStruct.new('Joe')
 joe_one == joe_two
 #=> true
 ```
 
+{: class="two-column"}
 {: data-path="open-struct-example.rb"}
 ```ruby
 require 'ostruct'
-mary = OpenStruct.new(name: 'Mary Smith')
+mary = OpenStruct.new(name: 'Mary')
 
 mary.name
-#=> Mary Smith
+#=> Mary
 mary[:name]
-#=> Mary Smith
+#=> Mary
 mary['name']
-#=> Mary Smith
+#=> Mary
 
 mary.name = 'Not Mary anymore'
 mary.name
 #=> Not Mary anymore
 
-mary_one = OpenStruct.new(name: 'Mary Smith')
-mary_two = OpenStruct.new(name: 'Mary Smith')
+mary_one = OpenStruct.new(name: 'Mary')
+mary_two = OpenStruct.new(name: 'Mary')
 mary_one == mary_two
 #=> true
 ```
@@ -83,21 +85,21 @@ PersonStruct = Struct.new(:name, :age) do
   end
 end
 
-joe = PersonStruct.new('Joe Smith', 29)
+joe = PersonStruct.new('Joe', 29)
 joe.age
 #=> 29
 joe.hi
-#=> Hello Joe Smith!
+#=> Hello Joe!
 
-PersonStruct.new('Joe Smith', 29).to_h
-#=> {name: 'Joe Smith', age: 29}
-PersonStruct.new('Joe Smith').to_h
-#=> {name: 'Joe Smith', age: nil}
+PersonStruct.new('Joe', 29).to_h
+#=> {name: 'Joe', age: 29}
+PersonStruct.new('Joe').to_h
+#=> {name: 'Joe', age: nil}
 
 joe.members
 #=> [:name, :age]
 joe.each_pair {|k, v| puts "key=#{k}, value=#{v}" }
-#=> key=name, value=Joe Smith
+#=> key=name, value=Joe
 #=> key=age, value=29
 ```
 
@@ -116,22 +118,22 @@ Finally it's possible to remove an attribute from a `OpenStruct` instance using 
 {: data-path="open-struct-example.rb"}
 ```ruby
 require 'ostruct'
-mary = OpenStruct.new(name: 'Mary Smith', age: 30)
+mary = OpenStruct.new(name: 'Mary', age: 30)
 mary.age
 #=> 30
 
 mary.to_h.keys
 #=> [:name, :age]
 mary.each_pair {|k, v| puts "key=#{k}, value=#{v}" }
-#=> key=name, value=Mary Smith
+#=> key=name, value=Mary
 #=> key=age, value=30
 
 mary.age = nil
 mary.to_h
-#=> {name: 'Mary Smith', age: nil}
+#=> {name: 'Mary', age: nil}
 mary.delete_field(:age)
 mary.to_h
-#=> {name: 'Mary Smith'}
+#=> {name: 'Mary'}
 ```
 
 ## Conclusion

@@ -27,6 +27,7 @@ I'll use as an example a simple Ruby on Rails application to show how to configu
 
 So let's start with the `Dockerfile` that's used to build Docker images.
 
+{: class="two-column"}
 {: data-path="Dockerfile"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
@@ -51,6 +52,7 @@ RUN bundle install
 # assets:precompile is useless in dev
 ```
 
+{: class="two-column"}
 {: data-path="Dockerfile.prod"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
@@ -83,6 +85,7 @@ In **production** mode I am copying all files from the application (except the i
 
 Here it comes my `docker-compose.yml` files:
 
+{: class="two-column"}
 {: data-path="docker-compose.yml"}
 ```yml
 ---
@@ -106,6 +109,7 @@ services:
       POSTGRES_PASSWORD: postgres
 ```
 
+{: class="two-column"}
 {: data-path="docker-compose.prod.yml"}
 ```yml
 ---
@@ -143,6 +147,7 @@ Finally you may want to reuse part of this yml configuration, so take a look int
 
 It's nice to reinforce that `git` and `docker` have its ignore files for different purposes. This is how I set my ignore files to work:
 
+{: class="two-column"}
 {: data-path=".gitignore"}
 ```
 .bundle/
@@ -151,6 +156,7 @@ log/
 tmp/
 ```
 
+{: class="two-column"}
 {: data-path=".dockerignore"}
 ```
 .bundle/
@@ -181,6 +187,7 @@ Remember this is just used by **production** environment and this is ignored by 
 
 With all that set here I have some **example commands** to test both environments:
 
+{: class="two-column"}
 ```shell
 alias dc="docker-compose"
 
@@ -195,6 +202,7 @@ dc run -it web_dev bundle exec rails console
 dc down
 ```
 
+{: class="two-column"}
 ```shell
 alias dc="docker-compose -f docker-compose.prod.yml"
 

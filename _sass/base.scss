@@ -1,6 +1,6 @@
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: calc(14px + 0.5vw);
+  font-size: calc(18px);
 }
 
 body {
@@ -123,5 +123,16 @@ img {
 .label {
   background-color: $lighter;
   color: $gray_dark;
-  padding: 0 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.two-column {
+  display: inline-block;
+  width: 48%;
+
+  @media (max-width: 500px) {
+    display: block;
+    width: 100%;
+  }
 }
