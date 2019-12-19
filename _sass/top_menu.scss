@@ -3,6 +3,7 @@ nav.top-menu {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 
   ul {
     display: flex;
@@ -17,21 +18,40 @@ nav.top-menu {
         color: $gray_lighter;
         letter-spacing: 1px;
         font-size: 1rem;
-        padding: 0.5rem;
+        padding: 0.3rem;
 
         svg {
           display: none;
+          fill: $gray_lighter;
+          height: 1.3rem;
+          width: 1.3rem;
+          margin: 0 0.2rem;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
           svg {
-            fill: $gray_lighter;
             display: block;
-            height: 1.3rem;
-            width: 1.3rem;
-            margin: 0 0.2rem;
           }
+          span.top-menu-link-label {
+            display: none;
+          }
+        }
+      }
+    }
 
+    li.top-menu-logo {
+      flex-grow: 1;
+
+      a {
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+
+        img {
+          margin-right: 0.3rem;
+        }
+
+        @media (max-width: 500px) {
           span {
             display: none;
           }
@@ -39,27 +59,11 @@ nav.top-menu {
       }
     }
 
-    li.top-menu-logo a {
-      padding: 0;
-    }
-
-    li.top-menu-brand {
-      flex-grow: 1;
-    }
-
-    li:hover {
+    li.top-menu-item:hover {
       background-color: $darker;
     }
 
-    li.top-menu-logo:hover {
-      background-color: $dark;
-    }
-
-    li.top-menu-brand:hover {
-      background-color: $dark;
-    }
-
-    li.active {
+    li.top-menu-item.active {
       background-color: $white;
 
       a {

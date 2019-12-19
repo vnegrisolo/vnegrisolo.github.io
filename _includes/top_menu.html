@@ -2,11 +2,7 @@
   <ul class="container">
     <li class="top-menu-logo">
       <a alt="{{ site.data.site.title }} Logo" href="{{ '/' }}">
-        <img src="/images/logo.png" alt="{{ site.data.site.title }}">
-      </a>
-    </li>
-    <li class="top-menu-brand">
-      <a alt="{{ site.data.site.title }}" href="{{ '/' }}">
+        <img src="/images/logo.png" alt="{{ site.data.site.title }}" />
         <span>{{ site.data.site.title }}</span>
       </a>
     </li>
@@ -16,10 +12,10 @@
     {% assign name = category.first %}
     {% assign uri = name | downcase %}
     {% assign root = page.url | split: '/' %}
-    <li class="{% if root[1] == uri %}active{% endif %}">
+    <li class="top-menu-item {% if root[1] == uri %}active{% endif %}">
       <a alt="{{name}}" href="/{{uri}}">
         {% include svgs/{{ uri }}.svg %}
-        <span>{{name}}</span>
+        <span class="top-menu-link-label">{{name}}</span>
       </a>
     </li>
     {% endfor %}
