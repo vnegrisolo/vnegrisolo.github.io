@@ -1,19 +1,30 @@
-a.bookmark {
-  display: none;
-  margin-right: 0.3rem;
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+  position: relative;
 
-  svg {
-    fill: $gray_dark;
-    height: 1rem;
-    width: 1rem;
-    margin: 0;
+  a.bookmark {
+    display: none;
+    margin-right: 0.3rem;
+    position: absolute;
+    left: -1.3rem;
+    top: 0;
+    padding-right: 1.3rem;
+
+    svg {
+      fill: $gray_dark;
+      height: 1rem;
+      width: 1rem;
+      margin: 0;
+    }
   }
-}
 
-h1,h2,h3,h4,h5,h6 {
   &:hover {
     a.bookmark {
-      display: inline;
+      display: block;
     }
   }
 
