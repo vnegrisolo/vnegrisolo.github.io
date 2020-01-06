@@ -2,13 +2,20 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
   {% include head.html %}
   <body>
-    {% include top_menu.html %}
+    {% if page.layout == "presentation" %}
+      {% include top_menu_presentation.html %}
+    {% else %}
+      {% include top_menu.html %}
+    {% endif %}
+
     <div class="main-content">
       <div class="container">
         {{ content }}
       </div>
     </div>
-    {% include footer.html %}
+    {% if page.layout != "presentation" %}
+      {% include footer.html %}
+    {% endif %}
 
     <script type="application/ld+json">
     {

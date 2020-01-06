@@ -9,15 +9,15 @@
 
     {% assign categories = site.categories | sort %}
     {% for category in categories %}
-    {% assign name = category.first %}
-    {% assign uri = name | downcase %}
-    {% assign root = page.url | split: '/' %}
-    <li class="top-menu-item {% if root[1] == uri %}active{% endif %}">
-      <a alt="{{name}}" href="/{{uri}}">
-        {% include svgs/{{ uri }}.svg %}
-        <span class="top-menu-link-label">{{name}}</span>
-      </a>
-    </li>
+      {% assign name = category.first %}
+      {% assign uri = name | downcase %}
+      {% assign root = page.url | split: '/' %}
+      <li class="top-menu-item {% if root[1] == uri %}active{% endif %}">
+        <a alt="{{name}}" href="/{{uri}}">
+          {% include svgs/{{ uri }}.svg %}
+          <span class="top-menu-link-label">{{name}}</span>
+        </a>
+      </li>
     {% endfor %}
   </ul>
 </nav>
