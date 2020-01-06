@@ -13,12 +13,21 @@ nav.top-menu {
       align-items: center;
       list-style-type: none;
       height: $height_top_menu;
+      white-space: nowrap;
+
+      .top-menu-title {
+        color: $gray_lighter;
+      }
 
       a {
         color: $gray_lighter;
         letter-spacing: 1px;
         font-size: 1rem;
-        padding: 0.3rem;
+        padding: 0.25rem;
+
+        img {
+          padding-right: 0.5rem;
+        }
 
         svg {
           display: none;
@@ -46,10 +55,6 @@ nav.top-menu {
         display: flex;
         align-items: center;
         padding-left: 0;
-
-        img {
-          margin-right: 0.3rem;
-        }
 
         @media (max-width: 500px) {
           span {
