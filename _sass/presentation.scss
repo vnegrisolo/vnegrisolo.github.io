@@ -1,39 +1,64 @@
 article.presentation {
-  header, footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  min-height: 85vh;
 
-    h1 {
-      padding-top: 5rem;
-      font-size: 5rem;
-    }
+  hr,
+  header,
+  footer,
+  #content > * {
+    display: none;
   }
 
-  header {
-    margin-bottom: 1rem;
-
-    img {
-      height: 3rem;
-      width: 3rem;
-      border-radius: 50%;
-      margin-right: 1rem;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
-
-  footer {
-    h1 {
-      margin: 100vh 0;
-    }
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
   }
 
   h2 {
     font-size: 3rem;
-    margin-top: 100vh;
+  }
+
+  header,
+  footer {
+    img {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      margin: 2rem 0 0.5rem 0;
+    }
+  }
+
+  footer {
+    padding: 0;
+
+    ul {
+      margin-top: 3rem;
+
+      li {
+        list-style-type: none;
+        margin-bottom: 1rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          color: $gray_dark;
+          font-size: 1.5rem;
+
+          svg {
+            fill: $gray_dark;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }

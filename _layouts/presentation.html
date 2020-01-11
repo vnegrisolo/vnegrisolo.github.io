@@ -4,45 +4,67 @@ layout: default
 
 <article class="presentation">
   <header>
-    <h1 id="title">{{ page.title }}</h1>
-    <span>{% include labels.html labels=page.tags %}</span>
-    <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" />
-    <span>{{ site.data.author.name }}</span>
-    <span>{% include time.html date=page.date %}</span>
-    <span>Use ⬅️ arrows ➡️ to navigate</span>
+    <div class="flex-container">
+      <h1>{{ page.title }}</h1>
+      <span>{% include labels.html labels=page.tags %}</span>
+      <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" />
+      <span>{{ site.data.author.name }}</span>
+      <span>{% include time.html date=page.date %}</span>
+    </div>
   </header>
-  <div id="content">{{ content }}</div>
+  <div id="content">
+    <h2>My goal here:</h2>
+    {{ content }}
+    <hr />
+    <div class="flex-container">
+      <h1>Questions?</h1>
+    </div>
+  </div>
   <footer>
-    <h1 id="thanks">Thanks!</h1>
+    <div class="flex-container">
+      <h1>Thank you!</h1>
+      <img src="{{ site.data.author.image }}" alt="{{ site.data.author.name }}" />
+      <span>{{ site.data.author.name }}</span>
+      <ul>
+        {% for social in site.data.social %}
+          <li>
+            <a alt="{{ social.first }} - {{ social.last.name }}" target="_blank" href="{{ social.last.link }}" rel="noreferrer">
+              {% include svgs/{{ social.last.icon }}.svg %}
+              <span>{{ social.last.name }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      </div>
   </footer>
 </article>
 
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url }}"
-  },
-  "name": "{{ page.title }}",
-  "headline": "{{ page.title }}",
-  "description": "{{ page.excerpt | strip_html }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.data.author.name }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.data.author.name }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}{{ site.data.author.image }}",
-      "height": "200px",
-      "width": "200px"
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url }}"
+    },
+    "name": "{{ page.title }}",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.excerpt | strip_html }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.data.author.name }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.data.author.name }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.data.author.image }}",
+        "height": "200px",
+        "width": "200px"
+      }
     }
   }
-}
 </script>

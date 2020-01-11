@@ -1,47 +1,69 @@
 class Presentation {
   constructor(el) {
-    const headers = [...el.querySelectorAll("h1[id],h2[id]")].map(h => `#${h.id}`);
-    let currentPageIndex = headers.findIndex(h => h === location.hash) || 0;
-    currentPageIndex = currentPageIndex > 0 ? currentPageIndex : 0;
+    const [header, content, footer] = el.children;
     const progressEl = document.getElementById("presentation-progress");
+    const page = parseInt(location.hash.replace("#", "")) || 1;
+
+    const contentPagedNodes = [...content.children].reduce(([acc, i], child) => {
+      if (child.tagName.toUpperCase() === "HR") {
+        return [acc, i + 1];
+      } else {
+        acc[i] = [...(acc[i] || []), child]
+        return [acc, i];
+      }
+    }, [
+      [], 0
+    ])[0];
+
+    const pagedNodes = [
+      [header],
+      ...contentPagedNodes,
+      [footer],
+    ];
 
     this.state = {
-      headers,
-      currentPageIndex,
+      pagedNodes,
+      page,
       progressEl,
     };
   }
 
   init() {
     this.listenKeyPresses();
-    this.setProgressBar();
-  }
-
-  setProgressBar() {
-    const { headers, currentPageIndex, progressEl } = this.state;
-    progressEl.innerHTML = `${currentPageIndex + 1} / ${headers.length}`;
-  }
-
-  goTo(pageIndex) {
-    const { headers } = this.state;
-    this.state.currentPageIndex = pageIndex;
-    location.hash = headers[pageIndex];
-    this.setProgressBar();
+    this.render();
   }
 
   listenKeyPresses() {
     window.addEventListener("keydown", e => {
       const {
-        headers,
-        currentPageIndex,
+        pagedNodes,
+        page,
       } = this.state;
 
-      if (e.key === "ArrowRight" && (currentPageIndex + 1) < headers.length) {
-        this.goTo(currentPageIndex + 1)
+      if (e.key === "ArrowRight" && page < pagedNodes.length) {
+        this.state.page = page + 1;
       }
-      if (e.key === "ArrowLeft" && currentPageIndex > 0) {
-        this.goTo(currentPageIndex - 1)
+      if (e.key === "ArrowLeft" && page > 1) {
+        this.state.page = page - 1;
       }
+      this.render();
+    });
+  }
+
+  render() {
+    const {
+      pagedNodes,
+      page,
+      progressEl
+    } = this.state;
+
+    progressEl.innerHTML = `${page} / ${pagedNodes.length}`;
+    location.hash = page;
+
+    pagedNodes.forEach((nodes, i) => {
+      nodes.forEach(node => {
+        node.style.display = page === i + 1 ? "block" : "none";
+      });
     });
   }
 }
