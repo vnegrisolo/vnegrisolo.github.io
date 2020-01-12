@@ -27,8 +27,8 @@ article.post {
     &:before {
       display: block;
       content: " ";
-      margin-top: -($height_top_menu + 1rem);
-      height: ($height_top_menu + 1rem);
+      margin-top: -($height_top_menu);
+      height: ($height_top_menu);
     }
   }
 }

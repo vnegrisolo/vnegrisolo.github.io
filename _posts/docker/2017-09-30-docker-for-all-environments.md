@@ -139,7 +139,7 @@ A difference to be highlighted is the usage of `volume` entry on **development**
 
 The way that we deal with environment variables will change as well. In this case for **production** I am loading these values from a file that's ignored from my git repo. I am pretty sure that this is not the best solution but that's also not the scope of this post.
 
-Read my blog post about [Wait for Docker container][blog-docker-wait-for] to understand how to do that if you want.
+Read my blog post about [Wait for Docker container][wait-docker] to understand how to do that if you want.
 
 Finally you may want to reuse part of this yml configuration, so take a look into [docker-compose override files][dk-compose-override]. This might be a good solution for big projects with extensive configurations.
 
@@ -226,3 +226,5 @@ Docker may help us to work on 💩 brown-field projects. Or you just don't want 
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[wait-docker]: {% post_url /docker/2017-09-19-wait-for-docker-container %}

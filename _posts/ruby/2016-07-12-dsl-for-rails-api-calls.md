@@ -32,7 +32,7 @@ user = Github::UserService.find_by(access_token: 'my-access-token')
 
 So I started creating the class `Api`.
 
-## `Api` Class
+## Class: `Api`
 
 The `Api` Class represents an instance of a flexible **json API**.
 
@@ -87,7 +87,7 @@ class Api
 end
 ```
 
-## `ApiResponse` Class
+## Class: `ApiResponse`
 
 Every API response is encapsulated by `ApiResponse`.
 
@@ -108,7 +108,7 @@ class ApiResponse
 end
 ```
 
-## `ApiError` Class
+## Class: `ApiError`
 
 Another responsibility of `ApiResponse` class is to raise an `ApiError` in case of the API returns any error in its content.
 
@@ -134,9 +134,11 @@ In order to instantiate an API I created this initializer:
 GITHUB_API = Api.new(url: Rails.configuration.github['api_url'])
 ```
 
-I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails Application][blog-configure-rails].
+I'm using the Rails method `config_for` for defining the configuration. I wrote about that on: [Configuring a Rails App][conf-rails-app].
 
-## `Github::UserService` Service Class
+The setup is done.
+
+## Service Class: `Github::UserService`
 
 Finally, the Service Class has as its main goal to create a DSL similar to `ActiveRecord` and then abstract the API complexity.
 
@@ -163,3 +165,5 @@ All these brings more agility on application development and maintenance, becaus
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[conf-rails-app]: {% post_url /ruby/2016-07-05-configuring-rails-app %}

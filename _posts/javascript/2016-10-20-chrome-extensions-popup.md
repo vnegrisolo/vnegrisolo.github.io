@@ -19,7 +19,7 @@ As you see this is my **popup** that displays some movie titles and has two butt
 
 ## Configuration
 
-**Popup** is configured inside either **page_action** or **browser_action**. In this case I'm using a [Page Action][blog-page-action], so my popup configuration goes undes `page_action` node:
+**Popup** is configured inside either **page_action** or **browser_action**. In this case I'm using a [Page Action][chrome-ext-setup], so my popup configuration goes undes `page_action` node:
 
 {: data-path="manifest.json"}
 ```json
@@ -115,3 +115,5 @@ The goal with Popups in Chrome Extensions are to support your app with a separat
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[chrome-ext-setup]: {% post_url /javascript/2016-10-01-chrome-extensions-setup %}#page-action-or-browse-action

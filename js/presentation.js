@@ -54,7 +54,7 @@ class Presentation {
     const {
       pagedNodes,
       page,
-      progressEl
+      progressEl,
     } = this.state;
 
     progressEl.innerHTML = `${page} / ${pagedNodes.length}`;

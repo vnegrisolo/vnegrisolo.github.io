@@ -95,7 +95,7 @@ Ember.Router.extend({
 
 ## Testing
 
-Ember uses [QUnit][qunit] for tests. I wrote a very simple acceptance test [First Ember JS Application][blog-first-ember] and you can see the power of testing inside the user perspective, following its clicks and asserting from html generated.
+Ember uses [QUnit][qunit] for tests. I wrote a very simple acceptance test [First Ember JS Application][1st-ember-app] and you can see the power of testing inside the user perspective, following its clicks and asserting from html generated.
 
 Another great library, non built-in, but used by most of Ember applications is [ember-cli-mirage]. This library is used to mock the server responses, it keeps an in-memory database, it comes with **factories**, etc. It's usually used on the tests, but can also be used in development environment.
 
@@ -122,3 +122,5 @@ In a nutshell: **Ember is great!** The community has built great tools and libra
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[1st-ember-app]: {% post_url /javascript/2016-07-26-first-ember-js-application %}

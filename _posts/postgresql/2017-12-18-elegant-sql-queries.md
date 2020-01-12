@@ -10,7 +10,7 @@ This is a short blog post for sharing some sql examples to solve some daily prob
 
 ## Intro
 
-For sharing purposes I'm using the same model structure as defined on my previous post [Generate fake data using SQL][blog-sql-generate-fake-data] so please if you want to follow this on your local PostgreSQL DB please go to that post and create the tables: `users`, `posts` and `comments`. Then you can generate some fake data. I am using PostgreSQL 10.1.
+For sharing purposes I'm using the same model structure as defined on my previous post [Generate fake data using SQL][sql-gen-fake-data] so please if you want to follow this on your local PostgreSQL DB please go to that post and create the tables: `users`, `posts` and `comments`. Then you can generate some fake data. I am using PostgreSQL 10.1.
 
 ## 1st: Fetch users with its posts count
 
@@ -212,3 +212,5 @@ I used some common business requests to show how to solve that with pure sql. Th
 {% include markdown/acronyms.md %}
 {% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[sql-gen-fake-data]: {% post_url /postgresql/2017-12-06-generate-fake-data-using-sql %}
