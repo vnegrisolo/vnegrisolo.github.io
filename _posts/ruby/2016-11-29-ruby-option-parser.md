@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Ruby OptionParser"
-date:   2016-11-29 12:00:00
+title: "Ruby OptionParser"
+date: 2016-11-29 12:00:00
 last_modified_at: 2016-11-29 12:00:00
 categories: Ruby
 ---
@@ -234,5 +234,6 @@ Try yourself with this code and verify what happens if you change the flags conf
 `OptionParser` class is a simplifier class when we are dealing with Ruby Script files. It helps us to define and parse an user input and with this definition we can use it to **print a help** message in the same script. Let's use it to **get user inputs**, restrict to a list of **possible values**, make them **required**, convert to **specific classes** and so on.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[ruby-option-parser]: http://ruby-doc.org/stdlib-2.3.3/libdoc/optparse/rdoc/OptionParser.html 'Ruby option-parser'

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "First Ember JS Application"
-date:   2016-07-26 12:00:00
+title: "First Ember JS Application"
+date: 2016-07-26 12:00:00
 last_modified_at: 2016-07-26 12:00:00
 categories: JavaScript
 tags: Ember
@@ -145,5 +145,9 @@ It's time to check if your tests are passing at `http://localhost:4200/tests`
 Ember is a powerful Javascript framework and yet very simple to start and maintain. A good way to start is to get used with the **core concepts** of Ember. Also use Ember **generators** and other **ember-cli tools** to gain speed on development and use **tests** as the best friend you can have when coding. You'll find yourself as an Ember developer in a blink. Good luck!
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[ember]: http://emberjs.com/ 'Ember'
+[bower]: https://bower.io/ 'Bower'
+[npm]: https://www.npmjs.com/ 'NPM'
+[handlebars]: http://handlebarsjs.com/ 'Handlebars'

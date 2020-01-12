@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "DSL for Rails API calls"
-date:   2016-07-12 12:00:00
+title: "DSL for Rails API calls"
+date: 2016-07-12 12:00:00
 last_modified_at: 2016-08-05 12:00:00
 categories: Ruby
 tags: Rails
@@ -163,7 +163,7 @@ A `Api` Class allowed us the reuse of well spread patterns into Rails community,
 All these brings more agility on application development and maintenance, because new developers understand the project faster.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
 
-[conf-rails-app]: {% post_url /ruby/2016-07-05-configuring-rails-app %}
+[conf-rails-app]: {% post_url /ruby/2016-07-05-configuring-rails-app %} 'Configure Rails app'
+[gh-faraday]: https://github.com/lostisland/faraday 'Github faraday'

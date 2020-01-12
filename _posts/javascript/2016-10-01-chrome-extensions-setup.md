@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Chrome Extensions - Part 1 - Setup"
-date:   2016-10-01 12:00:00
+title: "Chrome Extensions - Part 1 - Setup"
+date: 2016-10-01 12:00:00
 last_modified_at: 2016-10-01 12:00:00
 categories: JavaScript
 series: chrome-extension
@@ -142,5 +142,9 @@ So far super easy right?
 In the following post we'll see how to build a PageAction **popup**.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
+[netflex-code]: https://github.com/vnegrisolo/netflex, 'NetFlex Code'
+[chrome-extension]: https://developer.chrome.com/extensions 'Chrome extension'
+[chrome-web-store]: https://chrome.google.com/webstore/category/apps 'Chrome web store'

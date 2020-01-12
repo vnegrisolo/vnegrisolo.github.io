@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Generating fake data using SQL"
-date:   2017-12-06 12:00:00
+title: "Generating fake data using SQL"
+date: 2017-12-06 12:00:00
 last_modified_at: 2017-12-06 12:00:00
 categories: PostgreSQL
 ---
@@ -219,5 +219,6 @@ And the generated random data:
 This is a very flexible way to build your generated data with as much data as you need to test your query performance. The truth is that I created this to run on PostgreSQL but it may be very easy to adapt to other SQL database. Thanks for reading! 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[pg-cast-fake-data]: https://www.pgcasts.com/episodes/4/generating-fake-email-addresses/ 'PG cast fake data'

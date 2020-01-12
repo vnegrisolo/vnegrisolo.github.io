@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Github commits dis-order"
-date:   2017-06-19 12:00:00
+title: "Github commits dis-order"
+date: 2017-06-19 12:00:00
 last_modified_at: 2017-06-19 12:00:00
 categories: Git
 ---
@@ -57,5 +57,7 @@ So for every commit you amend it to reset the date, then you sleep for 2 seconds
 That's all folks, I hope this post was useful for you.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[git-log]: https://git-scm.com/docs/git-log 'Git log'
+[gh-blog-commits-wrong-order]: https://help.github.com/articles/why-are-my-commits-in-the-wrong-order/ 'Github wrong order commits'

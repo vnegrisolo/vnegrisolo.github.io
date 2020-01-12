@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Ruby Struct and OpenStruct classes"
-date:   2016-11-22 12:00:00
+title: "Ruby Struct and OpenStruct classes"
+date: 2016-11-22 12:00:00
 last_modified_at: 2016-11-22 12:00:00
 categories: Ruby
 ---
@@ -145,5 +145,7 @@ Both classes `Struct` and `OpenStruct` seems to solve the same problem, but it's
 - otherwise you can basically choose any of these that you'll be fine, so it's just chose the preferred flavor
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[ruby-open-struct]: http://ruby-doc.org/stdlib-2.3.2/libdoc/ostruct/rdoc/OpenStruct.html 'Ruby open-struct'
+[ruby-struct]: https://ruby-doc.org/core-2.3.2/Struct.html 'Ruby struct'

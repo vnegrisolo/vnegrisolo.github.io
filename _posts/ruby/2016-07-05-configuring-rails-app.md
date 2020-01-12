@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Configuring a Rails Application"
-date:   2016-07-05 12:00:00
+title: "Configuring a Rails Application"
+date: 2016-07-05 12:00:00
 last_modified_at: 2016-07-25 12:00:00
 categories: Ruby
 tags: Rails
@@ -87,5 +87,9 @@ Additionally, the usage of `.env.sample` and the gem **dotenv** helps a new deve
 Finally we can discard to add more dependencies to the project such as [figaro][gh-figaro] or [settingslogic][gh-settingslogic] because they just try to solve the same problems and then let the project with less dependencies.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[gh-dotenv]: https://github.com/bkeepers/dotenv 'Github dotenv'
+[gh-figaro]: https://github.com/laserlemon/figaro 'Github figaro'
+[gh-settingslogic]: https://github.com/settingslogic/settingslogic 'Github settingslogic'
+[rails-config-for]: http://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for 'Rails config for'

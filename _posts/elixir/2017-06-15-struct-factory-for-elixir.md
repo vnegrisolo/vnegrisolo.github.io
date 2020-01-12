@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Struct Factory for Elixir"
-date:   2017-06-15 12:00:00
+title: "Struct Factory for Elixir"
+date: 2017-06-15 12:00:00
 last_modified_at: 2017-06-15 12:00:00
 categories: Elixir
 ---
@@ -385,5 +385,4 @@ end
 I hope you enjoyed the reading as I enjoyed all the process of learning and sharing all of these. 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}

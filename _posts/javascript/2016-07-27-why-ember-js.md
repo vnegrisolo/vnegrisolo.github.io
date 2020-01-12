@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Why Ember JS"
-date:   2016-07-27 12:00:00
+title: "Why Ember JS"
+date: 2016-07-27 12:00:00
 last_modified_at: 2016-07-27 12:00:00
 categories: JavaScript
 tags: Ember
@@ -120,7 +120,14 @@ So **Fastboot** solves two problems at once (performance on first load and SEO) 
 In a nutshell: **Ember is great!** The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
 
-[1st-ember-app]: {% post_url /javascript/2016-07-26-first-ember-js-application %}
+[1st-ember-app]: {% post_url /javascript/2016-07-26-first-ember-js-application %} 'First Ember app'
+[gh-broccoli]: https://github.com/broccolijs/broccoli 'Github broccoli'
+[gh-fastboot]: https://github.com/ember-fastboot/fastboot 'Github fastboot'
+[gh-glimmer-2]: https://github.com/tildeio/glimmer 'Github glimmer-2'
+[ember-configure]: https://guides.emberjs.com/v2.7.0/configuring-ember/embedding-applications/ 'Ember configure'
+[ember-cli-mirage]: http://www.ember-cli-mirage.com/ 'Ember cli mirage'
+[ember-observer]: https://emberobserver.com/ 'Ember observer'
+[babel]: https://babeljs.io/ 'Babel'
+[qunit]: https://qunitjs.com/ 'Qunit'

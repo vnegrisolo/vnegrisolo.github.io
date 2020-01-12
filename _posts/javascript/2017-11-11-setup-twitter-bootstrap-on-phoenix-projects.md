@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Setup Twitter Bootstrap on Phoenix projects"
-date:   2017-11-11 12:00:00
+title: "Setup Twitter Bootstrap on Phoenix projects"
+date: 2017-11-11 12:00:00
 last_modified_at: 2017-11-11 12:00:00
 categories: JavaScript
 tags: Elixir Phoenix
@@ -130,5 +130,9 @@ That's all we need to:
 As I mentioned before this was a short post to share some frontend management tips to backend developers. I hope you have enjoyed this reading. 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[brunch]: http://brunch.io/ 'Brunch'
+[nodejs]: https://nodejs.org/en/ 'Nodejs'
+[npm]: https://www.npmjs.com/ 'NPM'
+[npm-check-updates]: https://www.npmjs.com/package/npm-check-updates 'NPM check updates'

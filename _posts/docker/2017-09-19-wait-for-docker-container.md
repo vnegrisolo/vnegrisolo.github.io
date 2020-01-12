@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Wait for Docker Container"
-date:   2017-09-19 12:00:00
+title: "Wait for Docker Container"
+date: 2017-09-19 12:00:00
 last_modified_at: 2017-09-19 12:00:00
 categories: Docker
 ---
@@ -142,5 +142,8 @@ If you have any ideas on how to make it better please get in touch.
 Cheers!
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[dk-startup-order]: https://docs.docker.com/compose/startup-order/ 'Docker compose startup order'
+[dk-wait-for-it-inspiration]: https://github.com/vishnubob/wait-for-it 'Docker wait for it'
+[gh-wait-for]: https://github.com/vnegrisolo/wait-for 'Github wait-for'

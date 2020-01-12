@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Chrome Extensions - Part 2 - Popup"
-date:   2016-10-20 12:00:00
+title: "Chrome Extensions - Part 2 - Popup"
+date: 2016-10-20 12:00:00
 last_modified_at: 2016-10-20 12:00:00
 categories: JavaScript
 series: chrome-extension
@@ -113,7 +113,7 @@ window.onload = () => new NetFlexPopup().init();
 The goal with Popups in Chrome Extensions are to support your app with a separate full html/js/css files. In this case you don't need to worry about conflicts, because it will be loaded in different browser `windows`. Then you can retrieve information saved in your storage (HTML5 Local Storage as example). You can send some messages to the main page and in this can manipulate the main page based on user interacting with the popup.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
 
-[chrome-ext-setup]: {% post_url /javascript/2016-10-01-chrome-extensions-setup %}#page-action-or-browse-action
+[chrome-ext-setup]: {% post_url /javascript/2016-10-01-chrome-extensions-setup %}#page-action-or-browse-action 'Chrome Extension setup'
+[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'

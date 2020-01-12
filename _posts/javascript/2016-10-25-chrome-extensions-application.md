@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Chrome Extensions - Part 3 - Application"
-date:   2016-10-25 12:00:00
+title: "Chrome Extensions - Part 3 - Application"
+date: 2016-10-25 12:00:00
 last_modified_at: 2016-10-25 12:00:00
 categories: JavaScript
 series: chrome-extension
@@ -99,5 +99,6 @@ With chrome extensions it's possible to interact with existing pages. And you do
 In addition remember that google chrome uses ES2015 already, so new javascript syntax for free.
 
 {% include markdown/acronyms.md %}
-{% include markdown/links.md %}
 {% include markdown/images.md %}
+
+[netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
