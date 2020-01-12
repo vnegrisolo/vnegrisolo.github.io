@@ -3,6 +3,7 @@ class Presentation {
     const [header, content, footer] = el.children;
     const progressEl = document.getElementById("presentation-progress");
     const page = parseInt(location.hash.replace("#", "")) || 1;
+    const channel = new BroadcastChannel('presentation_channel');
 
     const contentPagedNodes = [...content.children].reduce(([acc, i], child) => {
       if (child.tagName.toUpperCase() === "HR") {
@@ -25,11 +26,13 @@ class Presentation {
       pagedNodes,
       page,
       progressEl,
+      channel,
     };
   }
 
   init() {
     this.listenKeyPresses();
+    this.listenChannel();
     this.render();
   }
 
@@ -50,11 +53,23 @@ class Presentation {
     });
   }
 
+  listenChannel() {
+    this.state.channel.onmessage = ({
+      data
+    }) => {
+      if (this.state.page !== data.page) {
+        this.state.page = data.page;
+        this.render();
+      }
+    };
+  }
+
   render() {
     const {
       pagedNodes,
       page,
       progressEl,
+      channel,
     } = this.state;
 
     progressEl.innerHTML = `${page} / ${pagedNodes.length}`;
@@ -64,6 +79,10 @@ class Presentation {
       nodes.forEach(node => {
         node.style.display = page === i + 1 ? "block" : "none";
       });
+    });
+
+    channel.postMessage({
+      page
     });
   }
 }
