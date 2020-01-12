@@ -57,7 +57,6 @@ So for every commit you amend it to reset the date, then you sleep for 2 seconds
 That's all folks, I hope this post was useful for you.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [git-log]: https://git-scm.com/docs/git-log 'Git log'
 [gh-blog-commits-wrong-order]: https://help.github.com/articles/why-are-my-commits-in-the-wrong-order/ 'Github wrong order commits'

@@ -142,7 +142,6 @@ If you have any ideas on how to make it better please get in touch.
 Cheers!
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [dk-startup-order]: https://docs.docker.com/compose/startup-order/ 'Docker compose startup order'
 [dk-wait-for-it-inspiration]: https://github.com/vishnubob/wait-for-it 'Docker wait for it'

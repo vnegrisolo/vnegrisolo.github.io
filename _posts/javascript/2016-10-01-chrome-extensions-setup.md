@@ -142,9 +142,11 @@ So far super easy right?
 In the following post we'll see how to build a PageAction **popup**.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
 [netflex-code]: https://github.com/vnegrisolo/netflex, 'NetFlex Code'
 [chrome-extension]: https://developer.chrome.com/extensions 'Chrome extension'
 [chrome-web-store]: https://chrome.google.com/webstore/category/apps 'Chrome web store'
+[netflex-disabled]: /images/posts/netflex/disabled.png 'NetFlex disabled'
+[netflex-enabled]: /images/posts/netflex/enabled.png 'NetFlex enabled'
+[netflex-install]: /images/posts/netflex/install.png 'NetFlex install'

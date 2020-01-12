@@ -99,6 +99,6 @@ With chrome extensions it's possible to interact with existing pages. And you do
 In addition remember that google chrome uses ES2015 already, so new javascript syntax for free.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [netflex]: https://chrome.google.com/webstore/detail/netflex/enabfkegimbpnmiadibjifbmbednodib 'NetFlex'
+[netflex-netflix]: /images/posts/netflex/netflix.png 'Netflix With NetFlex'

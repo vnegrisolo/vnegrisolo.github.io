@@ -120,7 +120,6 @@ So **Fastboot** solves two problems at once (performance on first load and SEO) 
 In a nutshell: **Ember is great!** The community has built great tools and libraries that support developers. Some of the best ideas of other frameworks inspired Ember developers to build efficient solutions. Big issues are addressed and solved already by the community and Ember core team.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [1st-ember-app]: {% post_url /javascript/2016-07-26-first-ember-js-application %} 'First Ember app'
 [gh-broccoli]: https://github.com/broccolijs/broccoli 'Github broccoli'

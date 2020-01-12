@@ -117,7 +117,6 @@ Additionally making your gem executable through a ruby script file it's a very n
 Finally a good Ruby code keeps its quality through simple and direct tests and this is a very easy task to do. So there's no reason for leaving a script file without testing. Let's do that!
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [ruby-kernel-backtick]: http://ruby-doc.org/core-2.3.3/Kernel.html#method-i-60 'Ruby kernel-backtick'
 [ruby-kernel-system]: http://ruby-doc.org/core-2.3.3/Kernel.html#method-i-system 'Ruby kernel-system'

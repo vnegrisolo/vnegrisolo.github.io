@@ -87,7 +87,6 @@ Additionally, the usage of `.env.sample` and the gem **dotenv** helps a new deve
 Finally we can discard to add more dependencies to the project such as [figaro][gh-figaro] or [settingslogic][gh-settingslogic] because they just try to solve the same problems and then let the project with less dependencies.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [gh-dotenv]: https://github.com/bkeepers/dotenv 'Github dotenv'
 [gh-figaro]: https://github.com/laserlemon/figaro 'Github figaro'

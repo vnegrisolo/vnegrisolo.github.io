@@ -210,6 +210,5 @@ And my report:
 I used some common business requests to show how to solve that with pure sql. The main goal is to avoid N+1 queries and then scale up the app. I hope you have enjoyed it! 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [sql-gen-fake-data]: {% post_url /postgresql/2017-12-06-generate-fake-data-using-sql %} 'Generate Fake Data using SQL'

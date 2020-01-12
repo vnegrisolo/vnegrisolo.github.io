@@ -127,7 +127,6 @@ find_out(foo: :bar)
 The Ruby operator `===` threequals allow us to define custom implementations and then use it in the `case` statement. The main goal here is to let code more readable. So let's use the threequals operator more often.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [ruby-module]: https://ruby-doc.org/core-2.3.1/Module.html#method-i-3D-3D-3D 'Ruby module'
 [ruby-object]: https://ruby-doc.org/core-2.3.1/Object.html#method-i-3D-3D-3D 'Ruby object'

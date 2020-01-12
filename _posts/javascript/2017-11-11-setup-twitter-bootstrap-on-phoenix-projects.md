@@ -130,7 +130,6 @@ That's all we need to:
 As I mentioned before this was a short post to share some frontend management tips to backend developers. I hope you have enjoyed this reading. 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [brunch]: http://brunch.io/ 'Brunch'
 [nodejs]: https://nodejs.org/en/ 'Nodejs'

@@ -385,4 +385,3 @@ end
 I hope you enjoyed the reading as I enjoyed all the process of learning and sharing all of these. 👍
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}

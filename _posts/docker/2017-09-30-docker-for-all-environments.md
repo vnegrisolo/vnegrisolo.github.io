@@ -224,7 +224,6 @@ These are just a sample of how to interact with our containers using `docker-com
 Docker may help us to work on 💩 brown-field projects. Or you just don't want to install a lot of applications to start with right? In one case or the other I hope you have enjoyed 👍 this reading.
 
 {% include markdown/acronyms.md %}
-{% include markdown/images.md %}
 
 [wait-docker]: {% post_url /docker/2017-09-19-wait-for-docker-container %} 'Wait for Docker container'
 [dk-compose-override]: https://docs.docker.com/compose/extends/ 'Docker compose extends'
