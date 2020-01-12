@@ -2,8 +2,8 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
   {% include head.html %}
   <body>
-    {% if page.layout == "presentation" %}
-      {% include top_menu_presentation.html %}
+    {% if page.layout == "talk" %}
+      {% include top_menu_talk.html %}
     {% else %}
       {% include top_menu.html %}
     {% endif %}
@@ -13,7 +13,7 @@
         {{ content }}
       </div>
     </div>
-    {% if page.layout != "presentation" %}
+    {% if page.layout != "talk" %}
       {% include footer.html %}
     {% endif %}
 
@@ -37,7 +37,7 @@
       ga('send', 'pageview');
     </script>
     <script async src="{{ "/js/syntax-highlight.js" }}"></script>
-    <script async src="{{ "/js/presentation.js" }}"></script>
+    <script async src="{{ "/js/talk.js" }}"></script>
     <script async src="{{ "/js/bookmark-link.js" }}"></script>
   </body>
 </html>

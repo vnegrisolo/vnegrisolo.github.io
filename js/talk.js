@@ -1,9 +1,9 @@
-class Presentation {
+class Talk {
   constructor(el) {
     const [header, content, footer] = el.children;
-    const progressEl = document.getElementById("presentation-progress");
+    const progressEl = document.getElementById("talk-progress");
     const page = parseInt(location.hash.replace("#", "")) || 1;
-    const channel = new BroadcastChannel('presentation_channel');
+    const channel = new BroadcastChannel('talk_channel');
 
     const contentPagedNodes = [...content.children].reduce(([acc, i], child) => {
       if (child.tagName.toUpperCase() === "HR") {
@@ -88,7 +88,7 @@ class Presentation {
 }
 
 window.onload = () => {
-  document.querySelectorAll("article.presentation").forEach(el => {
-    new Presentation(el).init();
+  document.querySelectorAll("article.talk").forEach(el => {
+    new Talk(el).init();
   });
 }

@@ -1,7 +1,7 @@
 ---
-layout: presentation
+layout: talk
 title:  "Testing in Elixir"
-categories: Presentations
+categories: Talks
 tags: Elixir Testing
 date:   2019-02-13 12:00:00
 last_modified_at: 2019-02-13 12:00:00
