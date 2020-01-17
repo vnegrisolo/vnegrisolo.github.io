@@ -13,7 +13,7 @@ There are a lot to consider when configuring a Rails application, such as **vari
 
 Rails has a helper method to load a configuration file and it's very easy to use it: [config_for][rails-config-for]:
 
-{: data-path="config/application.rb"}
+{: data-title="config/application.rb"}
 ```ruby
 module MyRailsApp
   class Application < Rails::Application
@@ -28,7 +28,7 @@ This way there's no need to keep just one `application.yml` configuration file w
 
 In short, my preferred format is `yml`, such as in this example:
 
-{: data-path="config/github.yml"}
+{: data-title="config/github.yml"}
 ```yml
 default: &default
   api_url: https://api.github.com

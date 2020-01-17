@@ -27,8 +27,7 @@ I'll use as an example a simple Ruby on Rails application to show how to configu
 
 So let's start with the `Dockerfile` that's used to build Docker images.
 
-{: class="two-column"}
-{: data-path="Dockerfile"}
+{: data-title="Dockerfile" class="two-column"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
@@ -52,8 +51,7 @@ RUN bundle install
 # assets:precompile is useless in dev
 ```
 
-{: class="two-column"}
-{: data-path="Dockerfile.prod"}
+{: data-title="Dockerfile.prod" class="two-column"}
 ```docker
 FROM ruby:2.4.1-alpine3.6
 WORKDIR /app
@@ -85,8 +83,7 @@ In **production** mode I am copying all files from the application (except the i
 
 Here it comes my `docker-compose.yml` files:
 
-{: class="two-column"}
-{: data-path="docker-compose.yml"}
+{: data-title="docker-compose.yml" class="two-column"}
 ```yml
 ---
 version: "3"
@@ -109,8 +106,7 @@ services:
       POSTGRES_PASSWORD: postgres
 ```
 
-{: class="two-column"}
-{: data-path="docker-compose.prod.yml"}
+{: data-title="docker-compose.prod.yml" class="two-column"}
 ```yml
 ---
 version: "3"
@@ -147,8 +143,7 @@ Finally you may want to reuse part of this yml configuration, so take a look int
 
 It's nice to reinforce that `git` and `docker` have its ignore files for different purposes. This is how I set my ignore files to work:
 
-{: class="two-column"}
-{: data-path=".gitignore"}
+{: data-title=".gitignore" class="two-column"}
 ```
 .bundle/
 .env.prod
@@ -156,8 +151,7 @@ log/
 tmp/
 ```
 
-{: class="two-column"}
-{: data-path=".dockerignore"}
+{: data-title=".dockerignore" class="two-column"}
 ```
 .bundle/
 .dockerignore
@@ -174,7 +168,7 @@ tmp/
 
 Finally a simple `.env.prod`:
 
-{: data-path=".env.prod"}
+{: data-title=".env.prod"}
 ```
 POSTGRES_PASSWORD=postgres123
 RAILS_SERVE_STATIC_FILES=true

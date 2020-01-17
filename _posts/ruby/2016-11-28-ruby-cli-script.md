@@ -20,7 +20,7 @@ echo "#!/usr/bin/env ruby" > my-script
 
 The first line of your script just tells the shell terminal where is the executable for the following lines, in this case Ruby. At this point your Ruby script will looks like this:
 
-{: data-path="my-script"}
+{: data-title="my-script"}
 ```ruby
 #!/usr/bin/env ruby
 
@@ -46,7 +46,7 @@ If you have a Gem, and you want to make it executable in command line terminal, 
 
 Your gemspec file will look like this:
 
-{: data-path="your_gem.gemspec"}
+{: data-title="your_gem.gemspec"}
 ```ruby
 ...
 Gem::Specification.new do |spec|
@@ -58,7 +58,7 @@ end
 
 And here it comes your script file:
 
-{: data-path="bin/my-script"}
+{: data-title="bin/my-script"}
 ```ruby
 #!/usr/bin/env ruby
 
@@ -74,7 +74,7 @@ If you want to create an **integration** test with your Ruby script, you can use
 
 The first strategy is to call [Kernel#system][ruby-kernel-system] method and assert a Ruby stubbed call for example. Something like:
 
-{: data-path="spec/my_script_spec.rb"}
+{: data-title="spec/my_script_spec.rb"}
 ```ruby
 require 'spec_helper'
 
@@ -88,7 +88,7 @@ end
 
 Another strategy is if your script prints out some results you can grab it and verify its value with [Kernel#`][ruby-kernel-backtick] (backtik) method. Check this out:
 
-{: data-path="spec/my_script_spec.rb"}
+{: data-title="spec/my_script_spec.rb"}
 ```ruby
 require 'spec_helper'
 

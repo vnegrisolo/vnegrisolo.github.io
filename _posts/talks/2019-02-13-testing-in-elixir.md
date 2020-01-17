@@ -111,7 +111,7 @@ end
 ---
 ## Test data - Factory Sample
 
-{: data-path="lib/factory.ex"}
+{: data-title="lib/factory.ex"}
 ```elixir
 defmodule Factory do
   use MapBot
@@ -152,7 +152,7 @@ user = Factory.build(User, age: 17)
 ---
 ## Unit Testing
 
-{: data-path="test/my_app/ecto/normalizer_test.exs"}
+{: data-title="test/my_app/ecto/normalizer_test.exs"}
 ```elixir
 defmodule MyApp.Ecto.NormalizerTest do
   use ExUnit.Case, async: true
@@ -206,7 +206,7 @@ assert %{name: ^name} = changeset.changes
 ---
 ## Unit Testing - Data Table
 
-{: data-path="test/my_app/ecto/type/money_test.exs"}
+{: data-title="test/my_app/ecto/type/money_test.exs"}
 ```elixir
 defmodule MyApp.Ecto.Type.MoneyTest do
   use ExUnit.Case, async: true
@@ -242,7 +242,7 @@ end
 ---
 ## Unit Testing - Properties
 
-{: data-path="test/my_app/ecto/type/money_test.exs"}
+{: data-title="test/my_app/ecto/type/money_test.exs"}
 ```elixir
 defmodule MyApp.Ecto.Type.MoneyTest do
   use ExUnit.Case, async: true
@@ -280,7 +280,7 @@ end
 ---
 ## Controller Testing
 
-{: data-path="test/my_app_web/post_controller_test.exs"}
+{: data-title="test/my_app_web/post_controller_test.exs"}
 ```elixir
 defmodule MyAppWeb.PostControllerTest do
   use MyAppWeb.ConnCase, async: true
@@ -311,7 +311,7 @@ end
 ---
 ## WebSocket Testing
 
-{: data-path="test/my_app_web/user_channel_test.exs"}
+{: data-title="test/my_app_web/user_channel_test.exs"}
 ```elixir
 defmodule MyAppWeb.UserChannelTest do
   use MyAppWeb.ChannelCase, async: true
@@ -347,7 +347,7 @@ end
 ---
 ## Feature Testing
 
-{: data-path="test/my_app_web/features/post_test.exs"}
+{: data-title="test/my_app_web/features/post_test.exs"}
 ```elixir
 defmodule MyAppWeb.Features.PostTest do
   use MyAppWeb.FeatureCase, async: true

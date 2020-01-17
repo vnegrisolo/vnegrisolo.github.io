@@ -35,7 +35,7 @@ I put some effort to make this very simple but with some nice features as:
 
 So here it is:
 
-{: data-path="bin/wait-for"}
+{: data-title="bin/wait-for"}
 ```shell
 #!/bin/sh
 
@@ -104,7 +104,7 @@ I created this [github wait-for repo][gh-wait-for] to keep it as it may be very 
 
 Regarding how would you use it in a `docker-compose.yml` file I have this simple example:
 
-{: data-path="docker-compose.yml"}
+{: data-title="docker-compose.yml"}
 ```yml
 # docker-compose.yml
 version: "3"

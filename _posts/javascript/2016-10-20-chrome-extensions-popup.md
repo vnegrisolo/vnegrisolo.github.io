@@ -21,7 +21,7 @@ As you see this is my **popup** that displays some movie titles and has two butt
 
 **Popup** is configured inside either **page_action** or **browser_action**. In this case I'm using a [Page Action][chrome-ext-setup], so my popup configuration goes undes `page_action` node:
 
-{: data-path="manifest.json"}
+{: data-title="manifest.json"}
 ```json
 {
   ...
@@ -41,7 +41,7 @@ As you see this is my **popup** that displays some movie titles and has two butt
 
 `popup.html` is a full html file loaded in a different window. So your js/css will **not conflict** with any js/css loaded by the main page.
 
-{: data-path="popup.html"}
+{: data-title="popup.html"}
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ As you see this is my **popup** that displays some movie titles and has two butt
 
 The `popup.js` file holds the logic, including passing messages to the main page. Let's see how:
 
-{: data-path="popup.js"}
+{: data-title="popup.js"}
 ```javascript
 class NetFlexPopup {
   constructor() {

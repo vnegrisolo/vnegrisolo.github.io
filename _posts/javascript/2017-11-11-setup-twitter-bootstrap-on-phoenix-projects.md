@@ -99,14 +99,14 @@ The previous commands will update my `assets/package.json` file automatically fo
 
 The first code change required is to import `bootstrap` javascript into the `app.js` file:
 
-{: data-path="assets/js/app.js"}
+{: data-title="assets/js/app.js"}
 ```shell
 import "bootstrap"
 ```
 
 Secondly we change the `brunch-config.js` file to add the css files into the assets pipeline. Lastly and in the same file we add global javascript variables that will be imported from javascript files imported by npm, in this case `jquery` and `popper`:
 
-{: data-path="assets/brunch-config.js"}
+{: data-title="assets/brunch-config.js"}
 ```javascript
 exports.config = {
   npm: {

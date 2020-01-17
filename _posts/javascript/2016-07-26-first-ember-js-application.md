@@ -85,7 +85,7 @@ ember generate route hello
 
 Add a model that just return a string:
 
-{: data-path="app/routes/hello.js"}
+{: data-title="app/routes/hello.js"}
 ```javascript
 import Ember from 'ember';
 
@@ -99,7 +99,7 @@ export default Ember.Route.extend({
 Finally show it in the template:
 
 {% raw %}
-{: data-path="app/templates/hello.hbs"}
+{: data-title="app/templates/hello.hbs"}
 ```handlebars
 <div class="greeting">Hello {{model}}!</div>
 ```
@@ -119,7 +119,7 @@ ember generate acceptance-test hello
 
 This is a simple and straightforward test that verifies the **current url** and the **content** produced when the user hits `/hello` page:
 
-{: data-path="tests/acceptance/hello-test.js"}
+{: data-title="tests/acceptance/hello-test.js"}
 ```javascript
 import { test } from 'qunit';
 import moduleForAcceptance from 'ember-quickstart/tests/helpers/module-for-acceptance';

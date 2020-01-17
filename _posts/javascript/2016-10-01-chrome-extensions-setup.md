@@ -27,7 +27,7 @@ mkdir ~/netflex
 
 And then your `manifest.json` file. This is the configuration file for your project:
 
-{: data-path="manifest.json"}
+{: data-title="manifest.json"}
 ```json
 {
   "manifest_version": 2,
@@ -59,7 +59,7 @@ Otherwise use **PageAction**, and in this case you have to enable your plugin th
 
 First you add **background** and **permissions** entries to `manifest.json` file:
 
-{: data-path="manifest.json"}
+{: data-title="manifest.json"}
 ```json
 {
   ...
@@ -75,7 +75,7 @@ First you add **background** and **permissions** entries to `manifest.json` file
 
 And then you create your `background.js`:
 
-{: data-path="background.js"}
+{: data-title="background.js"}
 ```javascript
 chrome.tabs.onUpdated.addListener((tabId, _, tab) => {
   if (tab.url.indexOf('https://www.netflix.com/') == 0) {
@@ -94,7 +94,7 @@ And that's how you'll see your plugin disabled/enabled by url:
 
 As you have noticed, in `background.js` file I'm enabling a **pageAction**. So let's configure the basics of it and also add some icons with sizes based on Chrome guides specification. There it is a, so far, final version of `manifest.json`:
 
-{: data-path="manifest.json"}
+{: data-title="manifest.json"}
 ```json
 {
   "manifest_version": 2,

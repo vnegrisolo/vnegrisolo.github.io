@@ -48,7 +48,7 @@ Both `build` and `create` functions receive the struct name and a list of attrib
 
 Last detail to watch is the usage of the pipe operator `|>`. This operator fits really well on both methods because the main idea here is to build something and change it for each step it pass through. ❤️
 
-{: data-path="test/support/ex_factory.ex"}
+{: data-title="test/support/ex_factory.ex"}
 ```elixir
 defmodule MyApp.ExFactory do
   alias MyApp.{Repo,Factories}
@@ -65,7 +65,7 @@ end
 
 Testing this module was as simple to code as `ExFactory` module. I'd like to **isolate** this test from real application modules, so I created some **dummy modules** for that 🕶. Using these dummy modules by just 💉 **injecting** them to the real implementation is a great way to keep tests simple in functional programming and does not requires any external tool for mocking, stubbing, etc. The last point here was to delegate `build` and `create` from the test module to `ExFactory` in order to add the new dummy modules for `Factories` and `Repo`.
 
-{: data-path="test/ex_factory/ex_factory_test.exs"}
+{: data-title="test/ex_factory/ex_factory_test.exs"}
 ```elixir
 defmodule MyApp.ExFactoryTest do
   use ExUnit.Case, async: true
@@ -108,7 +108,7 @@ So far so good, but I want a **building-blocks** system to reuse pieces, and may
 
 This time I'll start with the tests, and for now on I'm showing just the bits that have changed so far.
 
-{: data-path="test/ex_factory/ex_factory_test.exs"}
+{: data-title="test/ex_factory/ex_factory_test.exs"}
 ```elixir
 defmodule MyApp.ExFactoryTest do
 
@@ -159,7 +159,7 @@ end
 
 Note that at this point traits and attributes are mixed all together in the same List. And that's fine. It keeps the function signature simple and with `Enum.split_with/2` it can be split. Here is the new code:
 
-{: data-path="test/support/ex_factory.ex"}
+{: data-title="test/support/ex_factory.ex"}
 ```elixir
 defmodule MyApp.ExFactory do
 
@@ -187,7 +187,7 @@ To do that I used the amazing sugar syntax of function captures. This might not 
 
 Starting with the tests again notice that I used the `=~` operator to match the generated email. Now the order of tests execution and parallelism will change the produced result.
 
-{: data-path="test/ex_factory/ex_factory_test.exs"}
+{: data-title="test/ex_factory/ex_factory_test.exs"}
 ```elixir
 defmodule MyApp.ExFactoryTest do
 
@@ -231,7 +231,7 @@ end
 
 The implementation of this feature is the last step in the build pipeline. It is basically filter attributes where the value is a function and apply it with an auto-incremented integer.
 
-{: data-path="test/support/ex_factory.ex"}
+{: data-title="test/support/ex_factory.ex"}
 ```elixir
 defmodule MyApp.ExFactory do
 
@@ -264,7 +264,7 @@ end
 
 Elixir is a functional programming, so there is no object holding a state for you. The resolution was actually an opportunity to use the module `Agent` 👀. I just needed to implement `start_link` and call it from `test/test_helper.exs`. Also I have `next_int` but that's the sequence implementation, pretty straightforward.
 
-{: data-path="test/test_helper.exs"}
+{: data-title="test/test_helper.exs"}
 ```elixir
 MyApp.ExFactory.start_link()
 ```
@@ -273,7 +273,7 @@ MyApp.ExFactory.start_link()
 
 Here it is a simple `Factories` example for your app. Same structure as the one used as a dummy class for the `ExFactory` tests.
 
-{: data-path="test/support/factories.ex"}
+{: data-title="test/support/factories.ex"}
 ```elixir
 defmodule MyApp.Factories do
   import MyApp.ExFactory
@@ -299,7 +299,7 @@ end
 
 🎉🎉🎉 Finally `ExFactory` module with `@spec`s and `@doc`s.
 
-{: data-path="test/support/ex_factory.ex"}
+{: data-title="test/support/ex_factory.ex"}
 ```elixir
 defmodule MyApp.ExFactory do
   alias MyApp.{Repo,Factories}
@@ -359,7 +359,7 @@ end
 
 Remember you can import `build` and `create` functions into your test cases modules as this is the kind of function to be used very often in the tests.
 
-{: data-path="test/support/data_case.ex"}
+{: data-title="test/support/data_case.ex"}
 ```elixir
 defmodule MyApp.DataCase do
 

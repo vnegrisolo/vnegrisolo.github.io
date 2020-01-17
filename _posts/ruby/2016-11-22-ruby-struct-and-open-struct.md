@@ -19,8 +19,7 @@ Both [Struct][ruby-struct] and [OpenStruct][ruby-open-struct] classes were made 
 
 Check this out:
 
-{: class="two-column"}
-{: data-path="struct-example.rb"}
+{: data-title="struct-example.rb" class="two-column"}
 ```ruby
 PersonStruct = Struct.new(:name)
 joe = PersonStruct.new('Joe')
@@ -42,8 +41,7 @@ joe_one == joe_two
 #=> true
 ```
 
-{: class="two-column"}
-{: data-path="open-struct-example.rb"}
+{: data-title="open-struct-example.rb" class="two-column"}
 ```ruby
 require 'ostruct'
 mary = OpenStruct.new(name: 'Mary')
@@ -77,7 +75,7 @@ After that you can create instances passing to them the **values in the same ord
 
 You can use the methods `members` and `each_pair` to get all keys and values.
 
-{: data-path="struct-example.rb"}
+{: data-title="struct-example.rb"}
 ```ruby
 PersonStruct = Struct.new(:name, :age) do
   def hi
@@ -115,7 +113,7 @@ You can use the methods `to_h` and `each_pair` to get all keys and values, almos
 
 Finally it's possible to remove an attribute from a `OpenStruct` instance using `delete_field`.
 
-{: data-path="open-struct-example.rb"}
+{: data-title="open-struct-example.rb"}
 ```ruby
 require 'ostruct'
 mary = OpenStruct.new(name: 'Mary', age: 30)

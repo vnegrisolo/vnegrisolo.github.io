@@ -66,7 +66,7 @@ end
 
 Maybe the easiest way to explain how to configure and use `OptionParser` is providing a **full example** with a Ruby script file and call it with some arguments. Check this out:
 
-{: data-path="lib/config.rb"}
+{: data-title="lib/config.rb"}
 ```ruby
 Config = Struct.new(*%i[color drink lang fun point sports time user]) do
   DRINKS = %i[water tea beer]
@@ -96,7 +96,7 @@ end
 
 The `User` class just represents a simple model, and this class is being used for **Custom Converters**. In this case I want to receive a user by id, fetch him in the database and provide as a configuration the found `User`, not just the `id`. This is just to show how powerful can be a **Custom Converter**.
 
-{: data-path="models/user.rb"}
+{: data-title="models/user.rb"}
 ```ruby
 User = Struct.new(:name) do
   def self.find(id)
@@ -114,7 +114,7 @@ end
 
 Finally the full Ruby script file:
 
-{: data-path="my-script"}
+{: data-title="my-script"}
 ```ruby
 #!/usr/bin/env ruby
 

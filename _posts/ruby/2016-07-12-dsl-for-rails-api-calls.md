@@ -47,7 +47,7 @@ Also it defines default values for:
 
 Another important point was the API abstraction that now receives **keyword arguments**. This allows a cleaner and more explicitly interface than the one offered by `faraday`.
 
-{: data-path="app/services/api.rb"}
+{: data-title="app/services/api.rb"}
 ```ruby
 class Api
   def initialize(url:, timeout: 5, open_timeout: 2, mime_type: 'application/json')
@@ -93,7 +93,7 @@ Every API response is encapsulated by `ApiResponse`.
 
 Its main goal is to parse the **json** response.
 
-{: data-path="app/services/api_response.rb"}
+{: data-title="app/services/api_response.rb"}
 ```ruby
 class ApiResponse
   attr_reader :response
@@ -114,7 +114,7 @@ Another responsibility of `ApiResponse` class is to raise an `ApiError` in case 
 
 This treatment could be via **content** or via **http code**, etc.
 
-{: data-path="app/services/api_error.rb"}
+{: data-title="app/services/api_error.rb"}
 ```ruby
 class ApiError < StandardError
   attr_reader :response
@@ -129,7 +129,7 @@ end
 
 In order to instantiate an API I created this initializer:
 
-{: data-path="config/initializers/github_api.rb"}
+{: data-title="config/initializers/github_api.rb"}
 ```ruby
 GITHUB_API = Api.new(url: Rails.configuration.github['api_url'])
 ```
@@ -142,7 +142,7 @@ The setup is done.
 
 Finally, the Service Class has as its main goal to create a DSL similar to `ActiveRecord` and then abstract the API complexity.
 
-{: data-path="app/services/github/user_service.rb"}
+{: data-title="app/services/github/user_service.rb"}
 ```ruby
 module Github::UserService
   extend self

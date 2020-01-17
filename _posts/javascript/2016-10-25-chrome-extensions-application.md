@@ -13,7 +13,7 @@ That's the final part of a series regarding **Chrome Extension Development**. In
 
 In order to inject your js/css files by chrome extension you need to use the node `content_scripts`:
 
-{: data-path="manifest.json"}
+{: data-title="manifest.json"}
 ```json
 {
   ...
@@ -42,7 +42,7 @@ It's possible to notice that the plugin adds a button above the movies with it's
 
 `netflex.js` is the main file for the whole project and it is responsible for displaying the hide button inside Netflix page and hide all movies that was already marked to be hidden. This code was simplified from the running version for better understanding.
 
-{: data-path="netflex.js"}
+{: data-title="netflex.js"}
 ```javascript
 class NetFlex {
   constructor() {

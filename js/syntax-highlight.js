@@ -22,7 +22,7 @@ const clipboardCopy = (e) => {
 
 document.querySelectorAll("div.highlighter-rouge").forEach(el => {
   const lang = el.getAttribute("class").match(/language-(\S+)/);
-  const title = el.dataset.path;
+  const title = el.dataset.title;
 
   const header = document.createElement("div");
   header.setAttribute("class", "header");

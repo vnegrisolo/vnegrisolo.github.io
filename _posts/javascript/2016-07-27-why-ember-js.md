@@ -37,7 +37,7 @@ ember help generate
 
 The Ember **Router** is responsible for handling the current URL and map it to one or more **Route**. It uses the basic concept of nested resources that URL give to us through its folder structure and all **Routes** and **Templates** follow the same structure. The code becomes well segmented by the uri structure. Also developers know exactly which file the code will be. Here's an example:
 
-{: data-path="app/router.js"}
+{: data-title="app/router.js"}
 ```javascript
 Router.map(function() {
   this.route("photo", { path: "photo/:id" }, function() {
@@ -66,7 +66,7 @@ SPA stands for **Single Page Application** and it means that all necessary code 
 
 This myth is based on the default way of Ember to work. Without any configuration Ember will append it's controls to `body` of the html response and then take care about the user flow. So if you have a legacy application and wants to add a small Ember piece of code you can [configure][ember-configure] your app to just take care of an specific element instead of `body`:
 
-{: data-path="app/app.js"}
+{: data-title="app/app.js"}
 ```javascript
 export default Ember.Application.extend({
   rootElement: '#app'
@@ -77,7 +77,7 @@ This way you can have more than one Ember App per page and other javascript fram
 
 You may need to prevent url changes by Ember:
 
-{: data-path="config/environment.js"}
+{: data-title="config/environment.js"}
 ```javascript
 var ENV = {
   locationType: 'none'
@@ -86,7 +86,7 @@ var ENV = {
 
 Finally you can restrict Ember to handle specific uri:
 
-{: data-path="app/router.js"}
+{: data-title="app/router.js"}
 ```javascript
 Ember.Router.extend({
   rootURL: '/blog/'
