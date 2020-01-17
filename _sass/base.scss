@@ -99,8 +99,15 @@ table {
 }
 
 img {
+  border: 1px solid $darker;
   height: auto;
   width: 100%;
+}
+
+ul {
+  li {
+    margin: 0.25rem 0;
+  }
 }
 
 .container {

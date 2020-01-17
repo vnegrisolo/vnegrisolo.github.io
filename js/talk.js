@@ -77,7 +77,15 @@ class Talk {
 
     pagedNodes.forEach((nodes, i) => {
       nodes.forEach(node => {
-        node.style.display = page === i + 1 ? "block" : "none";
+        if (page === i + 1) {
+          if ([...node.classList].includes("two-column")) {
+            node.style.display = "inline-block";
+          } else {
+            node.style.display = "block";
+          }
+        } else {
+          node.style.display = "none";
+        }
       });
     });
 

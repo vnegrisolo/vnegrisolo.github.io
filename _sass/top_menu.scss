@@ -13,6 +13,7 @@ nav.top-menu {
       align-items: center;
       list-style-type: none;
       height: $height_top_menu;
+      margin: 0;
       white-space: nowrap;
 
       .top-menu-title {
@@ -26,6 +27,7 @@ nav.top-menu {
         padding: 0.25rem;
 
         img {
+          border: none;
           padding-right: 0.5rem;
         }
 
