@@ -30,6 +30,7 @@ div.highlighter-rouge {
     font-size: 0.9rem;
 
     &:after {
+      color: $white;
       content: attr(data-lang);
       padding: 0 0.5rem;
       margin-left: 0.3rem;

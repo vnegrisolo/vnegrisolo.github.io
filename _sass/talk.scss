@@ -61,4 +61,20 @@ article.talk {
     justify-content: center;
     flex-direction: column;
   }
+
+  div.highlighter-rouge {
+    background-color: $lighter;
+    color: $gray_dark;
+    border: 2px solid $lighter;
+
+    .header {
+      background-color: $light;
+      color: $gray_dark;
+    }
+
+    pre {
+      background-color: $lighter;
+      color: $gray_dark;
+    }
+  }
 }

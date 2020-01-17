@@ -16,12 +16,8 @@ nav.top-menu {
       margin: 0;
       white-space: nowrap;
 
-      .top-menu-title {
-        color: $gray_lighter;
-      }
-
       a {
-        color: $gray_lighter;
+        color: $gray_light;
         letter-spacing: 1px;
         font-size: 1rem;
         padding: 0.25rem;
@@ -33,7 +29,7 @@ nav.top-menu {
 
         svg {
           display: none;
-          fill: $gray_lighter;
+          fill: $gray_light;
           height: 1.3rem;
           width: 1.3rem;
           margin: 0 0.2rem;
@@ -74,7 +70,7 @@ nav.top-menu {
       background-color: $white;
 
       a {
-        color: $dark;
+        color: $gray_dark;
 
         svg {
           fill: $dark;

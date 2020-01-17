@@ -14,8 +14,18 @@ body {
   }
 }
 
-.inverse {
+.theme-dark {
   background-color: $dark;
+  color: $gray_light;
+
+  ::selection {
+    background-color: $white;
+    color: $gray_dark;
+  }
+}
+
+.theme-light {
+  background-color: $light;
   color: $gray_light;
 
   ::selection {
