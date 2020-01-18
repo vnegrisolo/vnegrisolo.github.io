@@ -18,7 +18,7 @@ nav.top-menu {
       white-space: nowrap;
 
       a {
-        color: $gray_light;
+        color: $gray_lighter;
         letter-spacing: 1px;
         font-size: 1rem;
         padding: 0.25rem;
@@ -30,7 +30,7 @@ nav.top-menu {
 
         svg {
           display: none;
-          fill: $gray_light;
+          fill: $gray_lighter;
           height: 1.3rem;
           width: 1.3rem;
           margin: 0 0.2rem;
@@ -78,5 +78,13 @@ nav.top-menu {
         }
       }
     }
+  }
+}
+
+nav.top-menu.theme-light {
+  color: $gray_dark;
+
+  a {
+    color: $gray_dark;
   }
 }
