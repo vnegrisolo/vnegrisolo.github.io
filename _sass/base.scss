@@ -126,6 +126,17 @@ ul {
   }
 }
 
+blockquote {
+  border-left: 1rem solid $gray_light;
+  background-color: $gray_lighter;
+  padding: 1rem 0.5rem;
+  margin: 1rem 0;
+
+  p {
+    margin: 0;
+  }
+}
+
 .container {
   padding: 0 1.5rem;
   margin: 0 auto;
