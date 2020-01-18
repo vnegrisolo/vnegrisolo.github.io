@@ -11,9 +11,10 @@ nav.top-menu {
     li {
       display: flex;
       align-items: center;
-      list-style-type: none;
+      background-image: none;
       height: $height_top_menu;
       margin: 0;
+      padding: 0;
       white-space: nowrap;
 
       a {
