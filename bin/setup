@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -x
+
+gen-md-diff() {
+  git diff --no-color --unified=999 --no-index $1 $2 | tail -n +6
+}
+
+(cd _includes/codes/talks/pattern-matching-approach &&
+  gen-md-diff v1.ex v2.ex > v2-diff.ex &&
+  gen-md-diff v1.rb v2.rb > v2-diff.rb
+)

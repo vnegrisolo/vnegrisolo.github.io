@@ -215,12 +215,12 @@ end
 
 {: data-title="v1.ex" class="two-column"}
 ```elixir
-{% include codes/talk-elixir-pm-v1.ex %}
+{% include codes/talks/pattern-matching-approach/v1.ex %}
 ```
 
 {: data-title="v1.rb" class="two-column"}
 ```ruby
-{% include codes/talk-elixir-pm-v1.rb %}
+{% include codes/talks/pattern-matching-approach/v1.rb %}
 ```
 
 ---
@@ -246,25 +246,25 @@ end
 
 {: data-title="v2.ex" class="two-column"}
 ```elixir
-{% include codes/talk-elixir-pm-v2.ex %}
+{% include codes/talks/pattern-matching-approach/v2.ex %}
 ```
 
 {: data-title="v2.rb" class="two-column"}
 ```ruby
-{% include codes/talk-elixir-pm-v2.rb %}
+{% include codes/talks/pattern-matching-approach/v2.rb %}
 ```
 
 ---
 ## Exercise v2 diff
 
-{: data-title="v2.ex" class="two-column"}
-```elixir
-{% include codes/talk-elixir-pm-v2-diff.ex %}
+{: data-title="v2-diff.ex" class="two-column"}
+```diff
+{% include codes/talks/pattern-matching-approach/v2-diff.ex %}
 ```
 
-{: data-title="v2.rb" class="two-column"}
-```ruby
-{% include codes/talk-elixir-pm-v2-diff.rb %}
+{: data-title="v2-diff.rb" class="two-column"}
+```diff
+{% include codes/talks/pattern-matching-approach/v2-diff.rb %}
 ```
 
 {% include markdown/acronyms.md %}

@@ -38,6 +38,7 @@ div.highlighter-rouge {
       border-radius: 8px;
     }
 
+    &[data-lang="diff"]:after       { background-color: $green; }
     &[data-lang="docker"]:after     { background-color: $blue; }
     &[data-lang="elixir"]:after     { background-color: $purple; }
     &[data-lang="handlebars"]:after { background-color: $orange; }
@@ -84,10 +85,10 @@ div.highlighter-rouge {
     .cs  { color: $gray_dark; font-style: italic; }
     .err { color: $gray_light; }
     .g   { color: $gray_light; }
-    .gd  { color: #8a2be2; font-weight: bold; background-color: #008080 }
+    .gd  { color: $red; }
     .ge  { color: $gray_light; }
     .gh  { color: #ff00ff; font-weight: bold; }
-    .gi  { color: $gray_light; font-weight: bold; background-color: #00008b }
+    .gi  { color: $green }
     .go  { color: #404040; font-weight: bold; }
     .gp  { color: $gray_light; }
     .gr  { color: $gray_light; background-color: #c00000 }

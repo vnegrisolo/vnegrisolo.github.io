@@ -13,6 +13,7 @@ update: # Update dependencies.
 setup: # Setup the App.
 	gem install bundler
 	bundle install
+	./bin/setup
 
 server: # Run Server
 	sleep 3 && open http://localhost:4000 &
