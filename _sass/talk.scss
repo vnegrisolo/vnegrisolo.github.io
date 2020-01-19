@@ -70,4 +70,11 @@ article.talk {
       color: $gray_dark;
     }
   }
+
+  svg {
+    fill: $gray_dark;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.3rem;
+  }
 }

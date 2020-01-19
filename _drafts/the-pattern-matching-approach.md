@@ -178,25 +178,29 @@ end
 
 #### Input => list of:
 
-- `%{type: "time", value: 600}` => 10 min
 - `%{type: "dist", value: 500}` => 500 meters
+- `%{type: "time", value: 600}` => 10 min
 
 #### Output:
 
 | rule | mode |
 | ---- | ---- |
-| if all types are `time` | `FixedTimeSplits` |
-| if all types are `dist` | `FixedDistSplits` |
+| if all same type `dist` | `FixedDistSplits` |
+| if all same type `time` | `FixedTimeSplits` |
 | if any different | `VariableInterval` |
 
 ---
 ## Exercise v1
 
-{: class="two-column"}
-### Elixir
+<h4 class="two-column">
+  {% include svgs/elixir.svg %}
+  Elixir
+</h4>
 
-{: class="two-column"}
-### Ruby
+<h4 class="two-column">
+  {% include svgs/ruby.svg %}
+  Ruby
+</h4>
 
 {: class="two-column"}
 - recursion
@@ -211,46 +215,56 @@ end
 
 {: data-title="v1.ex" class="two-column"}
 ```elixir
-defmodule ErgZone.WorkoutMode do
-  def run([
-    %{type: t} | [
-      %{type: t} | _
-    ] = tail
-  ]) do
-    run(tail)
-  end
-
-  def run([%{type: "dist"}]) do
-    "FixedDistSplits"
-  end
-
-  def run([%{type: "time"}]) do
-    "FixedTimeSplits"
-  end
-
-  def run(_intervals) do
-    "VariableInterval"
-  end
-end
+{% include codes/talk-elixir-pm-v1.ex %}
 ```
 
 {: data-title="v1.rb" class="two-column"}
 ```ruby
-class ErgZone::WorkoutMode do
-  def self.run(intervals)
-    all_types = intervals.map(&:type)
-    uniq_types = all_types.uniq
+{% include codes/talk-elixir-pm-v1.rb %}
+```
 
-    if uniq_types.size > 1
-      return "VariableInterval"
-    end
+---
+## Exercise v2
 
-    case uniq_types[0]
-      when "dist" then "FixedDistSplits"
-      when "time" then "FixedTimeSplits"
-    end
-  end
-end
+#### New Input => list of:
+
+- `%{type: "dist", value: 500, rest: 30}` => 500 meters and rest for 30s
+- `%{type: "time", value: 600, rest: 0}` => 10 min
+
+#### New Output:
+
+| rule | mode |
+| ---- | ---- |
+| if all same type `dist` and no `rest` | `FixedDistSplits` |
+| if all same type `dist` and `rest` | `FixedDistInterval` |
+| if all same type `time` and no `rest` | `FixedTimeSplits` |
+| if all same type `time` and `rest` | `FixedTimeInterval` |
+| if any different | `VariableInterval` |
+
+---
+## Exercise v2
+
+{: data-title="v2.ex" class="two-column"}
+```elixir
+{% include codes/talk-elixir-pm-v2.ex %}
+```
+
+{: data-title="v2.rb" class="two-column"}
+```ruby
+{% include codes/talk-elixir-pm-v2.rb %}
+```
+
+---
+## Exercise v2 diff
+
+{: data-title="v2.ex" class="two-column"}
+```elixir
+{% include codes/talk-elixir-pm-v2-diff.ex %}
+```
+
+{: data-title="v2.rb" class="two-column"}
+```ruby
+{% include codes/talk-elixir-pm-v2-diff.rb %}
 ```
 
 {% include markdown/acronyms.md %}
