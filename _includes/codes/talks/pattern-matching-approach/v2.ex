@@ -1,18 +1,10 @@
 defmodule ErgZone.WorkoutMode do
-  def run([
-    %{type: t, rest: r} | [
-      %{type: t, rest: r} | _
-    ] = tail
-  ]) do
-    run(tail)
-  end
-
   def run([%{type: "dist", rest: 0}]) do
     "FixedDistSplits"
   end
 
   def run([%{type: "dist", rest: _}]) do
-    "FixedDistSplits"
+    "FixedDistInterval"
   end
 
   def run([%{type: "time", rest: 0}]) do
@@ -20,7 +12,14 @@ defmodule ErgZone.WorkoutMode do
   end
 
   def run([%{type: "time", rest: _}]) do
-    "FixedTimeSplits"
+    "FixedTimeInterval"
+  end
+
+  def run([
+        %{type: t, rest: r}
+        | [%{type: t, rest: r} | _] = tail
+      ]) do
+    run(tail)
   end
 
   def run(_intervals) do

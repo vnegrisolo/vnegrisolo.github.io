@@ -166,6 +166,8 @@ end
 #=> could raise WithClauseError
 ```
 
+- 2 new syntax elements: `->` and `<-`
+
 ---
 ## Exercise
 
@@ -205,10 +207,12 @@ end
 {: class="two-column"}
 - recursion
 - pattern matching
+- guards
 
 {: class="two-column"}
 - enumerable methods
-- guards / ifs
+- temporary variables
+- conditions
 
 ---
 ## Exercise v1
@@ -242,6 +246,19 @@ end
 | if any different | `VariableInterval` |
 
 ---
+## Exercise v2 diff
+
+{: data-title="v2-diff.ex" class="two-column"}
+```diff
+{% include codes/talks/pattern-matching-approach/v2-diff.ex %}
+```
+
+{: data-title="v2-diff.rb" class="two-column"}
+```diff
+{% include codes/talks/pattern-matching-approach/v2-diff.rb %}
+```
+
+---
 ## Exercise v2
 
 {: data-title="v2.ex" class="two-column"}
@@ -255,16 +272,58 @@ end
 ```
 
 ---
-## Exercise v2 diff
+## Exercise v3
 
-{: data-title="v2-diff.ex" class="two-column"}
+#### New Input => list of:
+
+- `%{type: "dist", value: 500, rest: 30}` => 500 meters and rest for 30s
+- `%{type: "time", value: 600, rest: 0}` => 10 min
+
+#### New Output:
+
+| rule | mode |
+| ---- | ---- |
+| if all same type `dist`, `value`[1] and no `rest` | `FixedDistSplits` |
+| if all same type `dist`, `value`[1] and `rest`[2] | `FixedDistInterval` |
+| if all same type `time`, `value`[1] and no `rest` | `FixedTimeSplits` |
+| if all same type `time`, `value`[1] and `rest`[2] | `FixedTimeInterval` |
+| if any different | `VariableInterval` |
+
+1. last `value` could be smaller (chill out)
+2. last `rest` could be smaller, possibly 0
+
+---
+## Exercise v3 diff
+
+{: data-title="v3-diff.ex" class="two-column"}
 ```diff
-{% include codes/talks/pattern-matching-approach/v2-diff.ex %}
+{% include codes/talks/pattern-matching-approach/v3-diff.ex %}
 ```
 
-{: data-title="v2-diff.rb" class="two-column"}
+{: data-title="v3-diff.rb" class="two-column"}
 ```diff
-{% include codes/talks/pattern-matching-approach/v2-diff.rb %}
+{% include codes/talks/pattern-matching-approach/v3-diff.rb %}
 ```
+
+---
+## Exercise v3
+
+{: data-title="v3.ex" class="two-column"}
+```elixir
+{% include codes/talks/pattern-matching-approach/v3.ex %}
+```
+
+{: data-title="v3.rb" class="two-column"}
+```ruby
+{% include codes/talks/pattern-matching-approach/v3.rb %}
+```
+
+---
+
+# Summary
+
+- Elixir syntax might be a challenge
+- recursion is not scary with PM
+- pattern matching rules!
 
 {% include markdown/acronyms.md %}

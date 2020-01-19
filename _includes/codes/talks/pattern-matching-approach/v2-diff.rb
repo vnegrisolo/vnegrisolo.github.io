@@ -1,29 +1,38 @@
  class ErgZone::WorkoutMode do
    def self.run(intervals)
-     all_types = intervals.map(&:type)
-     uniq_types = all_types.uniq
+     first_type = intervals[0].type
++    first_rest = intervals[0].rest
  
--    if uniq_types.size > 1
-+    all_rests = intervals.map(&:rest)
-+    uniq_rests = all_rests.uniq
-+
-+    if uniq_types.size > 1 || uniq_rests.size > 1
-       return "VariableInterval"
+     same_type = intervals.all? do |interval|
+       interval.type == first_type
      end
  
--    case uniq_types[0]
+-    return "VariableInterval" unless same_type
++    same_rest = intervals.all? do |interval|
++      interval.rest == first_rest
++    end
++
++    if same_type && same_rest
++      with_rest = first_rest > 0
+ 
+-    case first_type
 -      when "dist" then "FixedDistSplits"
 -      when "time" then "FixedTimeSplits"
-+    if uniq_rests[0] == 0
-+      case uniq_types[0]
-+        when "dist" then "FixedDistSplits"
-+        when "time" then "FixedTimeSplits"
++      if first_type == "dist"
++        if with_rest
++          "FixedDistInterval"
++        else
++          "FixedDistSplits"
++        end
++      else
++        if with_rest
++          "FixedTimeInterval"
++        else
++          "FixedTimeSplits"
++        end
 +      end
 +    else
-+      case uniq_types[0]
-+        when "dist" then "FixedDistInterval"
-+        when "time" then "FixedTimeInterval"
-+      end
++      "VariableInterval"
      end
    end
  end

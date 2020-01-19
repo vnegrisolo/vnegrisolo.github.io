@@ -9,5 +9,7 @@ gen-md-diff() {
 
 (cd _includes/codes/talks/pattern-matching-approach &&
   gen-md-diff v1.ex v2.ex > v2-diff.ex &&
-  gen-md-diff v1.rb v2.rb > v2-diff.rb
+  gen-md-diff v1.rb v2.rb > v2-diff.rb &&
+  gen-md-diff v2.ex v3.ex > v3-diff.ex &&
+  gen-md-diff v2.rb v3.rb > v3-diff.rb
 )
