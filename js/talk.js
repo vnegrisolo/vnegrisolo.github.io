@@ -3,7 +3,7 @@ class Talk {
     const [header, content, footer] = el.children;
     const progressEl = document.getElementById("talk-progress");
     const page = parseInt(location.hash.replace("#", "")) || 1;
-    const channel = new BroadcastChannel('talk_channel');
+    const channel = typeof BroadcastChannel != "undefined" && new BroadcastChannel('talk_channel');
 
     const contentPagedNodes = [...content.children].reduce(([acc, i], child) => {
       if (child.tagName.toUpperCase() === "HR") {
@@ -54,7 +54,15 @@ class Talk {
   }
 
   listenChannel() {
-    this.state.channel.onmessage = ({
+    const {
+      channel
+    } = this.state;
+
+    if (!channel) {
+      return;
+    }
+
+    channel.onmessage = ({
       data
     }) => {
       if (this.state.page !== data.page) {
@@ -89,7 +97,7 @@ class Talk {
       });
     });
 
-    channel.postMessage({
+    channel && channel.postMessage({
       page
     });
   }
