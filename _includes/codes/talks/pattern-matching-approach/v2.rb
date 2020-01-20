@@ -1,27 +1,26 @@
 class ErgZone::WorkoutMode do
   def self.run(intervals)
-    first_type = intervals[0].type
-    first_rest = intervals[0].rest
+    new(intervals).run
+  end
 
-    same_type = intervals.all? do |interval|
-      interval.type == first_type
-    end
+  def initialize(intervals)
+    @intervals = intervals
+    @first_type = intervals[0].type
+    @first_rest = intervals[0].rest
+  end
 
-    same_rest = intervals.all? do |interval|
-      interval.rest == first_rest
-    end
+  attr_reader :intervals, :first_type, :first_rest
 
-    if same_type && same_rest
-      with_rest = first_rest > 0
-
+  def run
+    if same_type? && same_rest?
       if first_type == "dist"
-        if with_rest
+        if with_rest?
           "FixedDistInterval"
         else
           "FixedDistSplits"
         end
       else
-        if with_rest
+        if with_rest?
           "FixedTimeInterval"
         else
           "FixedTimeSplits"
@@ -30,5 +29,21 @@ class ErgZone::WorkoutMode do
     else
       "VariableInterval"
     end
+  end
+
+  def same_type?
+    intervals.all? do |interval|
+      interval.type == first_type
+    end
+  end
+
+  def same_rest?
+    intervals.all? do |interval|
+      interval.rest == first_rest
+    end
+  end
+
+  def with_rest?
+    first_rest > 0
   end
 end

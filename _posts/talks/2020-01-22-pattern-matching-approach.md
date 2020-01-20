@@ -3,6 +3,8 @@ layout: talk
 title: "The Pattern Matching Approach"
 categories: Talks
 tags: Elixir Ruby
+date: 2020-01-22 12:00:00
+last_modified_at: 2020-01-22 12:00:00
 ---
 
 How pattern matching affects coding in Elixir? Let's talk about Elixir pattern matching and how this would change the way we solve problems.
@@ -126,21 +128,60 @@ user_id
 ```
 
 ---
+## Check against module attributes
+
+- @var is not assignable, it's "definable"
+- module attrs are "pinned" already
+
+{: data-title="defining" class="two-column"}
+```elixir
+defmodule User do
+  @type "User"
+end
+```
+
+{: data-title="pinned already" class="two-column"}
+```elixir
+defmodule User do
+  @admin_id 1
+
+  def admin?(%{id: @admin_id}), do: true
+  def admin?(_), do: false
+end
+
+User.admin?(%{id: 1})
+#=> true
+```
+
+---
 ## Where to use Pattern Matching?
+
+#### Equals operator
 
 {: data-title="equal" class="two-column"}
 ```elixir
 %{id: _} = %User{id: 1}
-
-#=> could raise MatchError
 ```
+
+- could raise `MatchError`
+
+---
+## Where to use Pattern Matching?
+
+#### Function definition
 
 {: data-title="def" class="two-column"}
 ```elixir
 def valid?(%{id: nil}), do: :error
 def valid?(_), do: :ok
-#=> could raise FunctionClauseError
 ```
+
+- could raise `FunctionClauseError`
+
+---
+## Where to use Pattern Matching?
+
+#### `case` statement
 
 {: data-title="case" class="two-column"}
 ```elixir
@@ -148,11 +189,15 @@ case %User{id: 1} do
   %{id: _} -> :ok
   {:some_error} -> :error
 end
-
-#=> could raise CaseClauseError
-
-
 ```
+
+- could raise `CaseClauseError`
+- new syntax element: `->`
+
+---
+## Where to use Pattern Matching?
+
+#### `with` statement
 
 {: data-title="with" class="two-column"}
 ```elixir
@@ -161,12 +206,13 @@ with %{id: user_id} = %{id: 5},
     :ok
   else
     {:some_error} -> :error
+    {:other_error} -> :error_2
 end
-#=> could raise MatchError
-#=> could raise WithClauseError
 ```
 
-- 2 new syntax elements: `->` and `<-`
+- could raise `MatchError`
+- could raise `WithClauseError`
+- new syntax element: `<-`
 
 ---
 ## Exercise
