@@ -57,10 +57,10 @@ result = {:ok, user}
 %{id: 1} = %User{id: 1}
 
 # Tuple
-{:ok, _} = {:ok, "Processed"}
+{:ok, _status} = {:ok, "Processed"}
 
 # List
-[:apple | _rest] = [:apple, :pear]
+[:apple | [:pear]] = [:apple, :pear]
 
 # Order matters
 %{k1: 1, k2: 2} = %{k2: 2, k1: 1}
@@ -88,13 +88,14 @@ result = {:ok, user}
 ## Check against variables
 
 - default to **assign**
-- `^` the pin operator
 
 {: data-title="assigning" class="two-column"}
 ```elixir
 %{id: user_id} = %User{id: 1}
 user_id #=> 1
 ```
+
+- `^` the pin operator
 
 {: data-title="pin operator" class="two-column"}
 ```elixir
@@ -105,9 +106,9 @@ user_id = 1
 ---
 ## Pin operator take aways
 
+- gives more power
 - complicates syntax `^`
 - NO pin for nested `^user.id` => `CompileError`
-- allow error swallowing
 
 {: data-title="pin on nested" class="two-column"}
 ```elixir
@@ -117,6 +118,8 @@ user = %{id: 6}
 #=>   invalid argument for unary operator ^,
 #=>   expected an existing variable, got: ^user.id()
 ```
+
+- allow error swallowing
 
 {: data-title="error swallowing" class="two-column"}
 ```elixir
@@ -131,7 +134,6 @@ user_id
 ## Check against module attributes
 
 - @var is not assignable, it's "definable"
-- module attrs are "pinned" already
 
 {: data-title="defining" class="two-column"}
 ```elixir
@@ -139,6 +141,8 @@ defmodule User do
   @type "User"
 end
 ```
+
+- module attrs are "pinned" already
 
 {: data-title="pinned already" class="two-column"}
 ```elixir
@@ -172,8 +176,9 @@ User.admin?(%{id: 1})
 
 {: data-title="def" class="two-column"}
 ```elixir
-def valid?(%{id: nil}), do: :error
-def valid?(_), do: :ok
+def validate(%{id: nil}), do: {:error, "id is nil"}
+def validate(%{id: _id_}), do: :ok
+def validate(_), do: {:error, "missing id"}
 ```
 
 - could raise `FunctionClauseError`
@@ -185,9 +190,10 @@ def valid?(_), do: :ok
 
 {: data-title="case" class="two-column"}
 ```elixir
-case %User{id: 1} do
-  %{id: _} -> :ok
-  {:some_error} -> :error
+case Repo.insert(%User{name: "John"}) do
+  {:ok, _struct} -> :ok
+  {:error, %{errors: errors}} -> {:error, errors}
+  {:error, %{}} -> {:error, "something is wrong"}
 end
 ```
 
@@ -199,14 +205,16 @@ end
 
 #### `with` statement
 
-{: data-title="with" class="two-column"}
 ```elixir
-with %{id: user_id} = %{id: 5},
-     %{id: _} <- %{id: user_id} do
-    :ok
+with changeset = User.insert_changeset(params),
+     {:ok, user} <- Repo.insert(changeset),
+     {:ok, token} <- Security.generate_token(user),
+     :ok <- send_user_email(user, token) do
+    put_flash(conn, :info, "Success!")
   else
-    {:some_error} -> :error
-    {:other_error} -> :error_2
+    {:error, %Changeset{data: %User{}}} -> put_flash(conn, :error, "Failed to save user")
+    {:error, :user_email} -> put_flash(conn, :error, "Failed to email to the user")
+    _ -> put_flash(conn, :error, "Something failed")
 end
 ```
 
@@ -228,6 +236,15 @@ end
 
 - `%{type: "dist", value: 500}` => 500 meters
 - `%{type: "time", value: 600}` => 10 min
+
+{: data-title="workout" class="two-column"}
+```elixir
+workout = [
+  %{type: "dist", value: 500},
+  %{type: "dist", value: 1000},
+  %{type: "time", value: 60},
+]
+```
 
 #### Output:
 
@@ -257,7 +274,7 @@ end
 
 {: class="two-column"}
 - enumerable methods
-- temporary variables
+- temporary variables / private functions
 - conditions
 
 ---
