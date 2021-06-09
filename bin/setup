@@ -13,3 +13,7 @@ gen-md-diff() {
   gen-md-diff v2.ex v3.ex > v3-diff.ex &&
   gen-md-diff v2.rb v3.rb > v3-diff.rb
 )
+
+for f in images/graphs/*.dot; do
+  dot -Tpng $f -o $f.png
+done

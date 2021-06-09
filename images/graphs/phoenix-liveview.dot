@@ -1,0 +1,137 @@
+strict digraph {
+  bgcolor=transparent
+  color="#af1e23"
+  fontcolor="#af1e23"
+  fontname="Verdana"
+  rankdir="LR"
+  node [
+    color=black,
+    fillcolor="#af1e23",
+    fontcolor=white,
+    fontname="Verdana",
+    penwidth=2,
+    shape=box,
+    style=filled,
+  ]
+  edge [
+    color=black,
+    fontname="Verdana",
+    penwidth=2,
+  ]
+
+  subgraph cluster_01 {
+    label = "Legend";
+    color=black
+    fontcolor=black
+    style=dashed
+    Elixir [
+      color=black,
+      fillcolor="#af1e23",
+      fontcolor=white,
+      fontname="Verdana",
+      label=<<table border="0" width="100%"><tr><td>Elixir</td></tr></table>>,
+      penwidth=2,
+      shape=box,
+      style=filled,
+    ]
+    HTML [
+      color="#af1e23",
+      fillcolor=black,
+      fontcolor=white,
+      fontname="Verdana",
+      label=<<table border="0" width="100%"><tr><td>HTML</td></tr></table>>,
+      penwidth=2,
+      shape=box,
+      style=filled,
+    ]
+    Javascript [
+      color="#af1e23",
+      fillcolor=white,
+      fontcolor="#af1e23",
+      fontname="Verdana",
+      label=<<table border="0" width="100%"><tr><td>Javascript</td></tr></table>>,
+      penwidth=2,
+      shape=box,
+      style=filled,
+    ]
+    Other [
+      color=black,
+      fillcolor=white,
+      fontcolor=black,
+      fontname="Verdana",
+      label=<<table border="0" width="100%"><tr><td>Other</td></tr></table>>,
+      penwidth=2,
+      shape=box,
+      style=rounded,
+    ]
+  }
+
+  subgraph elixir {
+    live_redirect -> mount
+    mount -> handle_params
+    live_patch -> handle_params
+    handle_params -> render
+    handle_event -> render
+    Polling -> handle_info
+    PubSub -> handle_info
+    handle_info -> render
+    push_event
+  }
+
+  subgraph html {
+    node [
+      color="#af1e23",
+      fillcolor=black,
+      fontcolor=white,
+      fontname="Verdana",
+      penwidth=2,
+      shape=box,
+      style=filled,
+    ]
+    edge [
+      color=black,
+      fontname="Verdana",
+      penwidth=2,
+    ]
+    "phx_*" -> handle_event
+  }
+
+  subgraph js {
+    node [
+      shape=box,
+      style=filled,
+      fillcolor=white,
+      color="#af1e23",
+      fontcolor="#af1e23",
+      penwidth=2,
+      fontname="Verdana",
+    ]
+    edge [
+      color=black,
+      penwidth=2,
+      fontname="Verdana",
+    ]
+    pushEvent -> handle_event
+    push_event -> handleEvent
+  }
+
+  subgraph other {
+    node [
+      color=black,
+      fillcolor=white,
+      fontcolor=black,
+      fontname="Verdana",
+      penwidth=2,
+      shape=box,
+      style=rounded,
+    ]
+    edge [
+      color=black,
+      fontname="Verdana",
+      penwidth=2,
+    ]
+
+    HTTP -> mount
+    WebSocket -> mount
+  }
+}

@@ -82,10 +82,12 @@ class Talk {
 
     progressEl.innerHTML = `${page} / ${pagedNodes.length}`;
     location.hash = page;
+    console.clear();
 
     pagedNodes.forEach((nodes, i) => {
       nodes.forEach(node => {
         if (page === i + 1) {
+          [...node.innerHTML.matchAll(/--(.+)--/g)].map(x => console.log(x[1].toString()));
           if ([...node.classList].includes("two-column")) {
             node.style.display = "inline-block";
           } else {
@@ -97,9 +99,7 @@ class Talk {
       });
     });
 
-    channel && channel.postMessage({
-      page
-    });
+    channel && channel.postMessage({page});
   }
 }
 
