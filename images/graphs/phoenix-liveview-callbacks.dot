@@ -1,0 +1,71 @@
+strict digraph {
+  bgcolor=transparent
+  color="#af1e23"
+  fontcolor="#af1e23"
+  fontname="Verdana"
+  rankdir="TB"
+  node [
+    color=black,
+    fillcolor="#af1e23",
+    fontcolor=white,
+    fontname="Verdana",
+    penwidth=2,
+    shape=box,
+    style=filled,
+  ]
+  edge [
+    color=black,
+    fontname="Verdana",
+    penwidth=2,
+  ]
+
+  subgraph elixir {
+    mount -> handle_params
+    handle_params -> render
+    handle_event -> render
+    PubSub -> handle_info
+    handle_info -> render
+    start_async -> handle_async
+    handle_async -> render
+  }
+
+  subgraph other {
+    node [
+      color=black,
+      fillcolor=white,
+      fontcolor=black,
+      fontname="Verdana",
+      penwidth=2,
+      shape=box,
+      style=rounded,
+    ]
+    edge [
+      color=black,
+      fontname="Verdana",
+      penwidth=2,
+    ]
+
+    HTTP -> mount
+    WebSocket -> mount
+  }
+
+  subgraph html {
+    node [
+      color="#af1e23",
+      fillcolor=black,
+      fontcolor=white,
+      fontname="Verdana",
+      penwidth=2,
+      shape=box,
+      style=filled,
+    ]
+    edge [
+      color=black,
+      fontname="Verdana",
+      penwidth=2,
+    ]
+    live_navigate -> mount
+    live_patch -> handle_params
+    "phx_click/change/submit" -> handle_event
+  }
+}
